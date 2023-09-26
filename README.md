@@ -28,7 +28,7 @@ Here are the steps ...
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
 * spider
-* ...
+* I had bread for breakfast
 * ant
 
 ## 6. Features for Future
