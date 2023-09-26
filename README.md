@@ -1,11 +1,13 @@
 # Project Title
 
 ## 1. Project Description
-This project is an app to show location of public washrooms in user's location
+State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
+This browser based web application to ...
+Our app is a public washroom locator with a review system.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Hason
+* ...
 * ...
 * Hyebin
 	
