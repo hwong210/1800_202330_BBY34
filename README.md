@@ -2,7 +2,7 @@
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ...
+This broggwser based web application to ...
 Our app is a public washroom locator with a review system.
 
 ## 2. Names of Contributors
@@ -28,7 +28,7 @@ Here are the steps ...
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
 * spider
-* ...
+* I'm hungry.
 * ant
 
 ## 6. Features for Future
