@@ -1,12 +1,12 @@
 # Project Title
 
 ## 1. Project Description
-* Public washroom locator with review and amenity filtering system
-* ...
+* Public washroom locator with review and amenity filtering system - Hason 
+* Our application can provide a useful information for anyone who use public washroom. - Hyebin
 
 ## 2. Names of Contributors
 * My name is Haosn Wong and I am enjoying my career switch to CST
-* ...
+* My name is Hyebin and I'm excited to study in CST. 
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
