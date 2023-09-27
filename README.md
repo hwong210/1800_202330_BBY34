@@ -2,13 +2,13 @@
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This broggwser based web application to ...
+Our app can provide a useful information for anyone who uses public washrooms. - Hyebin
 Our app is a public washroom locator with a review system.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * Hason
-* HyeBin
+* Excited to learn new things in CST! - HyeBin
 * ...
 	
 ## 3. Technologies and Resources Used
