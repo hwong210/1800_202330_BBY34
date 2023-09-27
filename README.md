@@ -2,11 +2,11 @@
 
 ## 1. Project Description
 * ...
-* ...
+* Our application can provide a useful information for anyone who use public washroom.
 
 ## 2. Names of Contributors
 * ...
-* ...
+* My name is Hyebin and I'm excited to study in CST. - Hyebin
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
