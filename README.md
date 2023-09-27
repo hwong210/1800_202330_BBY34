@@ -2,7 +2,6 @@
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-<<<<<<< HEAD
 Our app can provide a useful information for anyone who uses public washrooms. - Hyebin
 Our app is a public washroom locator with a review system.
 
@@ -10,7 +9,6 @@ Our app is a public washroom locator with a review system.
 List team members and/or short bio's here... 
 * Hason
 * Excited to learn new things in CST! - HyeBin
-=======
 This browser based web application to ...
 * Our app is a public washroom locator with a review and amenity filtering system - Hason Wong
 
@@ -18,7 +16,6 @@ This browser based web application to ...
 List team members and/or short bio's here... 
 * My name is Hason and I am enjoying my career switch into CST
 * HyeBin
->>>>>>> 8c1b9253d02f656c1dfc03e1d022cb6235c9ad49
 * ...
 	
 ## 3. Technologies and Resources Used
