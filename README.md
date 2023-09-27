@@ -1,11 +1,11 @@
 # Project Title
 
 ## 1. Project Description
-* ...
+* Public washroom locator with review and amenity filtering system
 * ...
 
 ## 2. Names of Contributors
-* ...
+* My name is Haosn Wong and I am enjoying my career switch to CST
 * ...
 	
 ## 3. Technologies and Resources Used
