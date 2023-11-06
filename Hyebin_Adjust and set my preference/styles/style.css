@@ -1,8 +1,24 @@
-/* #back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+.navbar {
+    padding: 0;
+}
+
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
+
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
 
 /* view lists */
 #viewlists {
@@ -67,8 +83,6 @@
 .rate>label:hover~input:checked~label {
     color: skyblue;
 }
-
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
 
 .bg-info {
     background-color: lightblue !important;
@@ -165,3 +179,41 @@ body {
     margin: 5px;
     /* Add spacing between buttons */
 }
+
+.bot-container-fluid {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: lightblue;
+    padding-top: 0.25em;
+}
+
+footer {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.material-symbols-outlined,
+.bot-nav-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-link {
+    font-size: 9pt;
+}
+
+.container-fluid {
+    background-color: lightblue;
+    padding: 0.5em;
+}
+
