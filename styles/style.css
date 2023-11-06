@@ -5,11 +5,24 @@ html, body {
 
 }
 
+.container-fluid {
+    background-color: lightblue;
+    padding: 0.5em;
+}
+
+.navbar {
+    padding: 0;
+}
+
+#arrow-back {
+    font-size: 25pt;
+    color: black;
+}
+
 #grid-main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto;
-    gap: 0.5em;
 }
 
 #grid-banner {
@@ -90,14 +103,14 @@ section {
     text-decoration: none;
 }
 
-.new-washroom {
+.new-washroom, .new-review {
     position: fixed;
     bottom: 4em;
     right: 1em;
     display: flex;
 
 }
-.add-washroom {
+.add-washroom, .new-review {
     background-color: rgb(0, 150, 200);
     color: white;
     padding: 0.75em;
@@ -122,9 +135,7 @@ footer {
     grid-template-rows: 1fr;
     background-color: lightblue;
     padding-top: 0.25em;
-    padding-bottom: 0.25em;
 }
-
 
 .nav-home, .nav-preferences, .nav-saved, .nav-account {
     display: grid;
@@ -133,12 +144,57 @@ footer {
     
 }
 
-.material-symbols-outlined, .nav-link {
+.material-symbols-outlined, .bot-nav-text {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .nav-link {
     font-size: 9pt;
+}
+
+.grid-review {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    padding: 0;
+    margin: 0;
+    font-size: 15pt;
+    gap: 0;
+}
+
+.review-header {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    padding-left: 1em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    margin: 0;
+    font-size: 16pt;
+    background-color: rgb(226, 234, 242);
+}
+
+#review-annotation, .review-icons, #review-textbox {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+#review-annotation {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+.review-icons {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    display: flex;
+    justify-content: end;
+}
+
+#review-textbox {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 2;
+    
 }
