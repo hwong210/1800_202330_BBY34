@@ -23,6 +23,7 @@ html, body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto;
+    grid-gap: 0.5em;
 }
 
 #grid-banner {
