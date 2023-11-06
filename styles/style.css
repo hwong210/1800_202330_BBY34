@@ -68,6 +68,7 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 5fr auto 0.5fr;
+    padding-bottom: 3em;
 }
 
 .section-header {
@@ -92,9 +93,16 @@ section {
 footer {
     grid-column: 1 / span 1;
     grid-row: 5 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
 
 .bot-container-fluid {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -103,7 +111,9 @@ footer {
     padding-bottom: 0.25em;
 }
 
+
 .nav-home, .nav-preferences, .nav-saved, .nav-account {
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     
