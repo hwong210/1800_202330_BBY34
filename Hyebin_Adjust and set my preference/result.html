@@ -32,46 +32,45 @@
 
 <body>
     <!-- Your HTML Layout go here -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                Filters</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top>
+    <div class=" container-fluid">
+        <a class="navbar-brand" href="#">Filters</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit">Search</button>
+        </form>
         </div>
     </nav>
-    <div>
-        <img src="images/map.png" height="300" id="map" alt="map">
-        (User can choose from the map if possible)
+
+    <hr>
+    <div id="contents">
+        <h3>3 Washrooms near you</h3>
+        <div class="washrooms">
+            <div id="washroom1">
+                <img src="images/washroom1.jpg" width="100%" style="border-radius: 20px;">
+                <div><b>Stanely Park Public Washroom</b></div>
+                <div>Vancouver, BC V6G 1Z4, Canada</div>
+                <div>300m</div>
+            </div>
+            <br>
+            <div id="washroom2">
+                <img src="images/washroom2.jpg" width="100%" style="border-radius: 20px;">
+                <div><b>Central Park Public Washroom</b></div>
+                <div>3883 Imperial St, Burnaby, BC V5S 3R2, Canada</div>
+                <div>700m</div>
+            </div>
+            <br>
+            <div id="washroom3">
+                <img src="images/washroom3.jpg" width="100%" style="border-radius: 20px;">
+                <div><b>Deer Lake Park Public Washroom</b></div>
+                <div>Unnamed Road, Burnaby, BC V5E 2T2, Canada</div>
+                <div>1km</div>
+            </div>
+        </div>
     </div>
-    <br>
-    <h3>View lists</h3>
-    <ul class="list-group">
-        <li class="list-group-item" id="washroom1">Washroom 1 <span class="options">nearest</span> 
-            <span class="options">air pump station</span></li>
-        <li class="list-group-item">Washroom 2 <span class="options">sparkling clean</span></li>
-        <li class="list-group-item">Washroom 3</li>
-        <li class="list-group-item">Washroom 4</li>
-        <li class="list-group-item">Washroom 5</li>
-    </ul>
-    <br>
-    <button type="button" id="back" class="btn btn-lg btn-secondary px-4 gap-3">Back</button>
-    <br><br>
+    <div id="buttondiv">
+        <button type="button" id="back" class="btn btn-lg px-4 gap-3">Back</button>
+    </div>
 
     <!-- copyright footer -->
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -83,11 +82,7 @@
             </svg>
         </a>
 
-        <div class="fixed-bottom py-3 bg-info">
-            <div class="container text-center">
-                My Sticky (Padded Blue) Footer
-            </div>
-        </div>
+
         <div class="navbar justify-content-evenly bg-info fixed-bottom">
             <div class="container py-3">
                 <i class="material-icons">favorite</i>
@@ -107,17 +102,13 @@
             location.href = "washroom.html";
         }
 
-        // document.getElementById("washroom2").onclick = function () {
-        //     location.href = "washroom.html";
-        // }
+        document.getElementById("washroom2").onclick = function () {
+            location.href = "washroom.html";
+        }
 
-        // document.getElementById("washroom3").onclick = function () {
-        //     location.href = "washroom.html";
-        // }
-
-        // document.getElementById("washroom4").onclick = function () {
-        //     location.href = "washroom.html";
-        // }
+        document.getElementById("washroom3").onclick = function () {
+            location.href = "washroom.html";
+        }
     </script>
 
     <!-- Link to scripts of your own -->

@@ -1,16 +1,8 @@
-#map {
+/* #back {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-}
-
-#back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
+} */
 
 /* view lists */
 #viewlists {
@@ -30,8 +22,8 @@
 
 /* ratings */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 10;
+    padding: 10;
 }
 
 .rate {
@@ -60,12 +52,12 @@
 }
 
 .rate>input:checked~label {
-    color: #ffc700;
+    color: skyblue;
 }
 
 .rate:not(:checked)>label:hover,
 .rate:not(:checked)>label:hover~label {
-    color: #deb217;
+    color: skyblue;
 }
 
 .rate>input:checked+label:hover,
@@ -73,7 +65,7 @@
 .rate>input:checked~label:hover,
 .rate>input:checked~label:hover~label,
 .rate>label:hover~input:checked~label {
-    color: #c59b08;
+    color: skyblue;
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
@@ -99,10 +91,10 @@
 }
 
 .btn-primary {
-    color: #000000;
+    color: skyblue;
     /* Light shade for text */
     font-size: 150%;
-    background-color: #D9DBF1;
+    background-color: #ffffff;
     /* Dark shade for primary button background */
     border-color: #000000;
     /* Darkest shade for border */
@@ -110,27 +102,66 @@
 }
 
 body {
-    background-color: #F9F9ED;
-    font-size: larger;
+    background-color: #ffffff;
+
     /* Light shade for body background */
 }
 
-.amenities {
-    font-size: larger;
-}
-
 #contents {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .rate {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-check-input {
+    float: right;
+}
+
+.btn {
+    background-color: #dddddd;
+}
+
+.form-check-input {
+    background-color: rgb(255, 255, 255);
+    border-color: #000000;
+}
+
+#myRange {
+    accent-color: rgb(171, 222, 242);
+    color: #ccc;
+    overflow: hidden;
+    width: 80%;
+}
+
+#ratingrate {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rangediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttondiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Horizontally centers the buttons */
+}
+
+.button-container .btn {
+    margin: 5px;
+    /* Add spacing between buttons */
 }

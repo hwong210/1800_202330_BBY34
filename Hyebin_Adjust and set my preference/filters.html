@@ -25,48 +25,56 @@
 
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
 <body>
-
     <!-- Your HTML Layout go here -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                Filters</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-success" type="submit">Search</button>
-
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top>
+        <div class=" container-fluid">
+        <a class="navbar-brand" href="#">Filters</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit">Search</button>
+        </form>
         </div>
     </nav>
-
-    <br>
+    <hr>
     <div id="contents">
-        <div class="distance">
+        <div class="sorts">
             <div>
-                <h3>Distance</h3>
+                <h3>Sorts</h3>
             </div>
-            <div><input type="range" min="1" max="100" value="5" class="slider" id="myRange"> km
+            <div class="bestmatch">
+                <label class="form-check-label" for="bestmatch-checkbox">Best match</label>
+                <input class="form-check-input" type="checkbox" value="" id="bestmatch-checkbox">
+            </div>
+            <div class="mostpopular">
+                <label class="form-check-label" for="mostpopular-checkbox">Most popular </label>
+                <input class="form-check-input" type="checkbox" value="" id="mostpopular-checkbox">
+            </div>
+            <div class="closest">
+                <label class="form-check-label" for="closest-checkbox">Closest</label>
+                <input class="form-check-input" type="checkbox" value="" id="closest-checkbox">
             </div>
         </div>
-        <br><br>
+        <hr>
+        <div class="distance">
+            <div>
+                <h3>Distance away</h3>
+            </div>
+            <div class="rangediv"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"> km
+            </div>
+        </div>
+
+        <hr>
         <div class="hygiene">
-            <h3>Hygiene</h3>
+            <div>
+                <h3>Hygiene</h3>
+            </div>
             <div class="rate">
                 <input type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
@@ -81,53 +89,59 @@
             </div>
         </div>
         <br>
+        <br>
+        <hr>
         <div class=amenities>
             <div>
                 <h3>Amenities</h3>
             </div>
             <div class="storgagebin">
-                <input class="form-check-input" type="checkbox" value="" id="storagebin-checkbox">
                 <label class="form-check-label" for="storagebin-checkbox">
                     Storage bin
                 </label>
+                <input class="form-check-input" type="checkbox" value="" id="storagebin-checkbox">
+
             </div>
             <div class="wheelchair">
-                <input class="form-check-input" type="checkbox" value="" id="wheelchair-checkbox">
                 <label class="form-check-label" for="wheelchair-checkbox">
                     Wheelchair
                 </label>
+                <input class="form-check-input" type="checkbox" value="" id="wheelchair-checkbox">
+
             </div>
             <div class="waterfountain">
-                <input class="form-check-input" type="checkbox" value="" id="waterfountain-checkbox">
                 <label class="form-check-label" for="waterfountain-checkbox">
                     Water fountain
                 </label>
+                <input class="form-check-input" type="checkbox" value="" id="waterfountain-checkbox">
             </div>
             <div class="airpumpstation">
-                <input class="form-check-input" type="checkbox" value="" id="airpump-checkbox">
                 <label class="form-check-label" for="airpump-checkbox">
                     Air pump station
                 </label>
+                <input class="form-check-input" type="checkbox" value="" id="airpump-checkbox">
             </div>
-            <br>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" id="search" class="btn btn-lg btn-secondary px-4 gap-3">Search</button>
-            </div>
-            <br>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" id="back" class="btn btn-lg btn-secondary px-4 gap-3">Back</button>
-            </div>
-            <br>
         </div>
+        <hr>
+        <div class="rating">
+            <div>
+                <h3>Rating</h3>
+            </div>
+            <div class="rangediv"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
+            <div id="ratingrate">
+                <span id="rate">4.5★</span>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" id="search" class="btn px-4 gap-3">Search</button>
+            </div>
+        </div>
+        <br>
     </div>
-
+    </div>
     <!-- copyright footer -->
     <footer>
-        <div class="fixed-bottom py-3 bg-info">
-            <div class="container text-center">
-                My Sticky (Padded Blue) Footer
-            </div>
-        </div>
         <div class="navbar justify-content-evenly bg-info fixed-bottom">
             <div class="container py-3">
                 <i class="material-icons">favorite</i>
