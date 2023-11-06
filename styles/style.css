@@ -1,1 +1,120 @@
+html, body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
 
+}
+
+#grid-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 0.5em;
+}
+
+#grid-banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+#banner-annotation {
+    grid-column: 2 / span 2;
+    grid-row: 3 / span 2;
+    color: rgba(255, 255, 255, 0.8);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+#text1 {
+    text-align: end;
+}
+
+#banner-image {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 4;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+
+}
+
+.closest {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 5fr auto 0.5fr;
+}
+
+.top-rated {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 5fr auto 0.5fr;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+}
+
+.section-image {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px;
+}
+
+.section-footer {
+    color: rgba(100, 100, 200, 1);
+    text-decoration: none;
+}
+
+footer {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
+}
+
+.bot-container-fluid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: lightblue;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+.nav-home, .nav-preferences, .nav-saved, .nav-account {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    
+}
+
+.material-symbols-outlined, .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 9pt;
+}
