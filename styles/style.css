@@ -90,6 +90,20 @@ section {
     text-decoration: none;
 }
 
+.new-washroom {
+    position: fixed;
+    bottom: 4em;
+    right: 1em;
+    display: flex;
+
+}
+.add-washroom {
+    background-color: rgb(0, 150, 200);
+    color: white;
+    padding: 0.75em;
+    border-radius: 20px 20px;
+}
+
 footer {
     grid-column: 1 / span 1;
     grid-row: 5 / span 1;
