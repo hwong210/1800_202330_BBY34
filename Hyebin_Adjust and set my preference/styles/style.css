@@ -1,0 +1,136 @@
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* view lists */
+#viewlists {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.washroom {
+    border-style: solid;
+}
+
+.options {
+    border-style: groove;
+}
+
+/* ratings */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+.bg-info {
+    background-color: lightblue !important;
+    /* Medium shade for navbar */
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    /* Light shade for brand name & nav links for contrast */
+}
+
+.btn-info {
+    color: #D9DBF1;
+    /* Light shade for text on info button */
+    background-color: #f6f6f6;
+    /* Accent color for button background */
+    border-color: #DBF4A7;
+    /* Dark shade for button border */
+}
+
+.btn-primary {
+    color: #000000;
+    /* Light shade for text */
+    font-size: 150%;
+    background-color: #D9DBF1;
+    /* Dark shade for primary button background */
+    border-color: #000000;
+    /* Darkest shade for border */
+    border-width: 1;
+}
+
+body {
+    background-color: #F9F9ED;
+    font-size: larger;
+    /* Light shade for body background */
+}
+
+.amenities {
+    font-size: larger;
+}
+
+#contents {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
