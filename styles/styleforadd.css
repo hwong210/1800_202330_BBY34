@@ -1,0 +1,139 @@
+html, body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+
+}
+
+#grid-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-gap: 0.5em;
+}
+
+.grid-banner {
+        background-color: whitesmoke;
+  display: grid;
+height: 100vh;
+width: 100vw;
+grid-template-columns: minmax(0, 100%);
+grid-template-rows: minmax(0,50%) minmax(0,50%);
+  grid-gap: 10px;
+    padding: 0px;
+    margin: 0px;
+
+    
+}
+
+.mainpic {
+grid-column: 1;
+    grid-row: 1/ span 1;
+    display: flex;
+justify-content: center;
+align-items: center;
+  
+    
+}
+
+
+
+.slogan-space {
+    grid-column: 1;
+    grid-row: 2/ span 1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    
+    
+}
+
+.form {
+    grid-column: 1;
+    grid-row: 2/ span 1;
+    
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    
+}
+
+.form-alignment {
+    grid-row: 2/ span 1;
+    grid-column: 1;
+    justify-content: center;
+align-items: center;
+    display: grid;
+    
+}
+
+.mainslogan {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#pill { 
+    width: 368px; height: 52px; background: skyblue; border-radius: 16px;
+    display: flex;
+justify-content: center;
+align-items: center;
+    
+}
+
+@font-face {
+font-family: 'sora';
+src: url(/Users/danielseo/Documents/COMP 1537/Assignments/Assignment 3/fonts/Sora/Sora-VariableFont_wght.ttf);
+font-style: normal;
+font-weight: 100;
+}
+
+span {
+font-size: 20px;
+font-family: sora;
+font-weight: 100;
+    
+}
+
+
+
+footer {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.bot-container-fluid {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: lightblue;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
+
+.nav-home, .nav-preferences, .nav-saved, .nav-account {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    
+}
+
+.material-symbols-outlined, .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 9pt;
+}

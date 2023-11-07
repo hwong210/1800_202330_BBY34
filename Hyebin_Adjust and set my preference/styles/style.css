@@ -1,0 +1,219 @@
+.navbar {
+    padding: 0;
+}
+
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
+
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
+
+/* view lists */
+#viewlists {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.washroom {
+    border-style: solid;
+}
+
+.options {
+    border-style: groove;
+}
+
+/* ratings */
+* {
+    margin: 10;
+    padding: 10;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: skyblue;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: skyblue;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: skyblue;
+}
+
+.bg-info {
+    background-color: lightblue !important;
+    /* Medium shade for navbar */
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    /* Light shade for brand name & nav links for contrast */
+}
+
+.btn-info {
+    color: #D9DBF1;
+    /* Light shade for text on info button */
+    background-color: #f6f6f6;
+    /* Accent color for button background */
+    border-color: #DBF4A7;
+    /* Dark shade for button border */
+}
+
+.btn-primary {
+    color: skyblue;
+    /* Light shade for text */
+    font-size: 150%;
+    background-color: #ffffff;
+    /* Dark shade for primary button background */
+    border-color: #000000;
+    /* Darkest shade for border */
+    border-width: 1;
+}
+
+body {
+    background-color: #ffffff;
+
+    /* Light shade for body background */
+}
+
+#contents {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-check-input {
+    float: right;
+}
+
+.btn {
+    background-color: #dddddd;
+}
+
+.form-check-input {
+    background-color: rgb(255, 255, 255);
+    border-color: #000000;
+}
+
+#myRange {
+    accent-color: rgb(171, 222, 242);
+    color: #ccc;
+    overflow: hidden;
+    width: 80%;
+}
+
+#ratingrate {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rangediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttondiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Horizontally centers the buttons */
+}
+
+.button-container .btn {
+    margin: 5px;
+    /* Add spacing between buttons */
+}
+
+.bot-container-fluid {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: lightblue;
+    padding-top: 0.25em;
+}
+
+footer {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.material-symbols-outlined,
+.bot-nav-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-link {
+    font-size: 9pt;
+}
+
+.container-fluid {
+    background-color: lightblue;
+    padding: 0.5em;
+}
+
