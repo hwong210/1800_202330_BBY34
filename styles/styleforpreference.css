@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     background-color: white;
     padding-bottom: 20px;
     margin: 0;
@@ -13,23 +14,23 @@ html, body {
 }
 
 .grid-banner {
-        background-color: whitesmoke;
-  display: grid;
-height: 100vh;
-width: 100vw;
-grid-template-columns: minmax(0, 100%);
-grid-template-rows: minmax(0,20%) minmax(0,20%) minmax(0,15%) minmax(0,50%);
-  grid-gap: 10px;
+    background-color: whitesmoke;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: minmax(0, 100%);
+    grid-template-rows: minmax(0, 20%) minmax(0, 20%) minmax(0, 15%) minmax(0, 50%);
+    grid-gap: 10px;
     padding: 0px;
     margin: 0px;
 
-    
+
 }
 
 .mainpic {
-grid-column: 1;
+    grid-column: 1;
     grid-row: 1/ span 1;
- 
+
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 20% 80%;
@@ -43,198 +44,216 @@ grid-column: 1;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 20% 80%;
-    
-    
+
+
 }
 
 .form {
     grid-column: 1;
     grid-row: 2/ span 1;
-    
+
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 20% 20% 20% 20% 20%;
-    
+
 }
 
 .form-alignment {
     grid-row: 2/ span 1;
     grid-column: 1;
     justify-content: center;
-align-items: center;
+    align-items: center;
     display: grid;
-    
+
 }
 
 .title-space {
     grid-column: 1;
     grid-row: 1;
     display: flex;
-justify-content: center;
-align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .title-space-2 {
     grid-column: 1;
     grid-row: 1/ span 2;
-     display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .star-rating {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50% 50%;
-     grid-column: 1;
+    grid-column: 1;
     grid-row: 2/ span 1;
-   
+
 }
 
-.star-rating-text{
+.star-rating-text {
     grid-column: 1;
     grid-row: 1;
     display: flex;
-justify-content: center;
-align-items: center;
-    
+    justify-content: center;
+    align-items: center;
+
 }
 
 .star-rating-alignment {
     grid-column: 1;
     grid-row: 2/ span 1;
     display: flex;
-justify-content: center;
-align-items: center;
-    
-    }
+    justify-content: center;
+    align-items: center;
+
+}
 
 .checkbox-space {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 20% 80%;
-     grid-column: 1;
+    grid-column: 1;
     grid-row: 3/ span 1;
-   
-    
+
+
 }
 
 .checkbox-text-alignment {
     display: flex;
-justify-content: center;
-align-items: center;
-    
-    
-    
+    justify-content: center;
+    align-items: center;
+
+
+
 }
+
 .checkbox-alignment {
-display: grid;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    
+
 
     grid-template-rows: 100%;
-    
+
     grid-row: 2/ span 1;
     grid-column: 1;
-   
+
 }
 
 .checkbox-alignment-two {
     grid-column: 2/ span 1;
     grid-row: 1;
-        display: flex;
-justify-content: center;
-align-items: center;
-    
-    
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 .rate {
     float: left;
     height: 46px;
     padding: 0 10px;
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
 }
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:black;
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: black;
 }
-.rate:not(:checked) > label:before {
+
+.rate:not(:checked)>label:before {
     content: '★ ';
 }
-.rate > input:checked ~ label {
-    color: #ffc700;    
+
+.rate>input:checked~label {
+    color: #ffc700;
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
     color: #c59b08;
 }
-#pill { 
-    width: 368px; height: 82px; background: skyblue; border-radius: 16px;
+
+#pill {
+    width: 368px;
+    height: 82px;
+    background: skyblue;
+    border-radius: 16px;
     display: flex;
-justify-content: center;
-align-items: center;
-    
+    justify-content: center;
+    align-items: center;
+
 }
 
-#pill2 { 
-    width: 368px; height: 52px; background: skyblue; border-radius: 16px;
+#pill2 {
+    width: 368px;
+    height: 52px;
+    background: skyblue;
+    border-radius: 16px;
     display: flex;
-justify-content: center;
-align-items: center;
-    
+    justify-content: center;
+    align-items: center;
+
 }
 
-#pill3 { 
-    width: 568px; height: 92px; background: skyblue; border-radius: 16px;
+#pill3 {
+    width: 568px;
+    height: 92px;
+    background: skyblue;
+    border-radius: 16px;
     display: flex;
-justify-content: center;
-align-items: center;
-    
+    justify-content: center;
+    align-items: center;
+
 }
 
 .amenities {
     grid-column: 1;
     grid-row: 1;
-      display: flex;
-justify-content: center;
-align-items: center;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
 @font-face {
-font-family: 'sora';
-src: url(/Users/danielseo/Documents/COMP 1537/Assignments/Assignment 3/fonts/Sora/Sora-VariableFont_wght.ttf);
-font-style: normal;
-font-weight: 100;
+    font-family: 'sora';
+    src: url(/Users/danielseo/Documents/COMP 1537/Assignments/Assignment 3/fonts/Sora/Sora-VariableFont_wght.ttf);
+    font-style: normal;
+    font-weight: 100;
 }
 
 span {
-font-size: 15px;
-font-family: sora;
-font-weight: 100;
-    
+    font-size: 15px;
+    font-family: sora;
+    font-weight: 100;
+
 }
 
 
@@ -261,14 +280,18 @@ footer {
 }
 
 
-.nav-home, .nav-preferences, .nav-saved, .nav-account {
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    
+
 }
 
-.material-symbols-outlined, .nav-link {
+.material-symbols-outlined,
+.nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -280,70 +303,70 @@ footer {
 
 
 .container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 
 .container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
 
 .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
 }
 
 
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
+.container:hover input~.checkmark {
+    background-color: #ccc;
 }
 
 
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
+.container input:checked~.checkmark {
+    background-color: #2196F3;
 }
 
 
 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+    content: "";
+    position: absolute;
+    display: none;
 }
 
 
-.container input:checked ~ .checkmark:after {
-  display: block;
+.container input:checked~.checkmark:after {
+    display: block;
 }
 
 
 .container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .textBlockCenter {
@@ -355,13 +378,13 @@ footer {
     grid-column: 1;
     grid-row: 4/ span 1;
     justify-content: center;
-align-items: center;
+    align-items: center;
     display: grid;
-    
+
 }
 
 h2 {
-  justify-content: center;
-align-items: center;
-    display: grid;   
+    justify-content: center;
+    align-items: center;
+    display: grid;
 }
