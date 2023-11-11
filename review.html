@@ -68,7 +68,7 @@
             </div>
         </nav>
 
-        <section class="grid-review">
+        <section id="grid-review">
             <div id="review-header">
                 <span>Washroom Name/Location</span>
             </div>
@@ -91,17 +91,32 @@
                  </div>
               </div>
           </div>
-            <div class="card-body form-group mb-3 mt-3" id="review-textbox">
-                <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-                <br>
-            </div>
+
+          <div id="review-checkboxes">
+              <input type="checkbox" class="btn-check" id="clean-outlined" autocomplete="off">
+              <label class="btn btn-outline-primary" for="clean-outlined">clean</label><br>
+
+              <input type="checkbox" class="btn-check" id="ventilated-outlined" autocomplete="off">
+              <label class="btn btn-outline-primary" for="ventilated-outlined">ventilated</label><br>
+
+              <input type="checkbox" class="btn-check" id="spacious-outlined" autocomplete="off">
+              <label class="btn btn-outline-primary" for="spacious-outlined">spacious</label><br>
+
+              <input type="checkbox" class="btn-check" id="private-outlined" autocomplete="off">
+              <label class="btn btn-outline-primary" for="private-outlined">private</label><br>
+
+              <input type="checkbox" class="btn-check" id="accessible-outlined" autocomplete="off">
+              <label class="btn btn-outline-primary" for="accessible-outlined">accessible</label><br>
+          </div>
+
             <!-- <span class="material-symbols-outlined">add_a_photo</span> -->
-            <form action="#" class="new-review">
-                <textarea rows="7" cols="50" name="comment"></textarea>
+            <form action="#" id="review-textbox">
+                <textarea name="comment"></textarea>
                 <br>
-                <input type="submit" id="review-submit">
-                <span>Submit</span>
             </form>
+            <div class="review-submit">
+              <button type="submit" class="review-submit">Submit</button>
+            </div>
         </section>
 
         <footer>
