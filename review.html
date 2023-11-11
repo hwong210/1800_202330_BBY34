@@ -69,25 +69,39 @@
         </nav>
 
         <section class="grid-review">
-            <div class="review-header">
+            <div id="review-header">
                 <span>Washroom Name/Location</span>
             </div>
             <span id="review-annotation">Write a review</span>
-            <div class="review-icons">
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-                <span class="material-symbols-outlined">star</span>
-            </div>
+            <div id="review-star-rating">
+              <div id="review-title-space-2">
+                 <div id="review-icons">
+                     <div id="review-rate">
+                         <input type="radio" id="star5" name="rate" value="5" />
+                         <label for="star5" title="text">5 stars</label>
+                         <input type="radio" id="star4" name="rate" value="4" />
+                         <label for="star4" title="text">4 stars</label>
+                         <input type="radio" id="star3" name="rate" value="3" />
+                         <label for="star3" title="text">3 stars</label>
+                         <input type="radio" id="star2" name="rate" value="2" />
+                         <label for="star2" title="text">2 stars</label>
+                         <input type="radio" id="star1" name="rate" value="1" />
+                         <label for="star1" title="text">1 star</label>
+                     </div>
+                 </div>
+              </div>
+          </div>
             <div class="card-body form-group mb-3 mt-3" id="review-textbox">
                 <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
                 <br>
             </div>
             <!-- <span class="material-symbols-outlined">add_a_photo</span> -->
-            <div class="new-review">
-                <span id="review-submit">Submit</span>
-            </div>
+            <form action="#" class="new-review">
+                <textarea rows="7" cols="50" name="comment"></textarea>
+                <br>
+                <input type="submit" id="review-submit">
+                <span>Submit</span>
+            </form>
         </section>
 
         <footer>
