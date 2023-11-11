@@ -1,156 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>review</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>review</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap Library CSS CDN go here -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous">
 
-        <!-- Boostrap Library JS CDN  go here -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    <!-- Boostrap Library JS CDN  go here -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous">
         </script>
-        
-            <!-- Other libraries go here -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Inconsolata&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <!-- Google Icons (Material Design)-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-        <!-- Link to styles of your own -->
-        <link rel="stylesheet" href="./styles/style.css">
+    <!-- Other libraries go here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gaegu&family=Inconsolata&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <span class="material-symbols-outlined" id="arrow-back">arrow_back</span>
-              <!-- <a class="navbar-brand" href="#">SmartRelief</a> -->
-              <!-- <form class="d-flex">
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div id="review-back">
+          <button id="back-button">
+            <span class="material-symbols-outlined" id="arrow-back">arrow_back</span>
+          </button>
+        </div>
+
+        <!-- <a class="navbar-brand" href="#">SmartRelief</a> -->
+        <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form> -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Rate our app</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Options
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
-                      <li><a class="dropdown-item" href="#">Preferences</a></li>
-                      <li><a class="dropdown-item" href="#">Privacy Policy</a></li>
-                      <li><a class="dropdown-item" href="#">Terms of Service</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Contact us</a></li>
-                    </ul>
-                  </li>
-                  <!-- <li class="nav-item"> -->
-                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-                  <!-- </li> -->
-                </ul>
-              </div>
-            </div>
-        </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Rate our app</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Options
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Preferences</a></li>
+                <li><a class="dropdown-item" href="#">Privacy Policy</a></li>
+                <li><a class="dropdown-item" href="#">Terms of Service</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+            <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            <!-- </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <section id="grid-review">
-            <div id="review-header">
-                <span>Washroom Name/Location</span>
+    <section id="grid-review">
+      <div id="review-header">
+        <span>Washroom Name/Location</span>
+      </div>
+      <span id="review-annotation">Write a review</span>
+      <div id="review-star-rating">
+        <div id="review-title-space-2">
+          <div id="review-icons">
+            <div id="review-rate">
+              <input type="radio" id="star5" name="rate" value="5" />
+              <label for="star5" title="text">5 stars</label>
+              <input type="radio" id="star4" name="rate" value="4" />
+              <label for="star4" title="text">4 stars</label>
+              <input type="radio" id="star3" name="rate" value="3" />
+              <label for="star3" title="text">3 stars</label>
+              <input type="radio" id="star2" name="rate" value="2" />
+              <label for="star2" title="text">2 stars</label>
+              <input type="radio" id="star1" name="rate" value="1" />
+              <label for="star1" title="text">1 star</label>
             </div>
-            <span id="review-annotation">Write a review</span>
-            <div id="review-star-rating">
-              <div id="review-title-space-2">
-                 <div id="review-icons">
-                     <div id="review-rate">
-                         <input type="radio" id="star5" name="rate" value="5" />
-                         <label for="star5" title="text">5 stars</label>
-                         <input type="radio" id="star4" name="rate" value="4" />
-                         <label for="star4" title="text">4 stars</label>
-                         <input type="radio" id="star3" name="rate" value="3" />
-                         <label for="star3" title="text">3 stars</label>
-                         <input type="radio" id="star2" name="rate" value="2" />
-                         <label for="star2" title="text">2 stars</label>
-                         <input type="radio" id="star1" name="rate" value="1" />
-                         <label for="star1" title="text">1 star</label>
-                     </div>
-                 </div>
-              </div>
           </div>
+        </div>
+      </div>
 
-          <div id="review-checkboxes">
-              <input type="checkbox" class="btn-check" id="clean-outlined" autocomplete="off">
-              <label class="btn btn-outline-primary" for="clean-outlined">clean</label>
+      <div id="review-checkboxes">
+        <input type="checkbox" class="btn-check" id="clean-outlined"
+          autocomplete="off">
+        <label class="btn btn-outline-primary" for="clean-outlined">clean</label>
 
-              <input type="checkbox" class="btn-check" id="ventilated-outlined" autocomplete="off">
-              <label class="btn btn-outline-primary" for="ventilated-outlined">ventilated</label>
+        <input type="checkbox" class="btn-check" id="ventilated-outlined"
+          autocomplete="off">
+        <label class="btn btn-outline-primary" for="ventilated-outlined">ventilated</label>
 
-              <input type="checkbox" class="btn-check" id="spacious-outlined" autocomplete="off">
-              <label class="btn btn-outline-primary" for="spacious-outlined">spacious</label>
+        <input type="checkbox" class="btn-check" id="spacious-outlined"
+          autocomplete="off">
+        <label class="btn btn-outline-primary" for="spacious-outlined">spacious</label>
 
-              <input type="checkbox" class="btn-check" id="private-outlined" autocomplete="off">
-              <label class="btn btn-outline-primary" for="private-outlined">private</label>
+        <input type="checkbox" class="btn-check" id="private-outlined"
+          autocomplete="off">
+        <label class="btn btn-outline-primary" for="private-outlined">private</label>
 
-              <input type="checkbox" class="btn-check" id="accessible-outlined" autocomplete="off">
-              <label class="btn btn-outline-primary" for="accessible-outlined">accessible</label>
+        <input type="checkbox" class="btn-check" id="accessible-outlined"
+          autocomplete="off">
+        <label class="btn btn-outline-primary" for="accessible-outlined">accessible</label>
+      </div>
+
+      <!-- <span class="material-symbols-outlined">add_a_photo</span> -->
+      <form action="#" id="review-text">
+        <div id="text-box">
+          <textarea name="comment" id="text-box-area" rows="5"></textarea>
+          <br>
+        </div>
+      </form>
+      <div id="review-submit">
+        <button type="submit" id="submit-button">Submit</button>
+      </div>
+    </section>
+
+    <footer>
+      <nav class="bot-navbar bot-navbar-expand-lg bot-navbar-light bot-bg-light">
+        <div class="bot-container-fluid">
+          <div class="nav-home">
+            <a class="nav-link" href="#">
+              <span class="material-symbols-outlined" id="bot-nav4">home</span>
+              <p class="bot-nav-text">Home</p>
+            </a>
           </div>
-
-            <!-- <span class="material-symbols-outlined">add_a_photo</span> -->
-            <form action="#" id="review-text">
-              <div id="text-box">
-                <textarea name="comment" id="text-box-area" rows="5"></textarea>
-                <br>
-              </div>
-            </form>
-            <div class="review-submit">
-              <button type="submit" class="review-submit">Submit</button>
-            </div>
-        </section>
-
-        <footer>
-            <nav class="bot-navbar bot-navbar-expand-lg bot-navbar-light bot-bg-light">
-                <div class="bot-container-fluid">
-                    <div class="nav-home">
-                        <a class="nav-link" href="#">
-                        <span class="material-symbols-outlined" id="bot-nav4">home</span>
-                        <p class="bot-nav-text">Home</p>
-                        </a>
-                    </div>
-                    <div class="nav-preferences">
-                        <a class="nav-link" href="#">
-                        <span class="material-symbols-outlined">tune</span>
-                        <p class="bot-nav-text">Preferences</p>
-                        </a>
-                    </div>
-                    <div class="nav-saved">
-                        <a class="nav-link" href="#">
-                        <span class="material-symbols-outlined">bookmarks</span>
-                        <p class="bot-nav-text">Saved</p>
-                        </a>
-                    </div>
-                    <div class="nav-account">
-                        <a class="nav-link" href="#">
-                        <span class="material-symbols-outlined" id="bot-nav4">account_circle</span>
-                        <p class="bot-nav-text">Account</p>
-                        </a>
-                    </div>
-                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-                </div>
-            </nav>
-        </footer>
-    </body>
+          <div class="nav-preferences">
+            <a class="nav-link" href="#">
+              <span class="material-symbols-outlined">tune</span>
+              <p class="bot-nav-text">Preferences</p>
+            </a>
+          </div>
+          <div class="nav-saved">
+            <a class="nav-link" href="#">
+              <span class="material-symbols-outlined">bookmarks</span>
+              <p class="bot-nav-text">Saved</p>
+            </a>
+          </div>
+          <div class="nav-account">
+            <a class="nav-link" href="#">
+              <span class="material-symbols-outlined" id="bot-nav4">account_circle</span>
+              <p class="bot-nav-text">Account</p>
+            </a>
+          </div>
+          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+        </div>
+      </nav>
+    </footer>
+  </body>
 </html>
