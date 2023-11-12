@@ -19,6 +19,16 @@
       crossorigin="anonymous">
         </script>
 
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
     <!-- Other libraries go here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,28 +99,29 @@
 
     <section id="grid-review">
       <div id="review-header">
-        <span>Washroom Name/Location</span>
+        <span>Write a review</span>
       </div>
-      <span id="review-annotation">Write a review</span>
-      <div id="review-star-rating">
-        <div id="review-title-space-2">
-          <div id="review-icons">
-            <div id="review-rate">
-              <input type="radio" id="star5" name="rate" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="rate" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="rate" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="rate" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="rate" value="1" />
-              <label for="star1" title="text">1 star</label>
+      <div id="container-review-title">
+        <span id="review-annotation">Washroom Name/Location</span>
+        <div id="review-star-rating">
+          <div id="review-title-space-2">
+            <div id="review-icons">
+              <div id="review-rate">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
       <div id="review-checkboxes">
         <input type="checkbox" class="btn-check" id="clean-outlined"
           autocomplete="off">
@@ -136,7 +147,8 @@
       <!-- <span class="material-symbols-outlined">add_a_photo</span> -->
       <form action="#" id="review-text">
         <div id="text-box">
-          <textarea name="comment" id="text-box-area" rows="7"></textarea>
+          <textarea name="comment" id="text-box-area" rows="6">
+          </textarea>
           <br>
         </div>
       </form>
@@ -176,5 +188,12 @@
         </div>
       </nav>
     </footer>
+
+    <!-- SCRIPTS BELOW -->
+
+    <script src="./scripts/firebaseAPI.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/review.js"></script>
+
   </body>
 </html>
