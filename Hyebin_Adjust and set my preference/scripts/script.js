@@ -7,8 +7,7 @@ var firebaseConfig = {
     projectId: "comp1800-bby34",
     storageBucket: "comp1800-bby34.appspot.com",
     messagingSenderId: "337346687619",
-    appId: "1:337346687619:web:5d9cdc94c326f0058361b6",
-    measurementId: "G-G9TZPNE0Y5"
+    appId: "1:337346687619:web:5d9cdc94c326f0058361b6"
 };
 
 //--------------------------------------------
@@ -18,13 +17,11 @@ var firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-document.getElementById("search").addEventListener("click", function () {
+document.getElementById("save").addEventListener("click", function () {
     // Get user preferences from checkboxes, radio buttons, sliders, etc.
-    var bestMatch = document.getElementById("bestmatch-checkbox").checked;
-    var mostPopular = document.getElementById("mostpopular-checkbox").checked;
-    var closest = document.getElementById("closest-checkbox").checked;
     var distance = document.getElementById("myRange").value;
-    var hygieneRating = document.querySelector('input[name="rate"]:checked').value;
+    var safetyRating = document.querySelector('input[name="safetyRate"]:checked').value;
+    var hygieneRating = document.querySelector('input[name="hygieneRate"]:checked').value;
     var storageBin = document.getElementById("storagebin-checkbox").checked;
     var wheelchair = document.getElementById("wheelchair-checkbox").checked;
     var waterFountain = document.getElementById("waterfountain-checkbox").checked;
@@ -32,10 +29,8 @@ document.getElementById("search").addEventListener("click", function () {
 
     // Create an object with user preferences
     var userPreferences = {
-        bestMatch: bestMatch,
-        mostPopular: mostPopular,
-        closest: closest,
         distance: distance,
+        safetyRating: safetyRating,
         hygieneRating: hygieneRating,
         storageBin: storageBin,
         wheelchair: wheelchair,
@@ -88,7 +83,7 @@ stars.forEach((star, index) => {
     // Add a click event listener to the current star
     star.addEventListener('click', () => {
         // Update star icons based on the clicked star
-        updateStars(index);
+        updateStars(index+1);
     });
 });
 
