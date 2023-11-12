@@ -19,13 +19,13 @@ function writeReview() {
     console.log("inside write review")
     let reviewText = document.getElementById("text-box-area").value;
 
-    // star rating
-    const stars = document.querySelectorAll('star');
+    // star rating issue below. need help. doesnt save properly
+    const stars = document.querySelectorAll('.star');
 
-    let reviewRating = 0;
+    let reviewRating = stars.length;
 
     stars.forEach((star) => {
-        if (star.textContent === 'star') {
+        if (star.checked) {
             reviewRating++;
         }
     });
@@ -52,4 +52,3 @@ function writeReview() {
         window.location.href = 'review.html';
     }
 }        
-writeReview();
