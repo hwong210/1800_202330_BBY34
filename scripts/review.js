@@ -45,7 +45,7 @@ function writeReview() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             // redirects to review submission page
-            window.location.href = "review-submission-successful";
+            window.location.href = "review-submission-successful-copy.html";
         });
     } else {
         console.log("No user is signed in");

@@ -46,6 +46,7 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/styleforadd.css">
+    <script src="./scripts/addlocation.js"></script>
 
   </head>
 
@@ -108,23 +109,27 @@
           <div id='pill'><span>Add Restrooms To The App</span></div>
 
         </div>
-        <div class="form">
-          <div class="form-alignment">
-            <form>
-
-              <input class="field-alignment"
-                placeholder="Search your location..." />
-              <select class="field-alignment" size="1">
-                <option selected="selected">0-5km</option>
-                <option>5-20km</option>
-                <option>20-50km+</option>
-              </select>
-              <input class="field-alignment" type="submit" id="submit"
-                name="submit" value="Go" />
-
-            </form>
-          </div>
-        </div>
+        <div class="container">
+          
+          <form>
+              <div class="form-group">
+                <label>Input Washroom Name</label>
+                  <input type="text" class="form-control" id="text-field" placeholder="Washroom name">
+              </div><br>
+              <div class="form-group">
+                  
+                  <label>Input Washroom Address</label>
+                  <input type="text" class="form-control" id="text-field-two" placeholder="Washroom address">
+                
+                 
+                  <br>
+                  <div class="d-flex justify-content-end">
+                      <button type="button" class="btn btn-lg btn-primary pull-right"
+                          onclick="submitWashroom()">Submit</button>
+                  </div>
+              </div>
+          </form>
+      </div>
 
       </div>
 
