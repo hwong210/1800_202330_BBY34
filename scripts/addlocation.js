@@ -20,7 +20,7 @@ function submitWashroom() {
             address: washroomAddress,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
-            window.location.href = "thanks.html"; // Redirect to the thanks page
+            window.location.href = "addpreference.html"; // Redirect to the thanks page
         });
     } else {
         console.log("No user is signed in");
