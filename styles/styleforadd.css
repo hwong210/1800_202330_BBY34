@@ -1,7 +1,25 @@
 html, body {
     background-color: white;
-    padding: 0;
+    padding-bottom: 20px;
     margin: 0;
+
+}
+
+#text-field {
+    width: 100%;
+    height: 100%;
+
+}
+
+#text-field-two {
+    width: 100%;
+    height: 100%;
+
+}
+.container {
+    grid-row: 3/ span 1;
+    grid-column: 2/ span 1;
+
 
 }
 
@@ -42,8 +60,8 @@ align-items: center;
     grid-column: 1;
     grid-row: 2/ span 1;
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 20% 80%;
+    grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 20% 10% 70%;
     
     
 }
@@ -68,7 +86,7 @@ align-items: center;
 }
 
 .mainslogan {
-    grid-column: 1;
+    grid-column: 2/ span 1;
     grid-row: 1;
     display: flex;
 justify-content: center;
@@ -85,15 +103,17 @@ align-items: center;
 
 @font-face {
 font-family: 'sora';
-src: url(/Users/danielseo/Documents/COMP 1537/Assignments/Assignment 3/fonts/Sora/Sora-VariableFont_wght.ttf);
+src: url(/Users/danielseo2/Downloads/Assignment4/public/fonts/Sora/Sora-VariableFont_wght.ttf);
 font-style: normal;
-font-weight: 100;
+
 }
+
+
 
 span {
 font-size: 20px;
 font-family: sora;
-font-weight: 100;
+font-weight: bold;
     
 }
 
