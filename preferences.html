@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Public Washroom Locator</title>
+    <title>SmartRelief</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
@@ -90,6 +90,12 @@
     </nav>
 
     <div id="contents">
+        <div id="display-name">
+            <span class="material-symbols-outlined">account_circle</span>
+                        <p class="bot-nav-text"><span id="username-goes-here"></span><span>'s preference settings</span></p>
+        
+        </div>
+        <hr>
         <div class="distance">
             <div>
                 <h3>Distance away</h3>
@@ -177,7 +183,7 @@
             </div>
             <div class="button-container">
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" id="save" class="btn px-4 gap-3" onclick="saveAlert()">Save</button>
+                    <button type="button" id="save" class="btn px-4 gap-3" onclick="validatePreferences()">Save</button>
                 </div>
             </div>
             <br>
