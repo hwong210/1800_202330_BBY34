@@ -180,7 +180,7 @@ footer {
     grid-row: 1 / span 1;
 }
 
-#review-annotation, .review-icons, #review-textbox, #washroom-review-info, .grid-review-comments {
+#review-annotation, #review-icons, #review-textbox, #washroom-review-info {
     padding-right: 1em;
     padding-left: 1em;
 }
@@ -190,7 +190,7 @@ footer {
     grid-row: 2 / span 1;
 }
 
-.review-icons {
+#review-icons {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     display: flex;
