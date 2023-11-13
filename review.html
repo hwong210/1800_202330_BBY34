@@ -48,55 +48,8 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <div id="review-back">
-          <button id="back-button">
-            <span class="material-symbols-outlined" id="arrow-back">arrow_back</span>
-          </button>
-        </div>
-
-        <!-- <a class="navbar-brand" href="#">SmartRelief</a> -->
-        <!-- <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form> -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Rate our app</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Options
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Preferences</a></li>
-                <li><a class="dropdown-item" href="#">Privacy Policy</a></li>
-                <li><a class="dropdown-item" href="#">Terms of Service</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Contact us</a></li>
-              </ul>
-            </li>
-            <!-- <li class="nav-item"> -->
-            <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-            <!-- </li> -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-
+    <div id="header-container"></div>
+    
     <section id="grid-review">
       <div id="review-header">
         <span>Write a review</span>
@@ -157,43 +110,14 @@
       </div>
     </section>
 
-    <footer>
-      <nav class="bot-navbar bot-navbar-expand-lg bot-navbar-light bot-bg-light">
-        <div class="bot-container-fluid">
-          <div class="nav-home">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined" id="bot-nav4">home</span>
-              <p class="bot-nav-text">Home</p>
-            </a>
-          </div>
-          <div class="nav-preferences">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined">tune</span>
-              <p class="bot-nav-text">Preferences</p>
-            </a>
-          </div>
-          <div class="nav-saved">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined">bookmarks</span>
-              <p class="bot-nav-text">Saved</p>
-            </a>
-          </div>
-          <div class="nav-account">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined" id="bot-nav4">account_circle</span>
-              <p class="bot-nav-text">Account</p>
-            </a>
-          </div>
-          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-        </div>
-      </nav>
-    </footer>
-
+    <div id="footer-container"></div>
+    
     <!-- SCRIPTS BELOW -->
 
     <script src="./scripts/firebaseAPI.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/review.js"></script>
-
+    <script src="./scripts/review.js"></script>    
+    <script src="scripts/footer.js"></script>
+    <script src="scripts/header.js"></script>
   </body>
 </html>

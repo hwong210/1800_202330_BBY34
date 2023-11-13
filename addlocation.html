@@ -52,52 +52,8 @@
 
   <body>
 
-    <div class="grid-main">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <!-- <a class="navbar-brand" href="#">SmartRelief</a> -->
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search"
-              aria-label="Search">
-            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-          </form>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Rate our app</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Options
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li><a class="dropdown-item" href="#">Preferences</a></li>
-                  <li><a class="dropdown-item" href="#">Privacy Policy</a></li>
-                  <li><a class="dropdown-item" href="#">Terms of Service</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Contact us</a></li>
-                </ul>
-              </li>
-              <!-- <li class="nav-item"> -->
-              <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-              <!-- </li> -->
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-
+    <div id="header-container"></div>
+    
     <figure class="grid-banner">
       <div class="mainpic">
         <img class="image-attributes" src="img/AddLocation.png" height="275"
@@ -135,29 +91,10 @@
 
     </figure>
 
-    <footer>
-      <nav class="bot-navbar bot-navbar-expand-lg bot-navbar-light bot-bg-light">
-        <div class="bot-container-fluid">
-          <div class="nav-home">
-            <span class="material-symbols-outlined">home</span>
-            <a class="nav-link" href="#">Home</a>
-          </div>
-          <div class="nav-preferences">
-            <span class="material-symbols-outlined">tune</span>
-            <a class="nav-link" href="#">Preferences</a>
-          </div>
-          <div class="nav-saved">
-            <span class="material-symbols-outlined">bookmarks</span>
-            <a class="nav-link" href="#">Saved</a>
-          </div>
-          <div class="nav-account">
-            <span class="material-symbols-outlined" id="bot-nav4">account_circle</span>
-            <a class="nav-link" href="#">Account</a>
-          </div>
-          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-        </div>
-      </nav>
-    </footer>
+    <div id="footer-container"></div>
+
+    <script src="scripts/footer.js"></script>
+    <script src="scripts/header.js"></script>
 
   </body>
 
