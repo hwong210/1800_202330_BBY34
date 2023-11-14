@@ -14,6 +14,17 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+
         <!-- Other libraries go here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +40,10 @@
 </head>
 <body>
   <div id="header-container"></div>
+
+  <div id="welcome">
+    <h1 id="welcome-msg">Hello, <span id="name-here"></span></h1>
+  </div>
   
   <div class="container">
     <div id="hikes-go-here" class="row row-cols-auto">   
@@ -120,8 +135,14 @@
 
   <div id="footer-container"></div>
 
-  <script src="scripts/footer.js"></script>
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+  <script src="./scripts/firebaseAPI.js"></script>
+  <script src="./scripts/script.js"></script>
+   <script src="scripts/footer.js"></script>
   <script src="scripts/header.js"></script>
+  <script src="scripts/main.js"></script>
 
 
 </body>

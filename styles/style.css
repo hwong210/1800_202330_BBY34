@@ -526,7 +526,9 @@ footer {
     justify-content: center;
 }
 
-
+#welcome {
+    text-align: center;
+}
 /* #clean-outlined, #ventilated-outlined, #spacious-outlined, #private-outlined, #accessible-outlined {
     
 } */
