@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    text-align: center;
 }
 
 .nav-home,
@@ -209,4 +210,10 @@ footer {
 .container-fluid {
     background-color: lightblue;
     padding: 0.5em;
+}
+
+#display-name{
+    background-color: lightblue ;
+    border-radius: 10px;
+    font-size:large;
 }

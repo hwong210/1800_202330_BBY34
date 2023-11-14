@@ -119,8 +119,6 @@ section {
 
 }
 
-
-
 #submit-button {
     font-size: 18pt;
     border-radius: 20px 20px;
@@ -157,14 +155,18 @@ footer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     background-color: lightblue;
-    padding-top: 0.25em;
+    padding-top: 0.25em;   
+    text-align: center;
 }
 
 .nav-home, .nav-preferences, .nav-saved, .nav-account {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4d17fee089a65008f3ea8646bc7a8cbd5f5fbfe4
 }
 
 .material-symbols-outlined, .bot-nav-text {
@@ -463,7 +465,7 @@ footer {
 
 }
 
-.responsive {
+.responsive-img {
     width: 100%;
     height: auto;
 }
@@ -517,10 +519,21 @@ footer {
 
 .btn {
     --bs-btn-line-height: 1;
-
-
 }
 
+/* Optionally, you can set a max-width to prevent stretching on larger screens */
+.card-image {
+    max-width: 500px; /* Adjust the max-width as needed */
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome {
+    text-align: center;
+}
 /* #clean-outlined, #ventilated-outlined, #spacious-outlined, #private-outlined, #accessible-outlined {
     
 } */
