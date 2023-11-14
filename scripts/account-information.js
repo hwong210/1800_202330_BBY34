@@ -49,6 +49,7 @@ function saveUserInfo() {
         name: userName,
         city: userCity,
         country: userCountry
+        
     })
     .then (() => {
         console.log("Account information successfully updated.");
