@@ -44,7 +44,7 @@ html, body {
 #banner-annotation {
     grid-column: 2 / span 2;
     grid-row: 3 / span 2;
-    color: rgba(255, 255, 255, 0.8);    
+    color: rgba(255, 255, 255, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,6 +163,10 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4d17fee089a65008f3ea8646bc7a8cbd5f5fbfe4
 }
 
 .material-symbols-outlined, .bot-nav-text {
@@ -175,6 +179,7 @@ footer {
 .nav-link {
     font-size: 9pt;
 }
+
 #grid-review {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -213,7 +218,7 @@ footer {
     overflow-y: scroll;
     /* height: ; */
     resize: none;
-    
+
 }
 
 #washroomName {
@@ -237,7 +242,7 @@ footer {
     grid-column: 1 / span 2;
     grid-row: 4 / span 2;
 
-    
+
 }
 
 .grid-washroom-review {
@@ -325,7 +330,7 @@ footer {
     float: left;
     height: 46px;
     padding: 0 10px;
-    
+
 }
 
 #review-rate:not(:checked)>input {
@@ -349,13 +354,13 @@ footer {
 
 #review-rate>input:checked~label {
     color: #ffc700;
-    
+
 }
 
 #review-rate:not(:checked)>label:hover,
 #review-rate:not(:checked)>label:hover~label {
     color: #deb217;
-    
+
 }
 
 #review-rate>input:checked+label:hover,
@@ -439,7 +444,7 @@ footer {
     display: flex;
     justify-content: start;
     align-items: center;
-    
+
 }
 
 #recommend, #recommend2 {
@@ -463,7 +468,7 @@ footer {
 .responsive-img {
     width: 100%;
     height: auto;
-  }
+}
 
 #review-checkboxes {
     border-top: 1px solid;
@@ -485,7 +490,7 @@ footer {
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #006283;
     --bs-btn-hover-border-color: rgb(0, 42, 56);
-    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #003d52;
     --bs-btn-active-border-color: #003d52;
@@ -493,7 +498,7 @@ footer {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #8f8f8f;
     --bs-btn-disabled-border-color: #585858;
-  }
+}
 
 .btn-outline-primary {
     --bs-btn-color: #0096c8;
@@ -501,7 +506,7 @@ footer {
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #0096c8;
     --bs-btn-hover-border-color: #0096c8;
-    --bs-btn-focus-shadow-rgb: 13,110,253;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #0096c8;
     --bs-btn-active-border-color: #0096c8;
@@ -511,7 +516,7 @@ footer {
     --bs-btn-disabled-border-color: #8f8f8f;
     --bs-gradient: none;
 }
-  
+
 .btn {
     --bs-btn-line-height: 1;
 }
