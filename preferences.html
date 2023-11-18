@@ -47,12 +47,31 @@
     <!-- Your HTML Layout go here -->
     <div id="header-container"></div>
 
-
     <div id="contents">
         <div id="display-name">
             <span class="material-symbols-outlined">account_circle</span>
-                        <p class="bot-nav-text"><span id="username-goes-here"></span><span>'s preference settings</span></p>
-        
+            <p class="bot-nav-text"><span id="username-goes-here"></span><span>'s preference settings</span></p>
+        </div>
+        <hr>
+
+        <div id="review-checkboxes">
+            <div>
+                <h3>Preferences</h3>
+            </div>
+            <input type="checkbox" class="btn-check" id="clean-outlined" autocomplete="off">
+            <label class="btn btn-outline-primary" for="clean-outlined">clean</label>
+
+            <input type="checkbox" class="btn-check" id="ventilated-outlined" autocomplete="off">
+            <label class="btn btn-outline-primary" for="ventilated-outlined">ventilated</label>
+
+            <input type="checkbox" class="btn-check" id="spacious-outlined" autocomplete="off">
+            <label class="btn btn-outline-primary" for="spacious-outlined">spacious</label>
+
+            <input type="checkbox" class="btn-check" id="private-outlined" autocomplete="off">
+            <label class="btn btn-outline-primary" for="private-outlined">private</label>
+
+            <input type="checkbox" class="btn-check" id="accessible-outlined" autocomplete="off">
+            <label class="btn btn-outline-primary" for="accessible-outlined">accessible</label>
         </div>
         <hr>
         <div class="distance">
@@ -63,104 +82,97 @@
             </div>
         </div>
         <hr>
-        <div class="safety">
+        <div class = "amenities">
             <div>
-                <h3>Safety</h3>
+                <h3>Amenities</h3>
             </div>
-            <div class="safetyRate rate">
-                <input type="radio" id="safetyStar1" name="safetyRate" value="5" />
-                <label for="safetyStar1" title="5 star">5 star</label>
-                <input type="radio" id="safetyStar2" name="safetyRate" value="4" />
-                <label for="safetyStar2" title="2 star">2 stars</label>
-                <input type="radio" id="safetyStar3" name="safetyRate" value="3" />
-                <label for="safetyStar3" title="3 star">3 stars</label>
-                <input type="radio" id="safetyStar4" name="safetyRate" value="2" />
-                <label for="safetyStar4" title="4 star">4 stars</label>
-                <input type="radio" id="safetyStar5" name="safetyRate" value="1" />
-                <label for="safetyStar5" title="5 star">5 stars</label>
-            </div>
-            <hr>
-            <div class="hygiene">
-                <div>
-                    <h3>Hygiene</h3>
-                </div>
-                <div class="hygieneRate rate">
-                    <input type="radio" id="hygieneStar1" name="hygieneRate" value="5" />
-                    <label for="hygieneStar1" title="1 star">1 star</label>
-                    <input type="radio" id="hygieneStar2" name="hygieneRate" value="4" />
-                    <label for="hygieneStar2" title="2 star">2 stars</label>
-                    <input type="radio" id="hygieneStar3" name="hygieneRate" value="3" />
-                    <label for="hygieneStar3" title="3 star">3 stars</label>
-                    <input type="radio" id="hygieneStar4" name="hygieneRate" value="2" />
-                    <label for="hygieneStar4" title="4 star">4 stars</label>
-                    <input type="radio" id="hygieneStar5" name="hygieneRate" value="1" />
-                    <label for="hygieneStar5" title="5 star">5 stars</label>
-                </div>
-            </div>
+            <div class="storgagebin">
+                <label class="form-check-label" for="storagebin-checkbox">
+                    Storage bin
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="storagebin-checkbox">
 
-            <hr>
-            <div class="amenities">
-                <div>
-                    <h3>Amenities</h3>
-                </div>
-                <div class="storgagebin">
-                    <label class="form-check-label" for="storagebin-checkbox">
-                        Storage bin
-                    </label>
-                    <input class="form-check-input" type="checkbox" value="" id="storagebin-checkbox">
+            </div>
+            <div class="wheelchair">
+                <label class="form-check-label" for="wheelchair-checkbox">
+                    Wheelchair
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="wheelchair-checkbox">
 
-                </div>
-                <div class="wheelchair">
-                    <label class="form-check-label" for="wheelchair-checkbox">
-                        Wheelchair
-                    </label>
-                    <input class="form-check-input" type="checkbox" value="" id="wheelchair-checkbox">
-
-                </div>
-                <div class="waterfountain">
-                    <label class="form-check-label" for="waterfountain-checkbox">
-                        Water fountain
-                    </label>
-                    <input class="form-check-input" type="checkbox" value="" id="waterfountain-checkbox">
-                </div>
-                <div class="airpump">
-                    <label class="form-check-label" for="airpump-checkbox">
-                        Bike pump
-                    </label>
-                    <input class="form-check-input" type="checkbox" value="" id="airpump-checkbox">
-                </div>
             </div>
-            <hr>
-            <div class="rating">
-                <div>
-                    <h3>Rating</h3>
-                </div>
-                <div class="rangediv"><input type="range" min="1" max="5" value="3" class="slider" id="myRange"></div>
-                <div id="ratingrate">
-                    <span id="rate">5★</span>
-                </div>
+            <div class="waterfountain">
+                <label class="form-check-label" for="waterfountain-checkbox">
+                    Water fountain
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="waterfountain-checkbox">
             </div>
-            <div class="button-container">
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" id="save" class="btn px-4 gap-3" onclick="validatePreferences()">Save</button>
-                </div>
+            <div class="airpump">
+                <label class="form-check-label" for="airpump-checkbox">
+                    Bike pump
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="airpump-checkbox">
             </div>
-            <br>
         </div>
+        <hr>
+        <div class="rating">
+            <div>
+                <h3>Rating</h3>
+            </div>
+            <div class="rangediv"><input type="range" min="1" max="5" value="3" class="slider" id="myRange"></div>
+            <div id="ratingrate">
+                <span id="rate">5★</span>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" id="save" class="btn px-4 gap-3" onclick="validatePreferences()">Save</button>
+            </div>
+        </div>
+        <br>
+    </div>
     </div>
     <!-- copyright footer -->
 
     <div id="footer-container"></div>
-
-    
+    <footer>
+        <nav class="bot-navbar bot-navbar-expand-lg bot-navbar-light bot-bg-light">
+            <div class="bot-container-fluid">
+                <div class="nav-home">
+                    <a class="nav-link" href="main.html">
+                        <span class="material-symbols-outlined" id="bot-nav4">home</span>
+                        <p class="bot-nav-text">Home</p>
+                    </a>
+                </div>
+                <div class="nav-preferences">
+                    <a class="nav-link" href="preferences.html">
+                        <span class="material-symbols-outlined">tune</span>
+                        <p class="bot-nav-text">Preferences</p>
+                    </a>
+                </div>
+                <div class="nav-saved">
+                    <a class="nav-link" href="saved.html">
+                        <span class="material-symbols-outlined">bookmarks</span>
+                        <p class="bot-nav-text">Saved</p>
+                    </a>
+                </div>
+                <div class="nav-account">
+                    <a class="nav-link" href="#">
+                        <span class="material-symbols-outlined" id="bot-nav4">account_circle</span>
+                        <p class="bot-nav-text">Account</p>
+                    </a>
+                </div>
+                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            </div>
+        </nav>
+    </footer>
 
     <!-- Your own JavaScript functions go here    -->
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/preference.js"></script>
-    <script src="scripts/footer.js"></script>    
-    <script src="scripts/header.js"></script>
-    
+    <script src="./scripts/footer.js"></script>
+    <script src="./scripts/header.js"></script>
+
 </body>
 
 </html>

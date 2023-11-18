@@ -1,9 +1,11 @@
 html, body {
-    background-color: white;
-    padding-bottom: 20px;
+    background-color: whitesmoke;
+    padding: 0;
     margin: 0;
 
 }
+
+
 
 #text-field {
     width: 100%;
@@ -17,9 +19,28 @@ html, body {
 
 }
 .container {
-    grid-row: 3/ span 1;
+    grid-row: 2/ span 1;
     grid-column: 2/ span 1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 30% 40%;
 
+
+}
+
+.star-alignment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+.star-form {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    
 
 }
 
@@ -33,10 +54,10 @@ html, body {
 .grid-banner {
         background-color: whitesmoke;
   display: grid;
-height: 100vh;
+height: 180vh;
 width: 100vw;
 grid-template-columns: minmax(0, 100%);
-grid-template-rows: minmax(0,50%) minmax(0,50%);
+grid-template-rows: minmax(0,25%) minmax(0,75%);
   grid-gap: 10px;
     padding: 0px;
     margin: 0px;
@@ -61,7 +82,7 @@ align-items: center;
     grid-row: 2/ span 1;
     display: grid;
     grid-template-columns: 33% 34% 33%;
-    grid-template-rows: 20% 10% 70%;
+    grid-template-rows: 20% 80%;
     
     
 }
