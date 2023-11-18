@@ -18,3 +18,36 @@ function insertNameFromFirestore() {
 }
 
 insertNameFromFirestore();
+
+//------------------------------------------------------------------------------
+// Input parameter is a string representing the collection we are reading from
+//------------------------------------------------------------------------------
+function displayCardsDynamically(collection) {
+    let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
+
+    db.collection(collection).get()   //the collection called "washrooms"
+        .then(allWashrooms=> {
+        
+            allWashrooms.forEach(doc => { //iterate thru each doc
+                var title = doc.data().name;       // get value of the "name" key
+                
+                var washroomAddress = doc.data().address; //gets the address field
+                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+
+                //update title and text
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.card-address').innerHTML = washroomAddress;
+                
+                
+
+                
+
+                //attach to gallery, Example: "washrooms-go-here"
+                document.getElementById(collection + "-go-here").appendChild(newcard);
+
+                
+            })
+        })
+}
+
+displayCardsDynamically("washrooms");  //input param is the name of the collection

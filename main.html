@@ -49,15 +49,33 @@
     <h1 id="welcome-msg">Hello, <span id="name-here"></span></h1>
   </div>
 
+  <!-- Container for all washroom cards -->
   <div class="container">
     <h2>Here Are Today's Featured Washrooms</h2>
-    
+    <!-- Here is the container for cards  -->
     <div class="container">
         <div id="washrooms-go-here" class="row row-cols-auto">
         </div>
     </div>
-       
+       </div>
+  
+       <!-- Templates for general use, not displayed -->
+<template id="washroomCardTemplate">
+  <div class="card py-2 mx-2" style="width: 18rem">
+   
+      <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-address">placeholder</p>
+          <br />
+          <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+          </p>
+          <a class="btn btn-primary card-href">Read more ...</a>
+          
       </div>
+  </div>
+</template>
    
 
   <div class="new-washroom">
