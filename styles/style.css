@@ -181,10 +181,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-<<<<<<< HEAD
-
-=======
->>>>>>> 4d17fee089a65008f3ea8646bc7a8cbd5f5fbfe4
 }
 
 .material-symbols-outlined, .bot-nav-text {
