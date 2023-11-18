@@ -20,19 +20,34 @@ function writeReview() {
     let reviewText = document.getElementById("text-box-area").value;
 
     // star rating issue below. need help. doesnt save properly
-    const stars = document.querySelectorAll('.star');
+    const stars = document.getElementsByName('rate');
 
-    let reviewRating = stars.length;
-
-    stars.forEach((star) => {
-        if (star.checked) {
-            reviewRating++;
+    let reviewRating = 0;
+// fix tmr not working anymore?
+    for (let i = 0; i < stars.length; i++) {
+        if (stars[i].checked) {
+          reviewRating = parseInt(stars[i].value);
+          break;
         }
-    });
+      }    
 
     // CLEAN review tag below
     let cleanTag = document.getElementById("clean-button");
+    // if cleantag checked then cleanvalue = 1, otherwise 0
     let cleanValue = cleanTag ? 1 : 0;
+
+    let ventilatedTag = document.getElementById("ventilated-button");
+    let ventilatedValue = ventilatedTag ? 1 : 0;
+
+    let spaciousTag = document.getElementById("spacious-button");
+    let spaciousValue = spaciousTag ? 1 : 0;
+
+    let privateTag = document.getElementById("private-button");
+    let privateValue = privateTag ? 1 : 0;
+
+    // may remove if included in addwashroom section
+    let accessibleTag = document.getElementById("accessible-button");
+    let accessibleValue = accessibleTag ? 1 : 0;
 
     console.log(reviewText, reviewRating);
 
@@ -43,13 +58,17 @@ function writeReview() {
 
         db.collection("reviews").add({
             washroomDocID: washroomDocID,
+            rating: reviewRating,
             userID: userID,
             reviewText: reviewText,
-            rating: reviewRating,
             clean: cleanValue,
+            ventilated: ventilatedValue,
+            spacious: spaciousValue,
+            private: privateValue,
+            // may remove if included in addwashroom section
+            accessible: accessibleValue,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
-            // redirects to review submission page
             window.location.href = "review-submission-successful-copy.html";
         })
         .catch((error) => {
