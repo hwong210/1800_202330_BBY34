@@ -5,6 +5,18 @@ html, body {
 
 }
 
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container {
+width: 100vw;
+height: 100vh;
+
+}
+
 .container-fluid {
     background-color: lightblue;
     padding: 0.5em;
