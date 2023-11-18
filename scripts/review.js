@@ -32,38 +32,40 @@ function writeReview() {
         }
       }    
 
-      let cleanTag = document.getElementById("clean-button");
-      console.log("Clean Tag:", cleanTag);
-
-      // if cleantag checked then cleanvalue = 1, otherwise 0
-      let cleanValue = 0;
+    let cleanTag = document.getElementById("clean-button");
+    // if cleantag checked then cleanvalue = 1, otherwise 0
+    let cleanValue = 0;
+    // Update cleanValue only if the checkbox is checked
+    if (cleanTag.checked) {
+        cleanValue = 1;
+    }
   
-      if (cleanTag) {
-          //checks if the checkbox is checked
-          console.log("Is Clean Tag Checked?", cleanTag.checked);
-
-          // Update cleanValue only if the checkbox is checked
-          if (cleanTag.checked) {
-              cleanValue = 1;
-          }
-      }
-  
-      console.log("Clean Value:", cleanValue);
-
     let ventilatedTag = document.getElementById("ventilated-button");
-    let ventilatedValue = ventilatedTag ? 1 : 0;
+    let ventilatedValue = 0;
+    if (ventilatedTag.checked) {
+        ventilatedValue = 1;
+    }
 
     let spaciousTag = document.getElementById("spacious-button");
-    let spaciousValue = spaciousTag ? 1 : 0;
+    let spaciousValue = 0;
+    if (spaciousTag.checked) {
+        spaciousValue = 1;
+    }
 
     let privateTag = document.getElementById("private-button");
-    let privateValue = privateTag ? 1 : 0;
+    let privateValue = 0;
+    if (privateTag.checked) {
+        privateValue = 1;
+    }
 
     // may remove if included in addwashroom section
     let accessibleTag = document.getElementById("accessible-button");
-    let accessibleValue = accessibleTag ? 1 : 0;
+    let accessibleValue = 0;
+    if (accessibleTag.checked) {
+        accessibleValue = 1;
+    }
 
-    // console.log(reviewText, reviewRating);
+    console.log(reviewText, reviewRating);
 
     var user = firebase.auth().currentUser;
     if (user) {
