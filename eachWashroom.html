@@ -41,11 +41,37 @@
 
   </head>
   <body>
+    <!-- navbar -->
     <div id="header-container"></div>
 
-    
+    <!-- body of page -->
+    <div class="container">
+      <h1><span id="washroomName">this washroom</span></h1>
+      <div class="position-relative">
+        <!-- washroom photo, waiting on hason implement -->
+          <!-- <img class="hike-img responsive" src="" alt="Hike photo"> -->
+          <!-- button to save docid and to redirect to review page -->
+          <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" id="writeReviewBtn">Write Review</button>
+      </div>
+  </div>
 
-
+  <!-- washroom card templates -->
+  <template id="washroomCardTemplate">
+    <div class="card py-2 mx-2" style="width: 18rem">
+     
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-address">placeholder</p>
+            <br />
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+            </p>
+            <a class="btn btn-primary card-href btn-read-more">Read more ...</a>
+            
+        </div>
+    </div>
+  </template>
 
     <div id="footer-container"></div>
     
@@ -54,6 +80,8 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="scripts/footer.js"></script>
     <script src="scripts/header.js"></script>
+    <script src="scripts/eachWashroom.js"></script>
+
 
     </body>
 </html>

@@ -3,17 +3,17 @@ var washroomDocID = localStorage.getItem("washroomDocID");    //visible to all f
 
 // for below, need to wait for dan to finish washroom list and to create initial list
 
-// function getWashroomName(id) {
-//     db.collection("washrooms")
-//         .doc(id)
-//         .get()
-//         .then((thisWashroom) => {
-//             var washroomName = thisWashroom.data().name;
-//             document.getElementById("washroom-name").innerHTML = washroomName;
-//                 });
-// }
+function getWashroomName(id) {
+    db.collection("washrooms")
+        .doc(id)
+        .get()
+        .then((thisWashroom) => {
+            var washroomName = thisWashroom.data().name;
+            document.getElementById("washroomName").innerHTML = washroomName;
+                });
+}
 
-// getWashroomName(washroomDocID);
+getWashroomName(washroomDocID);
 
 function writeReview() {
     console.log("inside write review")
@@ -22,8 +22,9 @@ function writeReview() {
     // star rating issue below. need help. doesnt save properly
     const stars = document.getElementsByName('rate');
 
+    //working fine
     let reviewRating = 0;
-// fix tmr not working anymore?
+    
     for (let i = 0; i < stars.length; i++) {
         if (stars[i].checked) {
           reviewRating = parseInt(stars[i].value);
@@ -31,10 +32,23 @@ function writeReview() {
         }
       }    
 
-    // CLEAN review tag below
-    let cleanTag = document.getElementById("clean-button");
-    // if cleantag checked then cleanvalue = 1, otherwise 0
-    let cleanValue = cleanTag ? 1 : 0;
+      let cleanTag = document.getElementById("clean-button");
+      console.log("Clean Tag:", cleanTag);
+
+      // if cleantag checked then cleanvalue = 1, otherwise 0
+      let cleanValue = 0;
+  
+      if (cleanTag) {
+          //checks if the checkbox is checked
+          console.log("Is Clean Tag Checked?", cleanTag.checked);
+
+          // Update cleanValue only if the checkbox is checked
+          if (cleanTag.checked) {
+              cleanValue = 1;
+          }
+      }
+  
+      console.log("Clean Value:", cleanValue);
 
     let ventilatedTag = document.getElementById("ventilated-button");
     let ventilatedValue = ventilatedTag ? 1 : 0;
@@ -49,7 +63,7 @@ function writeReview() {
     let accessibleTag = document.getElementById("accessible-button");
     let accessibleValue = accessibleTag ? 1 : 0;
 
-    console.log(reviewText, reviewRating);
+    // console.log(reviewText, reviewRating);
 
     var user = firebase.auth().currentUser;
     if (user) {
