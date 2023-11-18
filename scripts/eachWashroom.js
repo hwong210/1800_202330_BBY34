@@ -1,3 +1,4 @@
+// displays unique washroom info according to db
 function displayWashroomInfo() {
     console.log("Test");
     let params = new URL(window.location.href);
@@ -7,14 +8,17 @@ function displayWashroomInfo() {
     db.collection("washrooms")
         .doc(ID)
         .get()
-        .then(dock => {
+        .then(doc => {
             thisWashroom = doc.data();
             washroomAddress = thisWashroom.address;
-            washroomName = doc.data().name.innerHTML = title;
+            washroomName = doc.data().name;
 
-            // newcard.querySelector('.card-title').innerHTML = title;
-            // newcard.querySelector('.card-address').innerHTML = washroomAddress;
-        })
+            
+            document.getElementById("washroom-name").innerHTML = washroomName;
+            // need to include image later once hason implements
+            console.log(washroomName);
+
+        } );
 
 }
 

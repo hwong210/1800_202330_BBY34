@@ -33,7 +33,7 @@ function displayCardsDynamically(collection) {
                 
                 var washroomAddress = doc.data().address; //gets the address field
                 
-                // below is change from louise, remove if broken
+                // below is change from louise, remove if broken. it works
                 // gets the document id
                 var docID = doc.id;
                 
@@ -56,7 +56,9 @@ function displayCardsDynamically(collection) {
 
 displayCardsDynamically("washrooms");  //input param is the name of the collection
 
+// navigates to specific washroom according to docid
 function navigateToEachWashroom(docID) {
+    // added docid at end of url
     let url = `http://127.0.0.1:5501/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
 
