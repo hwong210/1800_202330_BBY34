@@ -32,12 +32,7 @@ function writeReview() {
 
     // CLEAN review tag below
     let cleanTag = document.getElementById("clean-button");
-
-    if (document.getElementById("clean-button".checked)){
-        clean = true;
-      } else {
-        clean = false;
-      }
+    let cleanValue = cleanTag ? 1 : 0;
 
     console.log(reviewText, reviewRating);
 
@@ -51,14 +46,18 @@ function writeReview() {
             userID: userID,
             reviewText: reviewText,
             rating: reviewRating,
-            clean: cleanTag,
+            clean: cleanValue,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             // redirects to review submission page
             window.location.href = "review-submission-successful-copy.html";
+        })
+        .catch((error) => {
+            console.log("Error submitting the review.", error);
         });
     } else {
         console.log("No user is signed in");
         window.location.href = 'review.html';
     }
-}        
+
+}
