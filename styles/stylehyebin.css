@@ -217,3 +217,41 @@ footer {
     border-radius: 10px;
     font-size:large;
 }
+
+/* saved page */
+#edit {
+    float: right;
+}
+
+/* Add these styles to your existing CSS */
+
+.saved-icons {
+    font-size: 25px; 
+    color: black; 
+}
+
+.square-container {
+    /* Create a square container for the icon */
+    width: 50px; /* Adjust the width of the square */
+    height: 50px; /* Adjust the height of the square */
+    display: inline-block;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 50px; /* Align the icon vertically in the middle */
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-right: 10px;
+}
+
+#newlist, #favorites, #mymaps{
+    display: flex;
+    align-items: center;    
+}
+
+.saved-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
