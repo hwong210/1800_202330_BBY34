@@ -29,7 +29,7 @@ function submitWashroom() {
     });
     
     
-    console.log(washroomName, washroomAddress, safetyLevel, hygieneLevel);
+    console.log(washroomName, washroomAddress);
 
     var user = firebase.auth().currentUser;
     if (user) {
@@ -42,8 +42,6 @@ function submitWashroom() {
             userID: userID,
             name: washroomName,
             address: washroomAddress,
-            safety: safetyLevel,
-            hygiene: hygieneLevel,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             window.location.href = "thanks.html"; // Redirect to the thanks page
@@ -53,17 +51,3 @@ function submitWashroom() {
         window.location.href = 'addlocation.html';
     }
 }
-
-const stars = document.querySelectorAll('.star');
-
-// Iterate through each star element
-stars.forEach((star, index) => {
-    // Add a click event listener to the current star
-    star.addEventListener('click', () => {
-        // Fill in clicked star and stars before it
-        for (let i = 0; i <= index; i++) {
-            // Change the text content of stars to 'star' (filled)
-            document.getElementById(`star${i + 1}`).textContent = 'star';
-        }
-    });
-});
