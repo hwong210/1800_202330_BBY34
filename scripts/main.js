@@ -32,22 +32,32 @@ function displayCardsDynamically(collection) {
                 var title = doc.data().name;       // get value of the "name" key
                 
                 var washroomAddress = doc.data().address; //gets the address field
+                
+                // below is change from louise, remove if broken
+                // gets the document id
+                var docID = doc.id;
+                
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-address').innerHTML = washroomAddress;
                 
-                
-
-                
+                // read more button
+                let readMoreButton = newcard.querySelector('.btn-read-more');
+                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
-                
             })
         })
 }
 
 displayCardsDynamically("washrooms");  //input param is the name of the collection
+
+function navigateToEachWashroom(docID) {
+    let url = `http://127.0.0.1:5501/eachWashroom.html?docID=${docID}`;
+    window.location.href = url;
+
+}
