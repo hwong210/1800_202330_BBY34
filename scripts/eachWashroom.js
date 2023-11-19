@@ -14,7 +14,7 @@ function displayWashroomInfo() {
             washroomName = doc.data().name;
 
             
-            document.getElementById("washroom-name").innerHTML = washroomName;
+            document.getElementById("washroomName").innerHTML = washroomName;
             // need to include image later once hason implements
             console.log(washroomName);
 
@@ -23,3 +23,13 @@ function displayWashroomInfo() {
 }
 
 displayWashroomInfo();
+
+function saveWashroomDocumentIDAndRedirect() {
+    let params = new URL(window.location.href);
+    let ID = params.searchParams.get("docID");
+    localStorage.setItem('washroomDocID', ID);
+    window.location.href = 'review.html';
+    console.log(ID);
+}
+
+document.getElementById('writeReviewBtn').addEventListener('click', saveWashroomDocumentIDAndRedirect);

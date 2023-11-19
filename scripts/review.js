@@ -1,19 +1,17 @@
 var washroomDocID = localStorage.getItem("washroomDocID");    //visible to all functions on this page
 
+// works fine
+function getWashroomName(id) {
+    db.collection("washrooms")
+        .doc(id)
+        .get()
+        .then((thisWashroom) => {
+            var washroomName = thisWashroom.data().name;
+            document.getElementById("washroomName").innerHTML = washroomName;
+                });
+}
 
-// for below, need to wait for dan to finish washroom list and to create initial list
-
-// function getWashroomName(id) {
-//     db.collection("washrooms")
-//         .doc(id)
-//         .get()
-//         .then((thisWashroom) => {
-//             var washroomName = thisWashroom.data().name;
-//             document.getElementById("washroom-name").innerHTML = washroomName;
-//                 });
-// }
-
-// getWashroomName(washroomDocID);
+getWashroomName(washroomDocID);
 
 function writeReview() {
     console.log("inside write review")
@@ -22,8 +20,9 @@ function writeReview() {
     // star rating issue below. need help. doesnt save properly
     const stars = document.getElementsByName('rate');
 
+    //working fine
     let reviewRating = 0;
-// fix tmr not working anymore?
+    
     for (let i = 0; i < stars.length; i++) {
         if (stars[i].checked) {
           reviewRating = parseInt(stars[i].value);
@@ -31,23 +30,38 @@ function writeReview() {
         }
       }    
 
-    // CLEAN review tag below
     let cleanTag = document.getElementById("clean-button");
     // if cleantag checked then cleanvalue = 1, otherwise 0
-    let cleanValue = cleanTag ? 1 : 0;
-
+    let cleanValue = 0;
+    // Update cleanValue only if the checkbox is checked
+    if (cleanTag.checked) {
+        cleanValue = 1;
+    }
+  
     let ventilatedTag = document.getElementById("ventilated-button");
-    let ventilatedValue = ventilatedTag ? 1 : 0;
+    let ventilatedValue = 0;
+    if (ventilatedTag.checked) {
+        ventilatedValue = 1;
+    }
 
     let spaciousTag = document.getElementById("spacious-button");
-    let spaciousValue = spaciousTag ? 1 : 0;
+    let spaciousValue = 0;
+    if (spaciousTag.checked) {
+        spaciousValue = 1;
+    }
 
     let privateTag = document.getElementById("private-button");
-    let privateValue = privateTag ? 1 : 0;
+    let privateValue = 0;
+    if (privateTag.checked) {
+        privateValue = 1;
+    }
 
     // may remove if included in addwashroom section
     let accessibleTag = document.getElementById("accessible-button");
-    let accessibleValue = accessibleTag ? 1 : 0;
+    let accessibleValue = 0;
+    if (accessibleTag.checked) {
+        accessibleValue = 1;
+    }
 
     console.log(reviewText, reviewRating);
 
