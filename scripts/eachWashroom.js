@@ -47,15 +47,37 @@ function populateReviews() {
                 var userName = doc.data().userID;
                 // how to make rating represent star value?
                 var rating = doc.data().rating;
-                var reviewText = doc.data().reviewText;
-                var time = doc.data().timestamp.toDate();
                 // how to make show tag, not int value. if clean = 1 then show tag?
                 var clean = doc.data().clean;
+                var reviewText = doc.data().reviewText;
+                var time = doc.data().timestamp.toDate();
 
             // cloning washroomcardtemplate
-            let reviewCard = washroomCardTemplate.cloneNode(true);
-            })
-        })
+            let reviewCard = washroomCardTemplate.content.cloneNode(true);
+            reviewCard.querySelector(".review-name").innerHTML = userName;
+            // reviewCard.querySelector(".review-rating").innerHTML = rating;
+            reviewCard.querySelector(".review-tags").innerHTML = clean;
+            reviewCard.querySelector(".review-text").innerHTML = reviewText;
+            reviewCard.querySelector(".review-time").innerHTML = new Date(
+                time
+            ).toLocaleString();
+
+            // initializes starrating to an empty string for stars
+            let starRating = "";
+            for (let i = 0; i < 5; i++) {
+                if (i < rating ) {
+                    // span gold star
+                    starRating += '<span class="star gold">&#9733;</span>';
+                } else {
+                    starRating += '<span class="star black">&#9733;</span>';
+                }
+            }
+            reviewCard.querySelector(".review-rating").innerHTML = starRating;
+            washroomCardGroup.appendChild(reviewCard);
+
+            });
+
+        });
     
 }
 
