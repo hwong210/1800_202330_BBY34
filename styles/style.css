@@ -386,6 +386,14 @@ footer {
     color: #c59b08;
 }
 
+.star-gold {
+    color: #ffc700;
+}
+
+.star-black {
+    color: black;
+}
+
 .review-tags {
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
