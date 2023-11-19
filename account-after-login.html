@@ -61,7 +61,7 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container" id="user-profile">
-        <h1>User Profile </h1>
+        <h1 id="user-profile-title">User Profile </h1>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
@@ -78,9 +78,9 @@
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                <button type="button" class="btn btn-secondary" id="account-edit-btn">Edit</button>
                 <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                <button type="button" class="btn btn-info" id="account-save-btn">Save</button>
             </div>
         </form>
     </div>

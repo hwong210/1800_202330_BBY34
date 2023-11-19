@@ -1,8 +1,6 @@
 var washroomDocID = localStorage.getItem("washroomDocID");    //visible to all functions on this page
 
-
-// for below, need to wait for dan to finish washroom list and to create initial list
-
+// works fine
 function getWashroomName(id) {
     db.collection("washrooms")
         .doc(id)
