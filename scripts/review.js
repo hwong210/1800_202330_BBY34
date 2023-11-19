@@ -71,7 +71,7 @@ function writeReview() {
         var userID = user.uid;
 
         db.collection("reviews").add({
-            washroomDocID: washroomDocID,
+            washroomID: washroomDocID,
             rating: reviewRating,
             userID: userID,
             reviewText: reviewText,
