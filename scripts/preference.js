@@ -33,23 +33,31 @@ firebase.auth().onAuthStateChanged((user) => {
 function initPreferences(user) {
     document.getElementById("save").addEventListener("click", function () {
         // Get user preferences from checkboxes, radio buttons, sliders, etc.
-        var distance = document.getElementById("myRange").value;
-        var safetyRating = document.querySelector('input[name="safetyRate"]:checked').value;
-        var hygieneRating = document.querySelector('input[name="hygieneRate"]:checked').value;
+        var clean = document.getElementById("clean-outlined").value;
+        var ventilated = document.getElementById("ventilated-outlined").value;
+        var spacious = document.getElementById("spacious-outlined").value;
+        var private = document.getElementById("private-outlined").value;
+        var accessible = document.getElementById("accessible-outlined").value;
+        var distance = document.getElementById("distance").value;
         var storageBin = document.getElementById("storagebin-checkbox").checked;
         var wheelchair = document.getElementById("wheelchair-checkbox").checked;
         var waterFountain = document.getElementById("waterfountain-checkbox").checked;
         var airPump = document.getElementById("airpump-checkbox").checked;
+        var rating = document.getElementById("rating").value;
 
         // Create an object with user preferences
         var userPreferences = {
+            clean: clean,
+            ventilated: ventilated,
+            spacious: spacious,
+            private: private,
+            accessible: accessible,
             distance: distance,
-            safetyRating: safetyRating,
-            hygieneRating: hygieneRating,
             storageBin: storageBin,
             wheelchair: wheelchair,
             waterFountain: waterFountain,
-            airPump: airPump
+            airPump: airPump,
+            rating: rating
         };
 
         // Get the user ID from the authenticated user
@@ -90,13 +98,17 @@ function initPreferences(user) {
             var preferences = JSON.parse(storedPreferences);
 
             // Set form values based on stored preferencs
-            document.getElementById('myRange').value = preferences.distance;
-            document.querySelector('input[name="safetyRate"][value="' + preferences.safetyRating + '"]').checked = true;
-            document.querySelector('input[name="hygieneRate"][value="' + preferences.hygieneRating + '"]').checked = true;
+            document.getElementById('clean-outlined').value = preferences.clean;
+            document.getElementById('ventilated-outlined').value = preferences.ventilated;
+            document.getElementById('spacious-outlined').value = preferences.spacious;
+            document.getElementById('private-outlined').value = preferences.private;
+            document.getElementById('accessible-outlined').value = preferences.accessible;
+            document.getElementById('distance').value = preferences.distance;
             document.getElementById('storagebin-checkbox').checked = preferences.storageBin;
             document.getElementById('wheelchair-checkbox').checked = preferences.wheelchair;
             document.getElementById('waterfountain-checkbox').checked = preferences.waterFountain;
             document.getElementById('airpump-checkbox').checked = preferences.airPump;
+            document.getElementById('rating').value = preferences.rating;
         }
     }
 
@@ -122,30 +134,6 @@ function initPreferences(user) {
             });
     }
 
-    // Select all input elements with the class name "rate" and store them in the "stars" variable
-    const stars = document.querySelectorAll('.rate input');
-
-    // Function to update star icons based on the selected rating
-    function updateStars(index) {
-        stars.forEach((star, i) => {
-            const label = document.querySelector(`.rate label[for="${star.id}"]`);
-            if (i <= index) {
-                label.innerHTML = 'star';
-            } else {
-                label.innerHTML = 'star_border';
-            }
-        });
-    }
-
-    // Iterate through each star element
-    stars.forEach((star, index) => {
-        // Add a click event listener to the current star
-        star.addEventListener('click', () => {
-            // Update star icons based on the clicked star
-            updateStars(index + 1);
-        });
-    });
-
     function saveAlert() {
         alert('Your preferences are saved!');
     }
@@ -168,18 +156,16 @@ function displayName(name) {
 
 // Validate that at least one option is selected
 function validatePreferences() {
-    var safetyRating = document.querySelector('input[name="safetyRate"]:checked');
-    var hygieneRating = document.querySelector('input[name="hygieneRate"]:checked');
     var storageBin = document.getElementById("storagebin-checkbox").checked;
     var wheelchair = document.getElementById("wheelchair-checkbox").checked;
     var waterFountain = document.getElementById("waterfountain-checkbox").checked;
     var airPump = document.getElementById("airpump-checkbox").checked;
 
     // Check if at least one option is selected
-    if (!safetyRating && !hygieneRating && !storageBin && !wheelchair && !waterFountain && !airPump) {
+    if (!storageBin && !wheelchair && !waterFountain && !airPump) {
         // Display a warning window
         alert('Please select at least one preference option.');
         return false; // Preferences are not valid
     }
-    return true; // Preferences are valid
+    return saveAlert(); // Preferences are valid
 }
