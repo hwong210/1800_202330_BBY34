@@ -29,7 +29,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/stylehyebin.css">
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -48,30 +48,71 @@
     <div id="header-container"></div>
 
     <div id="contents">
-        <br>
-        <span id="saved"><h2>Saved</h2></span>
-        </div>
-        <hr>
-        <div id="favorites">
-            <!-- can save washrooms. bookmark-->
-            <div class="square-container"><span class="material-icons saved-icons">bookmarks</span></div>
-            <div><a class="saved" href="favorites.html">My favorites</a></div>
-        </div>
-        <hr>
-        <!-- can save maps including offline maps maybe?-->
-        <div id="mymaps">
-            <div class="square-container"><span class="material-icons saved-icons">map</span></div>
-            <div><a class="saved" href="maps.html">My maps</a></div>
+        <div id="edit">Edit</div>
+        <div id="saved">
+            <h2>My Favorites</h2>
         </div>
         <hr>
 
+        <div id="contents">
+            <div class="washrooms">
+                <div id="washroom1">
+                    <img src="img/washroom1.jpg" width="100%" style="border-radius: 20px;">
+                    <span>
+                        <b>Stanely Park Public Washroom</b>
+                    </span>
+                    <span class="options">air pump</span>
+                    <span class="options">nearest</span>
+                    <div>Vancouver, BC V6G 1Z4, Canada</div>
+                    <div>300m</div>
+                </div>
+                <br>
+                <div id="washroom2">
+                    <img src="img/washroom2.jpg" width="100%" style="border-radius: 20px;">
+                    <span>
+                        <b>Central Park Public Washroom</b>
+                    </span>
+                    <span class="options">clean</span>
+                    <div>3883 Imperial St, Burnaby, BC V5S 3R2, Canada</div>
+                    <div>700m</div>
+                </div>
+                <br>
+                <div id="washroom3">
+                    <img src="img/washroom3.jpg" width="100%" style="border-radius: 20px;">
+                    <span>
+                        <b>Deer Lake Park Public Washroom</b>
+                    </span>
+                    <span class="options">safe</span>
+                    <span class="options">top-rated</span>
+                    <div>Unnamed Road, Burnaby, BC V5E 2T2, Canada</div>
+                    <div>1km</div>
+                </div>
+                <br>
+                <a href="">
+                    <span>See more</span>
+                </a>
+                <div id="buttondiv">
+                    <button type="button" id="back" class="btn btn-lg px-4 gap-3">Back</button>
+                </div>
+            </div>
+        </div>
+
         <!-- copyright footer -->
-  <div id="footer-container"></div>
+        <div id="footer-container"></div>
+
         <!-- Your own JavaScript functions go here    -->
+        <script>
+            document.getElementById("back").onclick = function () {
+                location.href = "saved.html";
+            };
+        </script>
+
         <!-- Link to scripts of your own -->
-        <script src="./scripts/saved.js"></script>
+        <!-- <script src="./scripts/script.js"></script> -->
+        <script src="./scripts/preference.js"></script>
         <script src="./scripts/footer.js"></script>
         <script src="./scripts/header.js"></script>
 
 </body>
+
 </html>
