@@ -41,75 +41,68 @@
 
   </head>
   <body>
+    <!-- navbar -->
     <div id="header-container"></div>
-    
-    <section id="grid-review">
-      <div id="review-header">
-        <span>Write a review</span>
+
+    <!-- body of page -->
+    <div class="container">
+      <h1><span id="washroomName">this washroom</span></h1>
+      <div class="position-relative">
+        <!-- washroom photo, waiting on hason implement -->
+          <!-- <img class="hike-img responsive" src="" alt="Hike photo"> -->
+          <!-- button to save docid and to redirect to review page -->
+          <button class="btn btn-primary position-absolute bottom-0 end-0 m-3" id="writeReviewBtn">Write Review</button>
       </div>
-      <div id="container-review-title">
-        <span id="washroomName">Washroom Name/Location</span>
-        <div id="review-star-rating">
-          <div id="review-title-space-2">
-            <div id="review-icons">
-              <div id="review-rate">
-                <input class="star" type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">stars</label>
-                <input class="star" type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">stars</label>
-                <input class="star" type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">stars</label>
-                <input class="star" type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">stars</label>
-                <input class="star" type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">star</label>
-              </div>
+  </div>
+
+  <!-- washroom card templates -->
+  <template id="washroomCardTemplate">
+    <div class="card py-2 mx-2" style="width: 18rem">
+     
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-address">placeholder</p>
+            <br />
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+            </p>
+            <a class="btn btn-primary card-href btn-read-more">Read more ...</a>
+            
+        </div>
+    </div>
+  </template>
+
+  <div class="container">
+    <h2>Reviews:</h2>
+    <div class="card-container">
+      <div id="reviewCardGroup">
+        <template id="reviewCardTemplate">
+          <div class="card" style="width: 18rem;">
+            <div class="review-body">
+              <h5 class="review-name">Poster's Name</h5>
+              <h6 class="review-rating card-subtitle mb-2 text-muted">star rating</h6>
+              <p class="review-tags">tags</p>
+              <p class="review-text">review text</p>
+              <p class="review-time">date</p>
+              <!-- <a href="#" class="card-link">Card link</a> -->
+              <a href="#" class="card-link" href="review-information.html">reply button</a>
             </div>
           </div>
-        </div>
+        </template>
       </div>
-      <div id="review-checkboxes">
-        <input type="checkbox" class="btn-check" id="clean-button"
-          autocomplete="off">
-        <label class="btn btn-outline-primary" for="clean-button">clean</label>
-
-        <input type="checkbox" class="btn-check" id="ventilated-button"
-          autocomplete="off">
-        <label class="btn btn-outline-primary" for="ventilated-button">ventilated</label>
-
-        <input type="checkbox" class="btn-check" id="spacious-button"
-          autocomplete="off">
-        <label class="btn btn-outline-primary" for="spacious-button">spacious</label>
-
-        <input type="checkbox" class="btn-check" id="private-button"
-          autocomplete="off">
-        <label class="btn btn-outline-primary" for="private-button">private</label>
-
-        <input type="checkbox" class="btn-check" id="accessible-button"
-          autocomplete="off">
-        <label class="btn btn-outline-primary" for="accessible-button">accessible</label>
-      </div>
-
-    <!-- <span class="material-symbols-outlined">add_a_photo</span> -->
-    <form action="#" id="review-text">
-      <div id="text-box">
-        <textarea name="comment" id="text-box-area" rows="6"></textarea>
-          <br>
-        </div>
-      </form>
-      <div id="review-submit">
-        <button class="btn btn-primary" type="submit" id="submit-button" onclick="writeReview()">Submit</button>
-      </div>
-    </section>
+    </div>
+  </div>
 
     <div id="footer-container"></div>
     
     <!-- SCRIPTS BELOW -->
     <script src="./scripts/firebaseAPI.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/review.js"></script>    
     <script src="scripts/footer.js"></script>
     <script src="scripts/header.js"></script>
+    <script src="scripts/eachWashroom.js"></script>
+
 
     </body>
 </html>

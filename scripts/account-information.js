@@ -39,6 +39,7 @@ function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
  }
+ document.getElementById('account-edit-btn').addEventListener('click', editUserInfo);
 
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value;
@@ -58,3 +59,5 @@ function saveUserInfo() {
     document.getElementById('personalInfoFields').disabled = true;
 
  }
+
+document.getElementById('account-save-btn').addEventListener('click', saveUserInfo);

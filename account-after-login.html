@@ -61,7 +61,7 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container" id="user-profile">
-        <h1>User Profile </h1>
+        <h1 id="user-profile-title">User Profile </h1>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
@@ -78,48 +78,14 @@
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                <button type="button" class="btn btn-secondary" id="account-edit-btn">Edit</button>
                 <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                <button type="button" class="btn btn-info" id="account-save-btn">Save</button>
             </div>
         </form>
     </div>
 
-<<<<<<< Updated upstream
-    <footer>
-      <nav class="bot-navbar bot-navbar-expand-lg bot-navbar-light bot-bg-light">
-        <div class="bot-container-fluid">
-          <div class="nav-home">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined" id="bot-nav4">home</span>
-              <p class="bot-nav-text">Home</p>
-            </a>
-          </div>
-          <div class="nav-preferences">
-            <a class="nav-link" href="preferences.html">
-              <span class="material-symbols-outlined">tune</span>
-              <p class="bot-nav-text">Preferences</p>
-            </a>
-          </div>
-          <div class="nav-saved">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined">bookmarks</span>
-              <p class="bot-nav-text">Saved</p>
-            </a>
-          </div>
-          <div class="nav-account">
-            <a class="nav-link" href="#">
-              <span class="material-symbols-outlined" id="bot-nav4">account_circle</span>
-              <p class="bot-nav-text">Account</p>
-            </a>
-          </div>
-          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-        </div>
-      </nav>
-    </footer>
-=======
     <div id="footer-container"></div>
->>>>>>> Stashed changes
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

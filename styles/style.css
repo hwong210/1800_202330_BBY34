@@ -232,6 +232,7 @@ footer {
     overflow-y: scroll;
     /* height: ; */
     resize: none;
+    padding: 0.5em;
 
 }
 
@@ -383,6 +384,14 @@ footer {
 #review-rate>input:checked~label:hover~label,
 #review-rate>label:hover~input:checked~label {
     color: #c59b08;
+}
+
+.star-gold {
+    color: #ffc700;
+}
+
+.star-black {
+    color: black;
 }
 
 .review-tags {
@@ -548,6 +557,18 @@ footer {
 #welcome {
     text-align: center;
 }
-/* #clean-outlined, #ventilated-outlined, #spacious-outlined, #private-outlined, #accessible-outlined {
-    
-} */
+
+
+
+#user-profile-title {
+    padding-top: 0.5em;
+    padding-bottom: 0.25em;
+    margin: 0;
+}
+
+.mb-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 0.5em;
+}

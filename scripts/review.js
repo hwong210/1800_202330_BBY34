@@ -1,43 +1,67 @@
 var washroomDocID = localStorage.getItem("washroomDocID");    //visible to all functions on this page
 
+// works fine
+function getWashroomName(id) {
+    db.collection("washrooms")
+        .doc(id)
+        .get()
+        .then((thisWashroom) => {
+            var washroomName = thisWashroom.data().name;
+            document.getElementById("washroomName").innerHTML = washroomName;
+                });
+}
 
-// for below, need to wait for dan to finish washroom list and to create initial list
-
-// function getWashroomName(id) {
-//     db.collection("washrooms")
-//         .doc(id)
-//         .get()
-//         .then((thisWashroom) => {
-//             var washroomName = thisWashroom.data().name;
-//             document.getElementById("washroom-name").innerHTML = washroomName;
-//                 });
-// }
-
-// getWashroomName(washroomDocID);
+getWashroomName(washroomDocID);
 
 function writeReview() {
     console.log("inside write review")
     let reviewText = document.getElementById("text-box-area").value;
 
     // star rating issue below. need help. doesnt save properly
-    const stars = document.querySelectorAll('.star');
+    const stars = document.getElementsByName('rate');
 
-    let reviewRating = stars.length;
-
-    stars.forEach((star) => {
-        if (star.checked) {
-            reviewRating++;
+    //working fine
+    let reviewRating = 0;
+    
+    for (let i = 0; i < stars.length; i++) {
+        if (stars[i].checked) {
+          reviewRating = parseInt(stars[i].value);
+          break;
         }
-    });
+      }    
 
-    // CLEAN review tag below
     let cleanTag = document.getElementById("clean-button");
+    // if cleantag checked then cleanvalue = 1, otherwise 0
+    let cleanValue = 0;
+    // Update cleanValue only if the checkbox is checked
+    if (cleanTag.checked) {
+        cleanValue = 1;
+    }
+  
+    let ventilatedTag = document.getElementById("ventilated-button");
+    let ventilatedValue = 0;
+    if (ventilatedTag.checked) {
+        ventilatedValue = 1;
+    }
 
-    if (document.getElementById("clean-button".checked)){
-        clean = true;
-      } else {
-        clean = false;
-      }
+    let spaciousTag = document.getElementById("spacious-button");
+    let spaciousValue = 0;
+    if (spaciousTag.checked) {
+        spaciousValue = 1;
+    }
+
+    let privateTag = document.getElementById("private-button");
+    let privateValue = 0;
+    if (privateTag.checked) {
+        privateValue = 1;
+    }
+
+    // may remove if included in addwashroom section
+    let accessibleTag = document.getElementById("accessible-button");
+    let accessibleValue = 0;
+    if (accessibleTag.checked) {
+        accessibleValue = 1;
+    }
 
     console.log(reviewText, reviewRating);
 
@@ -47,18 +71,26 @@ function writeReview() {
         var userID = user.uid;
 
         db.collection("reviews").add({
-            washroomDocID: washroomDocID,
+            washroomID: washroomDocID,
+            rating: reviewRating,
             userID: userID,
             reviewText: reviewText,
-            rating: reviewRating,
-            clean: cleanTag,
+            clean: cleanValue,
+            ventilated: ventilatedValue,
+            spacious: spaciousValue,
+            private: privateValue,
+            // may remove if included in addwashroom section
+            accessible: accessibleValue,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
-            // redirects to review submission page
             window.location.href = "review-submission-successful-copy.html";
+        })
+        .catch((error) => {
+            console.log("Error submitting the review.", error);
         });
     } else {
         console.log("No user is signed in");
         window.location.href = 'review.html';
     }
-}        
+
+}

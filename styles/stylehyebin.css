@@ -37,48 +37,6 @@
     border-style: groove;
 }
 
-/* ratings */
-* {
-    margin: 10;
-    padding: 10;
-}
-
-.rate:not(:checked)>input {
-    position: absolute;
-    top: -9999px;
-}
-
-.rate:not(:checked)>label {
-    float: right;
-    width: 1em;
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 30px;
-    color: #ccc;
-}
-
-.rate:not(:checked)>label:before {
-    content: '★ ';
-}
-
-.rate>input:checked~label {
-    color: skyblue;
-}
-
-.rate:not(:checked)>label:hover,
-.rate:not(:checked)>label:hover~label {
-    color: skyblue;
-}
-
-.rate>input:checked+label:hover,
-.rate>input:checked+label:hover~label,
-.rate>input:checked~label:hover,
-.rate>input:checked~label:hover~label,
-.rate>label:hover~input:checked~label {
-    color: skyblue;
-}
-
 .bg-info {
     background-color: lightblue !important;
     /* Medium shade for navbar */
@@ -112,19 +70,11 @@
 
 body {
     background-color: #ffffff;
-
-    /* Light shade for body background */
 }
 
 #contents {
     margin: 1rem;
     padding: 1rem;
-}
-
-.rate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .form-check-input {
@@ -140,22 +90,21 @@ body {
     border-color: #000000;
 }
 
-#myRange {
+#distance, #rating {
     accent-color: rgb(171, 222, 242);
     color: #ccc;
     overflow: hidden;
     width: 80%;
 }
 
-#ratingrate {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .rangediv {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#ratingrate span {
+    float:right;
 }
 
 #buttondiv {
@@ -254,4 +203,14 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#preference-checkboxes .btn-outline-primary {
+    color: skyblue;
+    border-color: skyblue;
+}
+
+#preference-checkboxes .btn-check:checked + .btn-outline-primary {
+    background-color: skyblue;
+    color: white;
 }
