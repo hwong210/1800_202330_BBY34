@@ -7,14 +7,33 @@ function displayWashroomInfo() {
         .doc(ID)
         .get()
         .then(doc => {
-            var thisWashroom = doc.data();
             var address = doc.data().address;
             var name = doc.data().name;
             var code = doc.data().code
+            var storageBin = doc.data().storageBin; 
+            var wheelchair = doc.data().wheelchair;
+            var waterFountain = doc.data().waterFountain;
+            var bikePump = doc.data().bikePump;
+            var clean = doc.data().clean;
+            var ventilated = doc.data().ventilated;
+            var spacious = doc.data().spacious;
+            var private = doc.data().private;
+            var accessible = doc.data().accessible;
+
 
             
             document.getElementById("name").innerHTML = name;
-            document.getElementById("address").innerHTML = address
+            document.getElementById("address").innerHTML = address;
+            document.getElementById("clean").innerHTML = clean
+                ? 'Clean' : '';
+            document.getElementById("ventilated").innerHTML = ventilated
+                ? 'Ventilated' : '';
+            document.getElementById("spacious").innerHTML = spacious
+                ? 'Spacious' : '';
+            document.getElementById("private").innerHTML = private
+                ? 'Private' : '';
+            document.getElementById("accessible").innerHTML = accessible    
+                ? 'Accessible' : '';
             
             // need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img")
