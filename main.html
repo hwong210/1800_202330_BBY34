@@ -51,7 +51,7 @@
 
   <!-- Container for all washroom cards -->
   <div class="container">
-    <h2>Top Rated Washrooms</h2>
+    <h2>Today's Featured Washroom</h2>
     <!-- Here is the container for cards  -->
     <div class="container">
       <div id="washrooms-go-here" class="row row-cols-auto">
@@ -59,6 +59,7 @@
     </div>
   </div>
 
+  
   <!-- Templates for general use, not displayed -->
   <template id="washroomCardTemplate">
     <div class="card py-2 mx-2" style="width: 18rem">
@@ -75,6 +76,14 @@
       </div>
     </div>
   </template>
+
+
+  <div class="container-for-see-more" id="div-for-section">
+    
+    <div id="posts-go-here" class="row row-cols-auto container-for-see-more-two">
+    </div>
+    <button id="show-next" type="button" class="btn btn-info">See More Washrooms!</button>
+</div>
 
   <div class="new-washroom">
     <a href="addlocation.html" class="btn btn-info add-washroom" role="button">+ Add Washroom</a>

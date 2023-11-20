@@ -15,7 +15,15 @@ h2 {
 
 .container {
     width: 100vw;
-    height: 60vh;
+    height: 15vh;
+    
+
+}
+
+.container-for-see-more-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 

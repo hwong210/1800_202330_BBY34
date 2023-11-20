@@ -20,7 +20,7 @@ function insertNameFromFirestore() {
 insertNameFromFirestore();
 
 //------------------------------------------------------------------------------
-// Input parameter is a string representing the collection we are reading from
+// Don't use this function. It displays all the cards at once. Keeping it just in case for now
 //------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
@@ -44,8 +44,8 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-address').innerHTML = washroomAddress;
                 
                 // read more button
-                let readMoreButton = newcard.querySelector('.btn-read-more');
-                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
+                //let readMoreButton = newcard.querySelector('.btn-read-more');
+                //readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
@@ -54,12 +54,12 @@ function displayCardsDynamically(collection) {
         })
 }
 
-displayCardsDynamically("washrooms");  //input param is the name of the collection
+//displayCardsDynamically("washrooms");  //input param is the name of the collection
 
 // navigates to specific washroom according to docid
 function navigateToEachWashroom(docID) {
     // added docid at end of url
-    let url = `http://127.0.0.1:5501/eachWashroom.html?docID=${docID}`;
+    let url = `http://127.0.0.1:5500/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
 
 }
@@ -84,4 +84,73 @@ currentUser.update({
                     //this is to change the icon of the hike that was saved to "filled"
         document.getElementById(iconID).innerText = 'bookmark';
     });
+}
+
+//Set a few global variables
+var AllPosts = [];
+var MaxPosts = 0;   // will get reassigned to say, 10
+var PostIndex = 0;  // start displaying the one at index 0
+
+//Next button event listener
+function addNextListener(){
+    document.getElementById("show-next").addEventListener('click', ()=>{
+        displayPostCard(AllPosts[PostIndex]);   //displays the next one
+        PostIndex++;
+    })
+}
+addNextListener();
+
+
+
+function readAllPosts() {
+    db.collection("washrooms")
+        .get()
+        .then(snap => {
+            console.log(snap.size);  // returns size of collection
+            MaxPost = snap.size;     // how many posts we have in total
+            snap.forEach(doc => {
+                AllPosts.push(doc.data());  //add to array with 'push'
+                
+                
+            })
+            
+            displayPostCard(AllPosts[0]);   //display the first post at the beginning
+        })
+        
+ 
+}
+readAllPosts();
+
+
+//------------------------------------------------------------
+// this function displays ONE card, with information
+// from the post document extracted (name, description, image)
+//------------------------------------------------------------
+function displayPostCard(doc) {
+    var title = doc.name; // get value of the "name" key
+    var address = doc.address;
+    var docID = doc.id;
+    
+
+    //clone the new card
+    let newcard = document.getElementById("washroomCardTemplate").content.cloneNode(true);
+    
+    //populate with title, image
+    newcard.querySelector('.card-title').innerHTML = title;
+    newcard.querySelector('.card-address').innerHTML = address;
+    
+    
+
+    //remove any old cards
+    const element = document.getElementById("posts-go-here");
+    while (element.firstChild){
+        element.removeChild(element.firstChild);
+    }
+    let readMoreButton = newcard.querySelector('.btn-read-more');
+                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
+    
+
+    //add the new card (overwrites any old ones from before)
+    element.append(newcard);
+    
 }
