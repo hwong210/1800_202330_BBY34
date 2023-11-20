@@ -57,9 +57,9 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('a').href = "eachWashroom.html?docID="+docID;
                 
 
-                // read more button
-                //let readMoreButton = newcard.querySelector('.btn-read-more');
-                //readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
+                // Set the 'onclick' attribute for the 'readMoreButton' to navigate to each washroom's details page
+                // let readMoreButton = newcard.querySelector('.btn-read-more');
+                // readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
@@ -70,17 +70,16 @@ function displayCardsDynamically(collection) {
 
 displayCardsDynamically("washrooms");  //input param is the name of the collection
 
-// navigates to specific washroom according to docid
+// Navigates to specific washroom according to the docID.
 function navigateToEachWashroom(docID) {
-    // added docid at end of url
+    // Added the docID at the end of the URL to maintain uniqueness.
     let url = `http://127.0.0.1:5500/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
 
-    // bookmarks
-    newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
-    newcard.querySelector('i').onclick = () => saveBookmark(docID);
-
 }
+
+// newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
+// newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "bookmark" icon.
