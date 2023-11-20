@@ -206,12 +206,15 @@ footer {
 }
 
 #preference-checkboxes .btn-outline-primary {
-    color: skyblue;
-    border-color: skyblue;
+    color: black;
+    border-color: lightblue;
 }
 
 #preference-checkboxes .btn-check:checked + .btn-outline-primary {
-    background-color: skyblue;
-    color: white;
+    background-color: lightblue;
+    color: black;
 }
 
+#save {
+    background-color: lightblue;
+}
