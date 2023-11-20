@@ -1,45 +1,36 @@
-html, body {
+html,
+body {
     background-color: whitesmoke;
     padding: 0;
     margin: 0;
-
 }
-
-
 
 #text-field {
     width: 100%;
     height: 100%;
-
 }
 
 #text-field-two {
     width: 100%;
     height: 100%;
-
 }
+
 .container {
     grid-row: 2/ span 1;
     grid-column: 2/ span 1;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 30% 70%;
-
-
 }
 
 .star-alignment {
     transform: translate(-30px);
-   
-
 }
 
 .star-form {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 50% 50%;
-    
-
 }
 
 #grid-main {
@@ -50,30 +41,24 @@ html, body {
 }
 
 .grid-banner {
-        background-color: whitesmoke;
-  display: grid;
-height: 180vh;
-width: 100vw;
-grid-template-columns: minmax(0, 100%);
-grid-template-rows: minmax(0,25%) minmax(0,75%);
-  grid-gap: 10px;
+    background-color: whitesmoke;
+    display: grid;
+    height: 180vh;
+    width: 100vw;
+    grid-template-columns: minmax(0, 100%);
+    grid-template-rows: minmax(0, 25%) minmax(0, 75%);
+    grid-gap: 10px;
     padding: 0px;
     margin: 0px;
-
-    
 }
 
 .mainpic {
-grid-column: 1;
+    grid-column: 1;
     grid-row: 1/ span 1;
     display: flex;
-justify-content: center;
-align-items: center;
-  
-    
+    justify-content: center;
+    align-items: center;
 }
-
-
 
 .slogan-space {
     grid-column: 1;
@@ -81,78 +66,64 @@ align-items: center;
     display: grid;
     grid-template-columns: 33% 34% 33%;
     grid-template-rows: 20% 80%;
-    
-    
 }
-
-
 
 .form-grid-inner {
     grid-column: 1;
     grid-row: 1;
-
-
 }
 
 .form-grid {
- grid-column: 1;
- grid-row: 1/ span 2;
- 
- display: grid;
- grid-template-columns: 100%;
- grid-template-rows: 25% 75%;
-
+    grid-column: 1;
+    grid-row: 1/ span 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 75%;
 }
 
 .form-alignment {
     grid-row: 2/ span 1;
     grid-column: 1;
     justify-content: center;
-align-items: center;
+    align-items: center;
     display: grid;
-    
 }
 
 .mainslogan {
     grid-column: 2/ span 1;
     grid-row: 1;
     display: flex;
-justify-content: center;
-align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
-#pill { 
-    width: 368px; height: 52px; background: skyblue; border-radius: 16px;
+#pill {
+    width: 368px;
+    height: 52px;
+    background: skyblue;
+    border-radius: 16px;
     display: flex;
-justify-content: center;
-align-items: center;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 @font-face {
-font-family: 'sora';
-src: url(/Users/danielseo2/Downloads/Assignment4/public/fonts/Sora/Sora-VariableFont_wght.ttf);
-font-style: normal;
-
+    font-family: 'sora';
+    src: url(/Users/danielseo2/Downloads/Assignment4/public/fonts/Sora/Sora-VariableFont_wght.ttf);
+    font-style: normal;
 }
 
-
-
 span {
-font-size: 20px;
-font-family: sora;
-font-weight: bold;
-    
+    font-size: 20px;
+    font-family: sora;
+    font-weight: bold;
 }
 
 h1 {
     font-size: 20px;
     font-family: sora;
     font-weight: bold;
-
 }
-
-
 
 footer {
     grid-column: 1 / span 1;
@@ -176,14 +147,17 @@ footer {
 }
 
 
-.nav-home, .nav-preferences, .nav-saved, .nav-account {
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    
 }
 
-.material-symbols-outlined, .nav-link {
+.material-symbols-outlined,
+.nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,30 +167,26 @@ footer {
     font-size: 9pt;
 }
 
-
 .radio-button-grid {
-display: grid;
-grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-grid-template-columns: 40% 60%;
-
+    display: grid;
+    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-columns: 40% 60%;
 }
 
 .radio-button-center {
-grid-row: 1;
-grid-column: 2/ span 1;
-display: flex;
-justify-content: center;
-align-items: center;
-
+    grid-row: 1;
+    grid-column: 2/ span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .label-alignment {
-grid-row: 1;
-grid-column: 1;
-display: flex;
-justify-content: center;
-align-items: center;
-
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .label-alignment-two {
@@ -225,50 +195,45 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    }
+}
 
 .radio-button-center-two {
-        grid-row: 2/ span 1;
-        grid-column: 2/ span 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        }
+    grid-row: 2/ span 1;
+    grid-column: 2/ span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .label-alignment-three {
-            grid-row: 3/ span 1;
-            grid-column: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            }
+    grid-row: 3/ span 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .radio-button-center-three {
-         grid-row: 3/ span 1;
-          grid-column: 2/ span 1;
-         display: flex;
-           justify-content: center;
-         align-items: center;
-                
-                }
-                    
-                .label-alignment-four {
-                    grid-row: 4/ span 1;
-                    grid-column: 1;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    
-                    }
+    grid-row: 3/ span 1;
+    grid-column: 2/ span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-alignment-four {
+    grid-row: 4/ span 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .radio-button-center-four {
-         grid-row: 4/ span 1;
-          grid-column: 2/ span 1;
-         display: flex;
-           justify-content: center;
-         align-items: center;
-                
-                }
+    grid-row: 4/ span 1;
+    grid-column: 2/ span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

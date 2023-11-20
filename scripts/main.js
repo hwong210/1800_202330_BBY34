@@ -49,7 +49,7 @@ function displayCardsDynamically(collection) {
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
-
+                
             })
         })
 }
@@ -62,6 +62,10 @@ function navigateToEachWashroom(docID) {
     let url = `http://127.0.0.1:5501/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
 
+    // bookmarks
+    newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
+    newcard.querySelector('i').onclick = () => saveBookmark(docID);
+
 }
 
 //-----------------------------------------------------------------------------
@@ -69,17 +73,17 @@ function navigateToEachWashroom(docID) {
 // It adds the hike to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version. 
 //-----------------------------------------------------------------------------
-function saveBookmark(user) {
-    // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
+function saveBookmark(washroomDocID) {
+    // Manage the backend process to store the washroomDocID in the database, recording which washroom was bookmarked by the user.
 currentUser.update({
-                    // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+             // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
             // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(user)
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(washroomDocID)
     })
-            // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+    // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
     .then(function () {
-        console.log("bookmark has been saved for" + user);
-        var iconID = 'save-' + user;
+        console.log("bookmark has been saved for" + washroomDocID);
+        var iconID = 'save-' + washroomDocID;
         //console.log(iconID);
                     //this is to change the icon of the hike that was saved to "filled"
         document.getElementById(iconID).innerText = 'bookmark';
