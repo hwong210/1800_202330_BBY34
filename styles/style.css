@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     background-color: white;
     padding-bottom: 10px;
     margin: 0;
@@ -11,9 +12,10 @@ h2 {
     align-items: center;
 
 }
+
 .container {
-width: 100vw;
-height: 60vh;
+    width: 100vw;
+    height: 60vh;
 
 }
 
@@ -129,7 +131,8 @@ section {
     text-decoration: none;
 }
 
-.new-washroom, #review-submit {
+.new-washroom,
+#review-submit {
     position: fixed;
     bottom: 4em;
     right: 1em;
@@ -173,17 +176,21 @@ footer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     background-color: lightblue;
-    padding-top: 0.25em;   
+    padding-top: 0.25em;
     text-align: center;
 }
 
-.nav-home, .nav-preferences, .nav-saved, .nav-account {
+.nav-home,
+.nav-preferences,
+.nav-saved,
+.nav-account {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
 }
 
-.material-symbols-outlined, .bot-nav-text {
+.material-symbols-outlined,
+.bot-nav-text {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,7 +211,8 @@ footer {
     row-gap: 0.5em;
 }
 
-#review-header, .washroom-review-header {
+#review-header,
+.washroom-review-header {
     padding-left: 1em;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
@@ -218,7 +226,9 @@ footer {
     grid-row: 1 / span 1;
 }
 
-#review-text, #washroom-review-info, .grid-review-comments {
+#review-text,
+#washroom-review-info,
+.grid-review-comments {
     padding-right: 1em;
     padding-left: 1em;
 
@@ -274,7 +284,8 @@ footer {
     grid-row: 1 / span 1;
 }
 
-.grid-review-comments, .washroom-review-info {
+.grid-review-comments,
+.washroom-review-info {
     row-gap: 1em;
     margin-left: 1em;
     margin-right: 1em;
@@ -399,7 +410,9 @@ footer {
     grid-row: 2 / span 1;
 }
 
-#tag1, #tag2, #tag3 {
+#tag1,
+#tag2,
+#tag3 {
     border: 2px solid;
     border-radius: 10px 10px;
     padding-left: 0.5em;
@@ -446,7 +459,8 @@ footer {
     font-size: 16pt;
 }
 
-.reviewer2, .reviewer3 {
+.reviewer2,
+.reviewer3 {
     grid-column: 1 / span 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -461,7 +475,8 @@ footer {
     grid-row: 2 / span 1;
 }
 
-#reviewer2-name, #reviewer3-name {
+#reviewer2-name,
+#reviewer3-name {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     display: flex;
@@ -470,7 +485,8 @@ footer {
 
 }
 
-#recommend, #recommend2 {
+#recommend,
+#recommend2 {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     font-size: 30pt;
@@ -478,7 +494,8 @@ footer {
     justify-content: end;
 }
 
-#reviewer2-desc, #reviewer3-desc {
+#reviewer2-desc,
+#reviewer3-desc {
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
 }
@@ -546,7 +563,8 @@ footer {
 
 /* Optionally, you can set a max-width to prevent stretching on larger screens */
 .card-image {
-    max-width: 500px; /* Adjust the max-width as needed */
+    max-width: 500px;
+    /* Adjust the max-width as needed */
     width: 100%;
     height: auto;
     padding-top: 20px;
@@ -571,4 +589,57 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     row-gap: 0.5em;
+}
+
+/** saved page style */
+#favorites a.saved,
+#mymaps a.saved {
+    text-decoration: none;
+    color: inherit;
+    /* Optional: To inherit the color from the parent */
+}
+
+/* Optional: Style the links when hovered */
+#favorites a.saved:hover,
+#mymaps a.saved:hover {
+    text-decoration: underline;
+    /* Add underline on hover if desired */
+}
+
+/* saved page */
+#edit {
+    float: right;
+}
+
+/* Add these styles to your existing CSS */
+
+.saved-icons {
+    font-size: 25px; 
+    color: black; 
+}
+
+.square-container {
+    /* Create a square container for the icon */
+    width: 50px; /* Adjust the width of the square */
+    height: 50px; /* Adjust the height of the square */
+    display: inline-block;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 50px; /* Align the icon vertically in the middle */
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-right: 10px;
+}
+
+#newlist, #favorites, #mymaps{
+    display: flex;
+    align-items: center;  
+}
+
+.saved-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

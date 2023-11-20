@@ -33,11 +33,11 @@ firebase.auth().onAuthStateChanged((user) => {
 function initPreferences(user) {
     document.getElementById("save").addEventListener("click", function () {
         // Get user preferences from checkboxes, radio buttons, sliders, etc.
-        var clean = document.getElementById("clean-outlined").value;
-        var ventilated = document.getElementById("ventilated-outlined").value;
-        var spacious = document.getElementById("spacious-outlined").value;
-        var private = document.getElementById("private-outlined").value;
-        var accessible = document.getElementById("accessible-outlined").value;
+        var clean = document.getElementById("clean-outlined").checked;
+        var ventilated = document.getElementById("ventilated-outlined").checked;
+        var spacious = document.getElementById("spacious-outlined").checked;
+        var private = document.getElementById("private-outlined").checked;
+        var accessible = document.getElementById("accessible-outlined").checked;
         var distance = document.getElementById("distance").value;
         var storageBin = document.getElementById("storagebin-checkbox").checked;
         var wheelchair = document.getElementById("wheelchair-checkbox").checked;
