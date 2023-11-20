@@ -52,13 +52,13 @@
       <img class="image-attributes" src="img/AddLocation.png" height="275" alt="image not available">
 
     </div>
+
     <div class="slogan-space">
       <div class="mainslogan">
         <div id='pill'><span>Add Restrooms To The App</span></div>
-
       </div>
-      <div class="container">
 
+      <div class="container">
         <form class="form-grid">
           <div class="form-grid-inner">
             <div class="form-group">
@@ -72,74 +72,69 @@
               <br>
 
             </div>
-
-            <h1>What Amenities Does This Washroom Have?</h1>
-          </div>
-          <div class="radio-button-grid">
-            <label class="label-alignment">Storage Bin <span style="display:inline-block; width: 26pt;"></span></label>
-            <div class="radio-button-center">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="storage-bin" value="Yes">
-                <label>Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="storage-bin" value="No">
-                <label>No</label>
-              </div>
-
-            </div>
-
-            <br>
-            <label class="label-alignment-two">Wheelchair <span
-                style="display:inline-block; width: 26pt;"></span></label>
-            <div class="radio-button-center-two">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="wheelchair" value="Yes">
-                <label>Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="wheelchair" value="No">
-                <label>No</label>
-              </div>
-
-            </div>
-            <br>
-            <label class="label-alignment-three">Water<span style="display:inline-block; width: 26pt;"></span></label>
-            <div class="radio-button-center-three">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="water" value="Yes">
-                <label>Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="water" value="No">
-                <label>No</label>
-              </div>
-
-            </div>
-            <br>
-            <label class="label-alignment-four">Bike Pump <span
-                style="display:inline-block; width: 26pt;"></span></label>
-            <div class="radio-button-center-four">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="bike-pump" value="Yes">
-                <label>Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="bike-pump" value="No">
-                <label>No</label>
-              </div>
-
-            </div>
-            <div class="star-alignment">
-              <button type="button" class="btn btn-lg btn-primary pull-right" onclick="submitWashroom()">Submit</button>
-            </div>
           </div>
 
+          <div id="preference-checkboxes">
+            <div><h3>Preferences</h3></div>
+            <input type="checkbox" class="btn-check" id="clean-outlined">
+            <label class="btn btn-outline-primary" for="clean-outlined">Clean</label>
+
+            <input type="checkbox" class="btn-check" id="ventilated-outlined">
+            <label class="btn btn-outline-primary" for="ventilated-outlined">Ventilated</label>
+
+            <input type="checkbox" class="btn-check" id="spacious-outlined">
+            <label class="btn btn-outline-primary" for="spacious-outlined">Spacious</label>
+
+            <input type="checkbox" class="btn-check" id="private-outlined">
+            <label class="btn btn-outline-primary" for="private-outlined">Private</label>
+
+            <input type="checkbox" class="btn-check" id="accessible-outlined">
+            <label class="btn btn-outline-primary" for="accessible-outlined">Accessible</label>
+          </div>
+          <br>
+          <div class="amenities">
+            <div>
+                <h3>Amenities</h3>
+            </div>
+            <div class="storgagebin">
+                <label class="form-check-label" for="storagebin-checkbox">
+                    Storage bin
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="storagebin-checkbox" style="float: right;">
+            </div>
+            <div class="wheelchair">
+                <label class="form-check-label" for="wheelchair-checkbox">
+                    Wheelchair
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="wheelchair-checkbox" style="float: right;">
+            </div>
+            <div class="waterfountain">
+                <label class="form-check-label" for="waterfountain-checkbox">
+                    Water fountain
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="waterfountain-checkbox" style="float: right;">
+            </div>
+            <div class="airpump">
+                <label class="form-check-label" for="airpump-checkbox">
+                    Bike pump
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="airpump-checkbox" style="float: right;">
+            </div>
+          </div>
+          <br>
+          <div class="star-alignment">
+            <button id="submit" type="button" class="btn btn-lg btn-primary pull-right"
+                onclick="submitWashroom()">Submit</button>
+          </div>
+        </div>
+       
+      </form>
+      
+        </div>
         </form>
-
+        
       </div>
-      <br>
-
+      
     </div>
 
     </div>
