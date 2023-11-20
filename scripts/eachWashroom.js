@@ -1,21 +1,23 @@
 // displays unique washroom info according to db
 function displayWashroomInfo() {
-    console.log("Test");
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
-    console.log(ID);
 
     db.collection("washrooms")
         .doc(ID)
         .get()
         .then(doc => {
-            thisWashroom = doc.data();
-            washroomAddress = thisWashroom.address;
-            washroomName = doc.data().name;
+            var thisWashroom = doc.data();
+            var address = doc.data().address;
+            var name = doc.data().name;
+            var code = doc.data().code
 
             
-            document.getElementById("washroomName").innerHTML = washroomName;
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("address").innerHTML = address
             // need to include image later once hason implements
+            let imgEvent = document.querySelector(".washroom-img")
+            imgEvent.src="../img/"+code+".jpg"
             console.log(washroomName);
 
         } );
@@ -25,7 +27,6 @@ function displayWashroomInfo() {
 displayWashroomInfo();
 
 function populateReviews() {
-    console.log("test");
     // for review collection holder container
     let washroomCardTemplate = document.getElementById("reviewCardTemplate");
     let washroomCardGroup = document.getElementById("reviewCardGroup");

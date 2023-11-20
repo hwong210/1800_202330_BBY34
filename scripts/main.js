@@ -16,7 +16,6 @@ function insertNameFromFirestore() {
         }
     })
 }
-
 insertNameFromFirestore();
 
 //------------------------------------------------------------------------------
@@ -30,8 +29,12 @@ function displayCardsDynamically(collection) {
         
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
-                
-                var washroomAddress = doc.data().address; //gets the address field
+                var address = doc.data().address;
+                var code = doc.data().code;   
+                var storageBin = doc.data().storageBin; 
+                var wheelchair = doc.data().wheelchair;
+                var waterFountain = doc.data().waterFountain;
+                var bikePump = doc.data().bikePump;
                 
                 // below is change from louise, remove if broken. it works
                 // gets the document id
@@ -41,8 +44,19 @@ function displayCardsDynamically(collection) {
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-address').innerHTML = washroomAddress;
+                newcard.querySelector('.card-address').innerHTML = address;
+                newcard.querySelector('.card-image').src = `./img/${code}.jpg`; 
+                newcard.querySelector('.card-storagebin').innerHTML = storageBin
+                    ? 'Storage Bin' : ''
+                newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
+                    ? 'Wheelchair Accessible' : ''
+                newcard.querySelector('.card-waterFountain').innerHTML = waterFountain
+                    ? 'Water Fountain' : ''
+                newcard.querySelector('.card-bikePump').innerHTML = bikePump
+                    ? 'Bike Pump' : ''
+                newcard.querySelector('a').href = "eachWashroom.html?docID="+docID;
                 
+
                 // read more button
                 //let readMoreButton = newcard.querySelector('.btn-read-more');
                 //readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
@@ -54,7 +68,7 @@ function displayCardsDynamically(collection) {
         })
 }
 
-//displayCardsDynamically("washrooms");  //input param is the name of the collection
+displayCardsDynamically("washrooms");  //input param is the name of the collection
 
 // navigates to specific washroom according to docid
 function navigateToEachWashroom(docID) {
@@ -104,18 +118,14 @@ function addNextListener(){
 }
 addNextListener();
 
-
-
 function readAllPosts() {
     db.collection("washrooms")
         .get()
         .then(snap => {
             console.log(snap.size);  // returns size of collection
-            MaxPost = snap.size;     // how many posts we have in total
+            MaxPosts = snap.size;     // how many posts we have in total
             snap.forEach(doc => {
                 AllPosts.push(doc.data());  //add to array with 'push'
-                
-                
             })
             
             displayPostCard(AllPosts[0]);   //display the first post at the beginning
@@ -125,36 +135,49 @@ function readAllPosts() {
 }
 readAllPosts();
 
-
 //------------------------------------------------------------
 // this function displays ONE card, with information
 // from the post document extracted (name, description, image)
 //------------------------------------------------------------
-function displayPostCard(doc) {
-    var title = doc.name; // get value of the "name" key
-    var address = doc.address;
-    var docID = doc.id;
+// function displayPostCard(doc) {
+//     var title = doc.name; // get value of the "name" key
+//     var address = doc.address;
+//     var code = doc.code;   
+//     var storageBin = doc.storageBin; 
+//     var wheelchair = doc.wheelchair;
+//     var waterFountain = doc.waterFountain;
+//     var bikePump = doc.bikePump;
+//     var docID = doc.id;
+
+//     console.log(docID);
+//     console.log(wheelchair)
+
+//     //clone the new card
+//     let newcard = document.getElementById("washroomCardTemplate").content.cloneNode(true);
+    
+//     //populate with title, image
+//     newcard.querySelector('.card-title').innerHTML = title;
+//     newcard.querySelector('.card-address').innerHTML = address;
+//     newcard.querySelector('.card-image').src = `./img/${code}.jpg`; 
+//     newcard.querySelector('.card-storagebin').innerHTML = storageBin
+//         ? 'Storage Bin' : ''
+//     newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
+//         ? 'Wheelchair Accessible' : ''
+//     newcard.querySelector('.card-waterFountain').innerHTML = waterFountain
+//         ? 'Water Fountain' : ''
+//     newcard.querySelector('.card-bikePump').innerHTML = bikePump
+//         ? 'Bike Pump' : ''
+
+//     //remove any old cards
+//     const element = document.getElementById("posts-go-here");
+//     while (element.firstChild){
+//         element.removeChild(element.firstChild);
+//     }
+//     let readMoreButton = newcard.querySelector('.btn-read-more');
+//                 readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
     
 
-    //clone the new card
-    let newcard = document.getElementById("washroomCardTemplate").content.cloneNode(true);
+//     //add the new card (overwrites any old ones from before)
+//     element.append(newcard);
     
-    //populate with title, image
-    newcard.querySelector('.card-title').innerHTML = title;
-    newcard.querySelector('.card-address').innerHTML = address;
-    
-    
-
-    //remove any old cards
-    const element = document.getElementById("posts-go-here");
-    while (element.firstChild){
-        element.removeChild(element.firstChild);
-    }
-    let readMoreButton = newcard.querySelector('.btn-read-more');
-                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
-    
-
-    //add the new card (overwrites any old ones from before)
-    element.append(newcard);
-    
-}
+// }

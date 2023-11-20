@@ -6,7 +6,7 @@ body {
 
 }
 
-h2 {
+h2, h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,9 +15,7 @@ h2 {
 
 .container {
     width: 100vw;
-    height: 15vh;
-    
-
+    height: auto;
 }
 
 .container-for-see-more-two {
@@ -161,8 +159,9 @@ section {
 }
 
 .add-washroom {
-    background-color: rgb(0, 150, 200);
-    color: white;
+    background-color: lightblue;
+    border-color: lightblue;
+    color: black;
     padding: 0.75em;
     border-radius: 20px 20px;
 }
@@ -259,6 +258,7 @@ footer {
     grid-row: 1 / span 1;
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: start;
     padding-left: 1em;
     margin: 0;
@@ -527,17 +527,15 @@ footer {
     padding-left: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-
-
 }
 
 .btn-primary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #0096c8;
-    --bs-btn-border-color: #006688;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #006283;
-    --bs-btn-hover-border-color: rgb(0, 42, 56);
+    --bs-btn-color: black;
+    --bs-btn-bg: lightblue;
+    --bs-btn-border-color: lightblue;
+    --bs-btn-hover-color: black;
+    --bs-btn-hover-bg: lightblue;
+    --bs-btn-hover-border-color: black;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #003d52;
@@ -654,4 +652,24 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.available {
+    color: green;
+    background-color: lightblue;
+}
+
+.card-storagebin, .card-wheelchair, .card-waterFountain, .card-bikePump {
+    text-align: center;
+    margin: 0;
+}
+
+.material-icons{
+    float: right;
+}
+
+#show-next {
+    background-color: lightblue;
+    border-color: lightblue;
+    margin: 5px;
 }

@@ -1,14 +1,19 @@
 function submitWashroom() {
     console.log("inside submit washroom");
-    let washroomName = document.getElementById("text-field").value;
-    let washroomAddress = document.getElementById("text-field-two").value;
-    let washroomStorageBin = document.querySelector('input[name="storage-bin"]:checked').value;
-    let washroomWheelchair = document.querySelector('input[name="wheelchair"]:checked').value;
-    let washroomWater = document.querySelector('input[name="water"]:checked').value;
-    let washroomBikePump = document.querySelector('input[name="bike-pump"]:checked').value;
+    let washroomName = document.getElementById("washroomName").value;
+    let washroomAddress = document.getElementById("washroomAddress").value;
+    let storageBin = document.getElementById('storageBin').checked;
+    let wheelchair = document.getElementById('wheelchair').checked;
+    let waterFountain = document.getElementById('waterFountain').checked;
+    let bikePump = document.getElementById('bikePump').checked;
+    let clean = document.getElementById('clean').checked;
+    let ventilated = document.getElementById('ventilated').checked;
+    let spacious = document.getElementById('spacious').checked;
+    let private = document.getElementById('private').checked;
+    let accessible = document.getElementById('accessible').checked;
  
     
-    console.log(washroomName, washroomAddress, washroomStorageBin, washroomWheelchair, washroomWater, washroomBikePump);
+    console.log(washroomName, washroomAddress, storageBin, wheelchair, waterFountain, bikePump);
 
     var user = firebase.auth().currentUser;
     if (user) {
@@ -21,10 +26,15 @@ function submitWashroom() {
             userID: userID,
             name: washroomName,
             address: washroomAddress,
-            storagebin: washroomStorageBin,
-            wheelchair: washroomWheelchair,
-            water: washroomWater,
-            bikepump: washroomBikePump,
+            storageBin: storageBin,
+            wheelchair: wheelchair,
+            waterFountain: waterFountain,
+            bikePump: bikePump,
+            clean: clean,
+            ventilated: ventilated,
+            spacious: spacious,
+            private: private,
+            accessible: accessible,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             window.location.href = "thanks.html"; // Redirect to the thanks page
