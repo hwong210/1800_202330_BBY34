@@ -15,6 +15,7 @@ function displayWashroomInfo() {
             
             document.getElementById("name").innerHTML = name;
             document.getElementById("address").innerHTML = address
+            
             // need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img")
             imgEvent.src="../img/"+code+".jpg"
