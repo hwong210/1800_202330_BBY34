@@ -23,15 +23,13 @@ html, body {
     grid-column: 2/ span 1;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 30% 30% 40%;
+    grid-template-rows: 30% 70%;
 
 
 }
 
 .star-alignment {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transform: translate(-30px);
    
 
 }
@@ -87,14 +85,23 @@ align-items: center;
     
 }
 
-.form {
+
+
+.form-grid-inner {
     grid-column: 1;
-    grid-row: 2/ span 1;
-    
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    
+    grid-row: 1;
+
+
+}
+
+.form-grid {
+ grid-column: 1;
+ grid-row: 1/ span 2;
+ 
+ display: grid;
+ grid-template-columns: 100%;
+ grid-template-rows: 25% 75%;
+
 }
 
 .form-alignment {
@@ -138,6 +145,13 @@ font-weight: bold;
     
 }
 
+h1 {
+    font-size: 20px;
+    font-family: sora;
+    font-weight: bold;
+
+}
+
 
 
 footer {
@@ -178,3 +192,83 @@ footer {
 .nav-link {
     font-size: 9pt;
 }
+
+
+.radio-button-grid {
+display: grid;
+grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+grid-template-columns: 40% 60%;
+
+}
+
+.radio-button-center {
+grid-row: 1;
+grid-column: 2/ span 1;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.label-alignment {
+grid-row: 1;
+grid-column: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.label-alignment-two {
+    grid-row: 2/ span 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    }
+
+.radio-button-center-two {
+        grid-row: 2/ span 1;
+        grid-column: 2/ span 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        }
+
+.label-alignment-three {
+            grid-row: 3/ span 1;
+            grid-column: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            }
+.radio-button-center-three {
+         grid-row: 3/ span 1;
+          grid-column: 2/ span 1;
+         display: flex;
+           justify-content: center;
+         align-items: center;
+                
+                }
+                    
+                .label-alignment-four {
+                    grid-row: 4/ span 1;
+                    grid-column: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    }
+
+
+.radio-button-center-four {
+         grid-row: 4/ span 1;
+          grid-column: 2/ span 1;
+         display: flex;
+           justify-content: center;
+         align-items: center;
+                
+                }

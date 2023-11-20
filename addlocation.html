@@ -114,7 +114,8 @@
         </div>
         <div class="container">
           
-          <form>
+          <form class="form-grid">
+            <div class="form-grid-inner">
               <div class="form-group">
                 <label>Input Washroom Name</label>
                   <input type="text" class="form-control" id="text-field" placeholder="Washroom name">
@@ -124,13 +125,76 @@
                   <label>Input Washroom Address</label>
                   <input type="text" class="form-control" id="text-field-two" placeholder="Washroom address">
                   <br>
-                  <div class="star-alignment">
-                      <button type="button" class="btn btn-lg btn-primary pull-right"
-                          onclick="submitWashroom()">Submit</button>
-                  </div>
+                  
            </div>
+           
+           <h1>What Amenities Does This Washroom Have?</h1>
+           </div>
+           <div class="radio-button-grid">
+          <label class="label-alignment">Storage Bin <span style="display:inline-block; width: 26pt;"></span></label>
+          <div class="radio-button-center">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="flooded" value="Yes">
+                <label>Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="flooded" value="No">
+                <label>No</label>
+            </div>
+            
+          </div>
+         
+            <br>
+            <label class="label-alignment-two">Wheelchair <span style="display:inline-block; width: 26pt;"></span></label>
+            <div class="radio-button-center-two">
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="flooded" value="Yes">
+                  <label>Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="flooded" value="No">
+                  <label>No</label>
+              </div>
               
-          </form>
+              </div>
+              <br>
+              <label class="label-alignment-three">Water<span style="display:inline-block; width: 26pt;"></span></label>
+              <div class="radio-button-center-three">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flooded" value="Yes">
+                    <label>Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flooded" value="No">
+                    <label>No</label>
+                </div>
+                
+                </div>
+                <br>
+                <label class="label-alignment-four">Bike Pump <span style="display:inline-block; width: 26pt;"></span></label>
+                <div class="radio-button-center-four">
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="flooded" value="Yes">
+                      <label>Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="flooded" value="No">
+                      <label>No</label>
+                  </div>
+                  
+                  </div>
+                  <div class="star-alignment">
+                    <button type="button" class="btn btn-lg btn-primary pull-right"
+                        onclick="submitWashroom()">Submit</button>
+                </div>
+                </div>
+               
+              </form>
+              
+                </div>
+                <br>
+              
+         
           
       </div>
 
