@@ -59,8 +59,8 @@ function displayCardsDynamically(collection) {
                 
 
                 // Set the 'onclick' attribute for the 'readMoreButton' to navigate to each washroom's details page
-                // let readMoreButton = newcard.querySelector('.btn-read-more');
-                // readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
+                let readMoreButton = newcard.querySelector('.btn-read-more');
+                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
