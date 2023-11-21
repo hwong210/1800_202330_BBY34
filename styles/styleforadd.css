@@ -1,5 +1,4 @@
-html,
-body {
+html,body {
     background-color: whitesmoke;
     padding: 0;
     margin: 0;
@@ -23,8 +22,14 @@ body {
     grid-template-rows: 30% 70%;
 }
 
+#submit {
+    color: black;
+    background-color: lightblue;
+    border-color: lightblue;
+}
+
 .star-alignment {
-    transform: translate(-30px);
+    text-align: center;
 }
 
 .star-form {
@@ -43,7 +48,7 @@ body {
 .grid-banner {
     background-color: whitesmoke;
     display: grid;
-    height: 180vh;
+    height: 100vh;
     width: 100vw;
     grid-template-columns: minmax(0, 100%);
     grid-template-rows: minmax(0, 25%) minmax(0, 75%);
@@ -64,8 +69,8 @@ body {
     grid-column: 1;
     grid-row: 2/ span 1;
     display: grid;
-    grid-template-columns: 33% 34% 33%;
-    grid-template-rows: 20% 80%;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .form-grid-inner {
@@ -75,10 +80,10 @@ body {
 
 .form-grid {
     grid-column: 1;
-    grid-row: 1/ span 2;
+    grid-row: 1/ 4;
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 25% 75%;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
 }
 
 .form-alignment {
@@ -100,7 +105,7 @@ body {
 #pill {
     width: 368px;
     height: 52px;
-    background: skyblue;
+    background: lightblue;
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -236,4 +241,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#preference-checkboxes .btn-outline-primary {
+    color: black;
+    border-color: lightblue;
+}
+
+#preference-checkboxes .btn-check:checked + .btn-outline-primary {
+    background-color: lightblue;
+    color: black;
 }

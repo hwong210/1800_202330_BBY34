@@ -1,21 +1,43 @@
 // displays unique washroom info according to db
 function displayWashroomInfo() {
-    console.log("Test");
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
-    console.log(ID);
 
     db.collection("washrooms")
         .doc(ID)
         .get()
         .then(doc => {
-            thisWashroom = doc.data();
-            washroomAddress = thisWashroom.address;
-            washroomName = doc.data().name;
+            var address = doc.data().address;
+            var name = doc.data().name;
+            var code = doc.data().code
+            var storageBin = doc.data().storageBin; 
+            var wheelchair = doc.data().wheelchair;
+            var waterFountain = doc.data().waterFountain;
+            var bikePump = doc.data().bikePump;
+            var clean = doc.data().clean;
+            var ventilated = doc.data().ventilated;
+            var spacious = doc.data().spacious;
+            var private = doc.data().private;
+            var accessible = doc.data().accessible;
+
 
             
-            document.getElementById("washroomName").innerHTML = washroomName;
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("address").innerHTML = address;
+            document.getElementById("clean").innerHTML = clean
+                ? 'Clean' : '';
+            document.getElementById("ventilated").innerHTML = ventilated
+                ? 'Ventilated' : '';
+            document.getElementById("spacious").innerHTML = spacious
+                ? 'Spacious' : '';
+            document.getElementById("private").innerHTML = private
+                ? 'Private' : '';
+            document.getElementById("accessible").innerHTML = accessible    
+                ? 'Accessible' : '';
+            
             // need to include image later once hason implements
+            let imgEvent = document.querySelector(".washroom-img")
+            imgEvent.src="../img/"+code+".jpg"
             console.log(washroomName);
 
         } );
@@ -25,7 +47,6 @@ function displayWashroomInfo() {
 displayWashroomInfo();
 
 function populateReviews() {
-    console.log("test");
     // for review collection holder container
     let washroomCardTemplate = document.getElementById("reviewCardTemplate");
     let washroomCardGroup = document.getElementById("reviewCardGroup");

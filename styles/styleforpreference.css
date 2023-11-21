@@ -147,9 +147,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-
 }
 
 * {
@@ -202,7 +199,7 @@ body {
 #pill {
     width: 368px;
     height: 82px;
-    background: skyblue;
+    background: lightblue;
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -213,7 +210,7 @@ body {
 #pill2 {
     width: 368px;
     height: 52px;
-    background: skyblue;
+    background: lightblue;
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -341,7 +338,7 @@ footer {
 
 
 .container input:checked~.checkmark {
-    background-color: #2196F3;
+    background-color: lightblue;
 }
 
 
