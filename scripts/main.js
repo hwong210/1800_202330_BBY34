@@ -29,14 +29,6 @@ function displayCardsDynamically(collection) {
 
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
-<<<<<<< HEAD
-
-                var washroomAddress = doc.data().address; //gets the address field
-
-                // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-                newcard = cardTemplate.content.cloneNode(true);
-
-=======
                 var address = doc.data().address;
                 var code = doc.data().code;   
                 var storageBin = doc.data().storageBin; 
@@ -45,7 +37,6 @@ function displayCardsDynamically(collection) {
                 var bikePump = doc.data().bikePump;
                 var image = doc.data().image
                 
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
                 // below is change from louise, remove if broken. it works
                 // gets the document id
                 var docID = doc.id;
@@ -54,13 +45,6 @@ function displayCardsDynamically(collection) {
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
-<<<<<<< HEAD
-                newcard.querySelector('.card-address').innerHTML = washroomAddress;
-
-                // read more button
-                //let readMoreButton = newcard.querySelector('.btn-read-more');
-                //readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
-=======
                 newcard.querySelector('.card-address').innerHTML = address;
                 newcard.querySelector('.card-image').src = image ? `img/${code}.jpg` : 'img/logo.jpg';
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
@@ -77,7 +61,6 @@ function displayCardsDynamically(collection) {
                 // Set the 'onclick' attribute for the 'readMoreButton' to navigate to each washroom's details page
                 // let readMoreButton = newcard.querySelector('.btn-read-more');
                 // readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
@@ -97,12 +80,9 @@ function navigateToEachWashroom(docID) {
     let url = `http://127.0.0.1:5500/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
 
-<<<<<<< HEAD
     // bookmarks
     newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
     newcard.querySelector('i').onclick = () => saveBookmark(docID);
-=======
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
 }
 
 // newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
@@ -152,11 +132,6 @@ function readAllPosts() {
             MaxPosts = snap.size;     // how many posts we have in total
             snap.forEach(doc => {
                 AllPosts.push(doc.data());  //add to array with 'push'
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
             })
 
             displayPostCard(AllPosts[0]);   //display the first post at the beginning
@@ -170,7 +145,6 @@ readAllPosts();
 // this function displays ONE card, with information
 // from the post document extracted (name, description, image)
 //------------------------------------------------------------
-<<<<<<< HEAD
 function displayPostCard(doc) {
     var title = doc.name; // get value of the "name" key
     var address = doc.address;
@@ -199,76 +173,3 @@ function displayPostCard(doc) {
     element.append(newcard);
 
 }
-=======
-// function displayPostCard(doc) {
-//     var title = doc.name; // get value of the "name" key
-//     var address = doc.address;
-//     var code = doc.code;   
-//     var storageBin = doc.storageBin; 
-//     var wheelchair = doc.wheelchair;
-//     var waterFountain = doc.waterFountain;
-//     var bikePump = doc.bikePump;
-//     var docID = doc.id;
-
-//     console.log(docID);
-//     console.log(wheelchair)
-
-//     //clone the new card
-//     let newcard = document.getElementById("washroomCardTemplate").content.cloneNode(true);
-    
-//     //populate with title, image
-//     newcard.querySelector('.card-title').innerHTML = title;
-//     newcard.querySelector('.card-address').innerHTML = address;
-//     newcard.querySelector('.card-image').src = `./img/${code}.jpg`; 
-//     newcard.querySelector('.card-storagebin').innerHTML = storageBin
-//         ? 'Storage Bin' : ''
-//     newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
-//         ? 'Wheelchair Accessible' : ''
-//     newcard.querySelector('.card-waterFountain').innerHTML = waterFountain
-//         ? 'Water Fountain' : ''
-//     newcard.querySelector('.card-bikePump').innerHTML = bikePump
-//         ? 'Bike Pump' : ''
-
-//     //remove any old cards
-//     const element = document.getElementById("posts-go-here");
-//     while (element.firstChild){
-//         element.removeChild(element.firstChild);
-//     }
-//     let readMoreButton = newcard.querySelector('.btn-read-more');
-//                 readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
-    
-
-//     //add the new card (overwrites any old ones from before)
-//     element.append(newcard);
-    
-// }
-
-
-// Initialize and add the map
-let map;
-
-async function initMap() {
-  // The location of Uluru
-  const position = { lat: -25.344, lng: 131.031 };
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-  // The map, centered at Uluru
-  map = new Map(document.getElementById("map"), {
-    zoom: 4,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
-
-  // The marker, positioned at Uluru
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Uluru",
-  });
-}
-
-initMap();
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
