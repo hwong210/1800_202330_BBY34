@@ -30,6 +30,10 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
+function saveAlert() {
+    alert('Your preferences are saved!');
+}
+
 function initPreferences(user) {
     document.getElementById("save").addEventListener("click", function () {
         // Get user preferences from checkboxes, radio buttons, sliders, etc.
@@ -132,10 +136,6 @@ function initPreferences(user) {
             .catch(function (error) {
                 console.error("Error getting preferences: ", error);
             });
-    }
-
-    function saveAlert() {
-        alert('Your preferences are saved!');
     }
 }
 

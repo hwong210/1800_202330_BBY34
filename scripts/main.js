@@ -26,30 +26,36 @@ function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "washrooms"
-        .then(allWashrooms=> {
-        
+        .then(allWashrooms => {
+
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
-                
+
                 var washroomAddress = doc.data().address; //gets the address field
-                
+
+                // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+                newcard = cardTemplate.content.cloneNode(true);
+
                 // below is change from louise, remove if broken. it works
                 // gets the document id
                 var docID = doc.id;
-                
+
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-address').innerHTML = washroomAddress;
-                
+
                 // read more button
                 //let readMoreButton = newcard.querySelector('.btn-read-more');
                 //readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
 
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
-                
+
+                // Bookmarks
+                newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
+                newcard.querySelector('i').onclick = () => saveBookmark(docID);
             })
         })
 }
@@ -65,29 +71,28 @@ function navigateToEachWashroom(docID) {
     // bookmarks
     newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
     newcard.querySelector('i').onclick = () => saveBookmark(docID);
-
 }
 
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "bookmark" icon.
-// It adds the hike to the "bookmarks" array
+// It adds the washroom to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version. 
 //-----------------------------------------------------------------------------
 function saveBookmark(washroomDocID) {
     // Manage the backend process to store the washroomDocID in the database, recording which washroom was bookmarked by the user.
-currentUser.update({
-             // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-            // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
         bookmarks: firebase.firestore.FieldValue.arrayUnion(washroomDocID)
     })
-    // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
-    .then(function () {
-        console.log("bookmark has been saved for" + washroomDocID);
-        var iconID = 'save-' + washroomDocID;
-        //console.log(iconID);
-                    //this is to change the icon of the hike that was saved to "filled"
-        document.getElementById(iconID).innerText = 'bookmark';
-    });
+        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+        .then(function () {
+            console.log("bookmark has been saved for" + washroomDocID);
+            var iconID = 'save-' + washroomDocID;
+            //console.log(iconID);
+            //this is to change the icon of the hike that was saved to "filled"
+            document.getElementById(iconID).innerText = 'bookmark';
+        });
 }
 
 //Set a few global variables
@@ -96,8 +101,8 @@ var MaxPosts = 0;   // will get reassigned to say, 10
 var PostIndex = 0;  // start displaying the one at index 0
 
 //Next button event listener
-function addNextListener(){
-    document.getElementById("show-next").addEventListener('click', ()=>{
+function addNextListener() {
+    document.getElementById("show-next").addEventListener('click', () => {
         displayPostCard(AllPosts[PostIndex]);   //displays the next one
         PostIndex++;
     })
@@ -114,14 +119,14 @@ function readAllPosts() {
             MaxPost = snap.size;     // how many posts we have in total
             snap.forEach(doc => {
                 AllPosts.push(doc.data());  //add to array with 'push'
-                
-                
+
+
             })
-            
+
             displayPostCard(AllPosts[0]);   //display the first post at the beginning
         })
-        
- 
+
+
 }
 readAllPosts();
 
@@ -134,27 +139,27 @@ function displayPostCard(doc) {
     var title = doc.name; // get value of the "name" key
     var address = doc.address;
     var docID = doc.id;
-    
+
 
     //clone the new card
     let newcard = document.getElementById("washroomCardTemplate").content.cloneNode(true);
-    
+
     //populate with title, image
     newcard.querySelector('.card-title').innerHTML = title;
     newcard.querySelector('.card-address').innerHTML = address;
-    
-    
+
+
 
     //remove any old cards
     const element = document.getElementById("posts-go-here");
-    while (element.firstChild){
+    while (element.firstChild) {
         element.removeChild(element.firstChild);
     }
     let readMoreButton = newcard.querySelector('.btn-read-more');
-                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
-    
+    readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
+
 
     //add the new card (overwrites any old ones from before)
     element.append(newcard);
-    
+
 }
