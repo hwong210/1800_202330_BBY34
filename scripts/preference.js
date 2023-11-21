@@ -167,5 +167,4 @@ function validatePreferences() {
         alert('Please select at least one preference option.');
         return false; // Preferences are not valid
     }
-    return saveAlert(); // Preferences are valid
 }

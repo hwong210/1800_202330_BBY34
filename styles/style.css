@@ -1,5 +1,7 @@
 html,
 body {
+    font-family: 'Bebas Neue', sans-serif;
+    /* font-family: 'DM Serif Display', serif; */
     background-color: white;
     padding-bottom: 10px;
     margin: 0;
