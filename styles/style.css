@@ -9,7 +9,8 @@ body {
 
 }
 
-h2, h1 {
+h2,
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -556,7 +557,8 @@ footer {
     --bs-btn-disabled-border-color: #585858;
 }
 
-.btn-outline-primary, #review-tags {
+.btn-outline-primary,
+#review-tags {
     --bs-btn-color: #0096c8;
     --bs-btn-border-color: #0096c8;
     --bs-btn-hover-color: #fff;
@@ -666,7 +668,7 @@ footer {
 }
 
 
-#seemoreDiv{
+#seemoreDiv {
     display: flex;
     align-items: center;
     padding-top: 20px;
@@ -687,12 +689,15 @@ footer {
     background-color: lightblue;
 }
 
-.card-storagebin, .card-wheelchair, .card-waterFountain, .card-bikePump {
+.card-storagebin,
+.card-wheelchair,
+.card-waterFountain,
+.card-bikePump {
     text-align: center;
     margin: 0;
 }
 
-.material-icons{
+.material-icons {
     float: right;
 }
 
@@ -703,8 +708,10 @@ footer {
 }
 
 #map {
-    height: 400px; /* The height is 400 pixels */
-    width: 100%; /* The width is the width of the web page */
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
 }
 
 .review-tag-colors {
@@ -720,3 +727,4 @@ footer {
     padding-right: 0.5em;
     margin: 0.5em;
 }
+
