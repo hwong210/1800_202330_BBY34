@@ -1,3 +1,8 @@
+// counts reviews
+function countReviews() {
+
+}
+
 // displays unique washroom info according to db
 function displayWashroomInfo() {
     let params = new URL(window.location.href);
@@ -19,6 +24,7 @@ function displayWashroomInfo() {
             var spacious = doc.data().spacious;
             var private = doc.data().private;
             var accessible = doc.data().accessible;
+            // var reviewCount = doc.data().
 
 
             
@@ -47,7 +53,7 @@ function displayWashroomInfo() {
 displayWashroomInfo();
 
 function mapCleanValueToTag(cleanValue) {
-    return cleanValue === 1 ? '<span class="review-tag-colors"" id="clean-button">clean</span>' : '';
+    return cleanValue === 1 ? '<span class="review-tag-colors" id="clean-button">clean</span>' : '';
 }
 
 function populateReviews() {
