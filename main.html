@@ -9,18 +9,20 @@
   <!-- Bootstrap Library CSS CDN go here -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-  <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-    key: "AIzaSyB4irS5XpeKUXzylEF9DpgeJ39lEewS47s",
-    v: "weekly",
-    // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-    // Add other bootstrap parameters as needed, using camel case.
-  });</script>
+ 
+    <script>
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyB4irS5XpeKUXzylEF9DpgeJ39lEewS47s",
+        v: "weekly",
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+      });
+    </script>
 
   <!-- Boostrap Library JS CDN  go here -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+  </script>
 
   <!-------------------------------------------------------->
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -50,84 +52,65 @@
 <body>
   <div id="header-container"></div>
 
+  <div id="map"></div>
+
   <!-- Look into integrating login nicely -->
   <div id="firebaseui-auth-container"></div>
   <div id="welcome">
-    <h1 id="welcome-msg">Hello, <span id="name-here"></span></h1>
+    <h1 id="welcome-msg">Hello, &nbsp;<span id="name-here"></span></h1>
   </div>
 
-  <!-- <div id="map"></div>-->
-  
-  <!-- Container for all washroom cards -->
-  <div class="container">
-    <h2>Today's Featured Washroom</h2>
-<<<<<<< HEAD
-    Here is the container for cards 
+    <!-- Container for all washroom cards -->
     <div class="container">
-      <div id="washrooms-go-here" class="row row-cols-auto">
-      </div>
-    </div>
-  </div>
-=======
-    <!-- Here is the container for cards  -->
-    <!-- <div class="container"> -->
-      <!-- <div id="washrooms-go-here" class="row row-cols-auto">
-      </div> -->
-    <!-- </div> -->
-  <!-- </div> -->
+      <h2>Today's Featured Washroom</h2>
 
->>>>>>> 1945489d975a5e46ca8f2984bd88078fcaa830de
+      <!-- Here is the container for cards -->
+      <div class="container">
+        <div id="washrooms-go-here" class="row row-cols-auto"></div>
+      </div>
+
+    </div>
   
-  <!-- Templates for general use, not displayed -->
-  <template id="washroomCardTemplate">
-    <div class="card py-2 mx-2" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-address">placeholder</p>
-        <img class="card-image card-img-top" src=" ..." alt="..." />
-        <div>
-        <p class="card-storagebin"></p>
-        <p class="card-wheelchair"></p>
-        <p class="card-waterFountain"></p>
-        <p class="card-bikePump"></p>
-        </div>
-        <br>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a class="btn btn-primary card-href btn-read-more">Read more ...</a>
-        <i class="material-icons">bookmark_border</i>
-      </div>
-    </div>
-  </template>
-
-  <div class="container-for-see-more" id="div-for-section">
     
-    <div id="posts-go-here" class="row row-cols-auto container-for-see-more-two">
-    </div>
-    <div id="seemoreDiv">
-    <button id="show-next" type="button" class="btn btn-info add-washroom">See More Washrooms!</button></div>
-</div>
-<br>
+    <!-- Templates for general use, not displayed -->
+    <template id="washroomCardTemplate">
+      <div class="card py-2 mx-2" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-address">placeholder</p>
+          <img class="card-image card-img-top" src=" ..." alt="..." />
+          <div>
+          <p class="card-storagebin"></p>
+          <p class="card-wheelchair"></p>
+          <p class="card-waterFountain"></p>
+          <p class="card-bikePump"></p>
+          </div>
+          <br>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a class="btn btn-primary card-href btn-read-more">Read more ...</a>
+          <i class="material-icons">bookmark_border</i>
+        </div>
+      </div>
+    </template>
+
+    <!-- <div class="container-for-see-more" id="div-for-section">
+      <div id="posts-go-here" class="row row-cols-auto container-for-see-more-two">
+      </div>
+      <div id="seemoreDiv">
+      <button id="show-next" type="button" class="btn btn-info add-washroom">See More Washrooms!</button></div>
+    </div> -->
+
   <div class="new-washroom">
     <a href="addlocation.html" class="btn btn-info add-washroom" role="button">+ Add Washroom</a>
   </div>
 
-  <div class="map-icon">
+  <!-- <div class="map-icon">
     <a href="#" class="btn btn-info add-washroom" role="button"><span class="material-icons saved-icons" style="color:white">map</span>Map</a>
   </div>
-
-  <figure id="grid-banner">
-    <img id="banner-image" src="img/bathroom1.jpg" alt="banner-img1">
-    <figcaption id="banner-annotation">
-      <span id="text1"><b>Find your perfect restroom with SmartRelief</b></span>
-    </figcaption>
-<<<<<<< HEAD
-  </figure>
-=======
-  </figure> 
->>>>>>> 1945489d975a5e46ca8f2984bd88078fcaa830de
+   -->
 
   <!-- <section>
     <div class="closest">
@@ -156,6 +139,7 @@
   <script src="./scripts/footer.js"></script>
   <script src="./scripts/header.js"></script>
   <script src="./scripts/main.js"></script>
+  <script src="./scripts/index.js"></script>
 
 </body>
 

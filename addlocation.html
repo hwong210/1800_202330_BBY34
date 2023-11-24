@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>Bathroom App Add Section</title>
+  <title>SmartRelief</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,7 +39,6 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/styleforadd.css">
-  <script src="./scripts/addlocation.js"></script>
 
 </head>
 
@@ -50,7 +49,6 @@
   <figure class="grid-banner">
     <div class="mainpic">
       <img class="image-attributes" src="img/AddLocation.png" height="275" alt="image not available">
-
     </div>
 
     <div class="slogan-space">
@@ -61,21 +59,22 @@
       <div class="container">
         <form class="form-grid">
           <div class="form-grid-inner">
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Input Washroom Name</label>
               <input type="text" class="form-control" id="washroomName" placeholder="Washroom name">
-            </div><br>
+            </div>
+            <br> -->
             <div class="form-group">
-
               <label>Input Washroom Address</label>
-              <input type="text" class="form-control" id="washroomAddress" placeholder="Washroom address">
+              <input type="text" class="form-control" id="address" placeholder="Washroom address">
               <br>
-
             </div>
           </div>
 
           <div id="preference-checkboxes">
-            <div><h3>Description</h3></div>
+            <div>
+              <h3>Description</h3>
+            </div>
             <input type="checkbox" class="btn-check" id="clean">
             <label class="btn btn-outline-primary" for="clean">Clean</label>
 
@@ -94,59 +93,70 @@
           <br>
           <div class="amenities">
             <div>
-                <h3>Amenities</h3>
+              <h3>Amenities</h3>
             </div>
             <div class="storgagebin">
-                <label class="form-check-label" for="storagebin-checkbox">
-                    Storage bin
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="storageBin" style="float: right;">
+              <label class="form-check-label" for="storagebin-checkbox">
+                Storage bin
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="storageBin" style="float: right;">
             </div>
             <div class="wheelchair">
-                <label class="form-check-label" for="wheelchair-checkbox">
-                    Wheelchair
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="wheelchair" style="float: right;">
+              <label class="form-check-label" for="wheelchair-checkbox">
+                Wheelchair
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="wheelchair" style="float: right;">
             </div>
             <div class="waterfountain">
-                <label class="form-check-label" for="waterfountain-checkbox">
-                    Water fountain
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="waterFountain" style="float: right;">
+              <label class="form-check-label" for="waterfountain-checkbox">
+                Water fountain
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="waterFountain" style="float: right;">
             </div>
             <div class="airpump">
-                <label class="form-check-label" for="airpump-checkbox">
-                    Bike pump
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="bikePump" style="float: right;">
+              <label class="form-check-label" for="airpump-checkbox">
+                Bike pump
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="bikePump" style="float: right;">
             </div>
           </div>
+          <br>        
+          
+          <div id="submitImg"><h3>Submit an image</h3></div>
+          <div id="file"><input type="file" class="inputFile" id="fileInp" onchange="getFile(event)" accept="images/png, images/jpeg, images/jpg"></div>
+          <span class="fileText"></span>
           <br>
+          <!-- <div class="star-alignment">
+              <button id="submit" type="button" class="btn btn-lg btn-primary pull-right" onclick="uploadImage()">Upload Image</button>
+          </div>
+          <br> -->
           <div class="star-alignment">
             <button id="submit" type="button" class="btn btn-lg btn-primary pull-right"
-                onclick="submitWashroom()">Submit</button>
+              onclick="submitWashroom()">Submit</button>
           </div>
-        </div>
-       
-      </form>
-      
-        </div>
-        </form>
-        
-      </div>
-      
-    </div>
 
+
+      </div>
+
+      </form>
+
+    </div>
+    </form>
+
+    </div>
+    </div>
     </div>
   </figure>
 
   <!-- copyright footer -->
-
   <div id="footer-container"></div>
 
   <!-- Link to scripts of your own -->
   <script src="./scripts/footer.js"></script>
   <script src="./scripts/header.js"></script>
+  <script src="./scripts/firebaseAPI.js"></script>
+  <script src="./scripts/addlocation.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4irS5XpeKUXzylEF9DpgeJ39lEewS47s&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
 
 </html>

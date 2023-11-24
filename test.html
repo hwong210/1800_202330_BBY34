@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <title>SmartRelief</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+      <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyB4irS5XpeKUXzylEF9DpgeJ39lEewS47s",
+          v: "weekly",
+          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+          // Add other bootstrap parameters as needed, using camel case.
+        });
+      </script>
+  
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+  
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  
+    <!-- Other libraries go here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Inconsolata&display=swap" rel="stylesheet">
+    
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
+  
+    <style>
+        .container {
+    text-align: center;
+    }
+
+    input, button, .results {
+        height: 50px;
+        font-size: 20px;
+    }
+
+    input {
+        width: 500px;
+        margin-top: 100px;
+    }
+
+    button {
+        margin: 10px;
+        background-color: rgb(7, 78, 7);
+        color:    white;
+        width: 200px;
+    }
+
+    button:hover {
+        background-color: rgb(116, 235, 61);
+        color:   rgb(50, 50, 50);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="address" id="address">
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4irS5XpeKUXzylEF9DpgeJ39lEewS47s&libraries=places&callback=initAutocomplete" async defer></script>
+
+    <script>
+        function initAutocomplete() {
+            var autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'));
+
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                showAddress(place);
+            });
+        }
+
+        function showAddress(place) {
+            if (place) {
+                var lat = place.geometry.location.lat();
+                var lng = place.geometry.location.lng();
+
+                console.log(lat);
+                console.log(lng);
+            } else {
+                results.innerHTML = "<p style='color: red;'>Not found</p>";
+            }
+        }
+    </script>
+
+    <!-- <script>
+        var addressInp;
+
+        function showAddress() {
+            var results = document.querySelector("#results");
+            results.innerHTML = ' ';
+            if (addressInp && addressInp.length > 0) {
+                addressInp.forEach(element => {
+                    results.innerHTML += "<div class='results'>" +
+                        element.formatted_address +
+                        "<br> Lat: " + element.geometry.location.lat +
+                        " Lng: " + element.geometry.location.lng +
+                        "</div>";
+                });
+            } else {
+                results.innerHTML = "<p style='color: red;'>Not found</p>";
+            }
+        }
+
+        function findAddress() {
+            var address = document.querySelector("#address").value;
+            var apiKey = 'AIzaSyB4irS5XpeKUXzylEF9DpgeJ39lEewS47s';
+            var apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodeURIComponent(address) + "&key=" + apiKey;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => addressInp = data.results)
+                .then(showAddress)
+                .catch(err => console.log(err));
+        }
+    </script> -->
+    
+    
+</body>
+</html>
