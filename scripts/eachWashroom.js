@@ -47,7 +47,7 @@ function displayWashroomInfo() {
 displayWashroomInfo();
 
 function mapCleanValueToTag(cleanValue) {
-    return cleanValue === 1 ? "<span class=\"btn btn-outline-primary\" for=\"clean-button\" id=\"cleanLabel\">clean</span>" : "";
+    return cleanValue === 1 ? '<span class="review-tag-colors"" id="clean-button">clean</span>' : '';
 }
 
 function populateReviews() {

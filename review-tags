@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
-        <span id="review-tags">clean</span>
+        <span id="clean-button">clean</span>
 
     
     

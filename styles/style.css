@@ -662,6 +662,23 @@ footer {
     justify-content: center;
 }
 
+
+#seemoreDiv{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: center;
+
+}
+
+.map-icon {
+    position: fixed;
+    bottom: 4em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
 .available {
     color: green;
     background-color: lightblue;
@@ -685,4 +702,18 @@ footer {
 #map {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
+}
+
+.review-tag-colors {
+    color: white;
+    background-color: #0096c8;
+    border-color: #0096c8;
+}
+
+#clean-button {
+    border-radius: 10px 10px;
+    padding: 0.1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0.5em;
 }
