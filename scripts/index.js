@@ -1,10 +1,8 @@
 let map, infoWindow;
 
-// initMap is now async
 async function initMap() {
-    // Request libraries when needed, not in the script tag.
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-    // Short namespaces can be used.
+    // Code to get lat and lng from firebase eventually (noncritical, can manually add for final)
     map = new Map(document.getElementById("map"), {
         center: { lat: 49.248499, lng: -123.001375 },
         zoom: 15,

@@ -149,6 +149,7 @@ footer {
     background-color: lightblue;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
+    text-align: center;
 }
 
 
@@ -251,4 +252,24 @@ footer {
 #preference-checkboxes .btn-check:checked + .btn-outline-primary {
     background-color: lightblue;
     color: black;
+}
+
+.bar {
+    margin: 10px;
+}
+
+.uploadPercentage {
+    text-align: center;
+}
+
+.progress {
+    background: linear-gradient(12deg, rgb(230, 229, 229), lightblue)
+}
+
+#file {
+    text-align: center;
+}
+
+#submitImg{
+    text-align: center;
 }
