@@ -2,36 +2,43 @@ let map, infoWindow;
 
 // initMap is now async
 async function initMap() {
-  // Request libraries when needed, not in the script tag.
-  const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-  // Short namespaces can be used.
-  map = new Map(document.getElementById("map"), {
-    center: { lat: 49.248499, lng: -123.001375 },
-    zoom: 15,
-    mapId: '485cac226bd67abf',
-  });
+    // Request libraries when needed, not in the script tag.
+    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+    // Short namespaces can be used.
+    map = new Map(document.getElementById("map"), {
+        center: { lat: 49.248499, lng: -123.001375 },
+        zoom: 15,
+        mapId: '485cac226bd67abf',
+    });
 
-  new google.maps.Marker({
-    position: { lat: 49.248499, lng: -123.001375 },
-    map,
-    title: "Hello World!",
-  });
+    //Marker object
+    const marker = new google.maps.Marker({
+        position: { lat: 49.22557826237964, lng: -123.01363150112999 }, 
+        map,
+    });
 
-  new google.maps.Marker({
-    position: { lat: 49.22559313947635, lng: -123.01364905583645 },
-    map,
-    title: "Hello World!",
-  });
+    //infoWindo object
+    infoWindow = new InfoWindow();
+    
+    //Marker event to retrieve lat/long for googlemap link
+    marker.addListener("click", () => {
 
-  //Template for new bathroom markers
-    //     new google.maps.Marker({
-    //     position: { lat: , lng: },
-    //     map,
-    //     title: "Hello World!",
-    //   });
-
-
-  infoWindow = new InfoWindow();
+        const markerPosition = marker.getPosition();
+        const googleMapsLink = `https://www.google.com/maps?q=${markerPosition.lat()},${markerPosition.lng()}`;
+        const content = `
+        <div>
+            <h3>Location Information</h3>
+            <p>Latitude: ${markerPosition.lat()}</p>
+            <p>Longitude: ${markerPosition.lng()}</p>
+            <a href="${googleMapsLink}" target="_blank">Open in Google Maps</a>
+        </div>`;
+      
+          // Set the content and open the InfoWindow
+          infoWindow.setContent(content);
+          infoWindow.open(map, marker);
+    });
+    
+  
 
   const locationButton = document.createElement("button");
 
@@ -50,7 +57,7 @@ async function initMap() {
           };
 
           infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
+          infoWindow.setContent("Here ya arrrrr.");
           infoWindow.open(map);
           map.setCenter(pos);
         },
@@ -64,17 +71,6 @@ async function initMap() {
     }
   });
 }
-
-// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//   infoWindow.setPosition(pos);
-//   infoWindow.setContent(
-//     browserHasGeolocation
-//       ? "Error: The Geolocation service failed."
-//       : "Error: Your browser doesn't support geolocation.",
-//   );
-//   infoWindow.open(map);
-// }
-
 
 // Trigger the async initMap function
 initMap();
