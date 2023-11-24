@@ -46,6 +46,10 @@ function displayWashroomInfo() {
 
 displayWashroomInfo();
 
+function mapCleanValueToTag(cleanValue) {
+    return cleanValue === 1 ? '<span class="review-tag-colors"" id="clean-button">clean</span>' : '';
+}
+
 function populateReviews() {
     // for review collection holder container
     let washroomCardTemplate = document.getElementById("reviewCardTemplate");
@@ -80,10 +84,13 @@ function populateReviews() {
                         var reviewText = doc.data().reviewText;
                         var time = doc.data().timestamp.toDate();
 
+                        // Use the mapCleanValueToTag function to get the review tag
+                        var cleanTag = mapCleanValueToTag(clean);
+
                         // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
-                        reviewCard.querySelector(".review-tags").innerHTML = clean;
+                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag;
                         reviewCard.querySelector(".review-text").innerHTML = reviewText;
                         reviewCard.querySelector(".review-time").innerHTML = new Date(
                             time

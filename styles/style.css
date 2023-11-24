@@ -3,6 +3,7 @@ body {
     font-family: 'Bebas Neue', sans-serif;
     /* font-family: 'DM Serif Display', serif; */
     background-color: white;
+    padding-top: 2em;
     padding-bottom: 10px;
     margin: 0;
 
@@ -524,6 +525,7 @@ footer {
 .responsive-img {
     width: 100%;
     height: auto;
+    border-radius: 20px 20px;
 }
 
 #review-checkboxes {
@@ -554,7 +556,7 @@ footer {
     --bs-btn-disabled-border-color: #585858;
 }
 
-.btn-outline-primary {
+.btn-outline-primary, #review-tags {
     --bs-btn-color: #0096c8;
     --bs-btn-border-color: #0096c8;
     --bs-btn-hover-color: #fff;
@@ -678,6 +680,7 @@ footer {
     transform: translateX(-50%);
     display: flex;
 }
+
 .available {
     color: green;
     background-color: lightblue;
@@ -701,4 +704,18 @@ footer {
 #map {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
+}
+
+.review-tag-colors {
+    color: white;
+    background-color: #0096c8;
+    border-color: #0096c8;
+}
+
+#clean-button {
+    border-radius: 10px 10px;
+    padding: 0.1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0.5em;
 }
