@@ -8,13 +8,34 @@ async function initMap() {
   map = new Map(document.getElementById("map"), {
     center: { lat: 49.248499, lng: -123.001375 },
     zoom: 15,
+    mapId: '485cac226bd67abf',
   });
+
+  new google.maps.Marker({
+    position: { lat: 49.248499, lng: -123.001375 },
+    map,
+    title: "Hello World!",
+  });
+
+  new google.maps.Marker({
+    position: { lat: 49.22559313947635, lng: -123.01364905583645 },
+    map,
+    title: "Hello World!",
+  });
+
+  //Template for new bathroom markers
+    //     new google.maps.Marker({
+    //     position: { lat: , lng: },
+    //     map,
+    //     title: "Hello World!",
+    //   });
+
 
   infoWindow = new InfoWindow();
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Pan to Current Location";
+  locationButton.textContent = "Current Location";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
@@ -44,15 +65,16 @@ async function initMap() {
   });
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation.",
-  );
-  infoWindow.open(map);
-}
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//   infoWindow.setPosition(pos);
+//   infoWindow.setContent(
+//     browserHasGeolocation
+//       ? "Error: The Geolocation service failed."
+//       : "Error: Your browser doesn't support geolocation.",
+//   );
+//   infoWindow.open(map);
+// }
+
 
 // Trigger the async initMap function
 initMap();
