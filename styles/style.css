@@ -168,7 +168,7 @@ section {
 
 }
 
-.add-washroom {
+.add-washroom, account-save-btn {
     background-color: lightblue;
     border-color: lightblue;
     color: black;
@@ -540,13 +540,13 @@ footer {
     padding-bottom: 0.5em;
 }
 
-.btn-primary {
-    --bs-btn-color: black;
+.btn-primary, .btn-info {
+    --bs-btn-color: rgb(38, 38, 38);
     --bs-btn-bg: lightblue;
     --bs-btn-border-color: lightblue;
-    --bs-btn-hover-color: black;
-    --bs-btn-hover-bg: lightblue;
-    --bs-btn-hover-border-color: black;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: #0096c8;
+    --bs-btn-hover-border-color: #0096c8;
     --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #003d52;
@@ -578,6 +578,12 @@ footer {
 .btn {
     --bs-btn-line-height: 1;
 }
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+  }
 
 /* Optionally, you can set a max-width to prevent stretching on larger screens */
 .card-image {
@@ -784,9 +790,21 @@ footer {
 }
 
 #review-reply {
+    text-decoration: none;
     grid-column: 3 / span 1;
     grid-row: 5 / span 1;
     display: flex;
     justify-content: end;
+
+}
+
+.material-symbols-outlined {
+    color: #0096c8;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+  
 }
 
