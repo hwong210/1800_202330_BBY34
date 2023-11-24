@@ -1,5 +1,6 @@
 html,
 body {
+    padding-top: 2em;
     background-color: white;
     padding-bottom: 10px;
     margin: 0;
@@ -522,6 +523,7 @@ footer {
 .responsive-img {
     width: 100%;
     height: auto;
+    border-radius: 20px 20px;
 }
 
 #review-checkboxes {
@@ -552,7 +554,7 @@ footer {
     --bs-btn-disabled-border-color: #585858;
 }
 
-.btn-outline-primary {
+.btn-outline-primary, #review-tags {
     --bs-btn-color: #0096c8;
     --bs-btn-border-color: #0096c8;
     --bs-btn-hover-color: #fff;
@@ -660,23 +662,6 @@ footer {
     justify-content: center;
 }
 
-<<<<<<< HEAD
-#seemoreDiv{
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
-    justify-content: center;
-
-}
-
-.map-icon {
-    position: fixed;
-    bottom: 4em;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-=======
 .available {
     color: green;
     background-color: lightblue;
@@ -701,4 +686,3 @@ footer {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
 }
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
