@@ -662,7 +662,7 @@ footer {
     justify-content: center;
 }
 
-<<<<<<< HEAD
+
 #seemoreDiv{
     display: flex;
     align-items: center;
@@ -678,7 +678,6 @@ footer {
     transform: translateX(-50%);
     display: flex;
 }
-=======
 .available {
     color: green;
     background-color: lightblue;
@@ -703,4 +702,3 @@ footer {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
 }
->>>>>>> ccbfe190cabeca0d4a8bc2c9538560f80947f3bb
