@@ -721,28 +721,65 @@ footer {
 
 }
 
-.review-body {
-    margin: 1em;
-}
 
 .card {
     width: 100%;
     border-radius: 10px 10px;
     margin-bottom: 1em;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+}
+
+.review-body {
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
 }
 /*  gapping for each review card
 #reviewCardBody {
     margin: 1em;
 } */
+
+.review-rating, .review-name, .review-tags, .review-time, .review-text {
+    margin: 0;
+}
 .review-rating {
-    grid-column: 2 / span 1;
+    grid-column: 3 / span 1;
     grid-row: 1 / span 1;
     font-size: 15pt;
+    display: flex;
+    justify-content: end;
+}
+
+.review-tags {
+    grid-column: 1 / span  1;
+    grid-row: 2 / span 1;
+}
+
+.review-text {
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 1;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+
+}
+
+.review-time {
+    grid-column: 1 / span 2;
+    grid-row: 5 / span 1;
 }
 
 .review-name {
     font-size: 15pt;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#review-reply {
+    grid-column: 3 / span 1;
+    grid-row: 5 / span 1;
+    display: flex;
+    justify-content: end;
 }
