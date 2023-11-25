@@ -732,9 +732,9 @@ footer {
     border-color: #0096c8;
 }
 
-#clean-button, #ventilated-button, #spacious-button {
+#clean-button, #ventilated-button, #spacious-button, #private-button, #accessible-button {
     border-radius: 10px 10px;
-    padding: 0.1em;
+    padding: 0.2em;
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-size: 12pt;

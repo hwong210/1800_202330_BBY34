@@ -113,6 +113,15 @@ function mapSpaciousValueToTag(spaciousValue) {
     return spaciousValue === 1 ? '<span class="review-tag-colors" id="spacious-button">spacious</span>' : '';
 }
 
+function mapPrivateValueToTag(privateValue) {
+    return privateValue === 1 ? '<span class="review-tag-colors" id="private-button">private</span>' : '';
+}
+
+function mapAccessibleValueToTag(accessibleValue) {
+    return accessibleValue === 1 ? '<span class="review-tag-colors" id="accessible-button">accessible</span>' : '';
+}
+
+
 
 function populateReviews() {
     // for review collection holder container
@@ -146,8 +155,8 @@ function populateReviews() {
                         var clean = doc.data().clean;
                         var ventilated = doc.data().ventilated;
                         var spacious = doc.data().spacious;
-                        // var private = doc.data().private;
-                        // var accessible = doc.data().accessible;
+                        var private = doc.data().private;
+                        var accessible = doc.data().accessible;
 
                         var reviewText = doc.data().reviewText;
                         var time = doc.data().timestamp.toDate();
@@ -156,12 +165,13 @@ function populateReviews() {
                         var cleanTag = mapCleanValueToTag(clean);
                         var ventilatedTag = mapVentilatedValueToTag(ventilated);
                         var spaciousTag = mapSpaciousValueToTag(spacious);
+                        var privateTag = mapPrivateValueToTag(private);
+                        var accessibleTag = mapAccessibleValueToTag(accessible);
 
                         // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
-                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag + spaciousTag;
-                        // reviewCard.querySelector(".review-tags").innerHTML = ventilatedTag;
+                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag + spaciousTag + privateTag + accessibleTag;
                         reviewCard.querySelector(".review-text").innerHTML = reviewText;
                         reviewCard.querySelector(".review-time").innerHTML = new Date(
                             time
