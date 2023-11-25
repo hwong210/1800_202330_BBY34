@@ -48,7 +48,7 @@ html,body {
 .grid-banner {
     background-color: whitesmoke;
     display: grid;
-    height: 100vh;
+    height: 140vh;
     width: 100vw;
     grid-template-columns: minmax(0, 100%);
     grid-template-rows: minmax(0, 25%) minmax(0, 75%);
@@ -268,6 +268,9 @@ footer {
 
 #file {
     text-align: center;
+    grid-row: 7/ span 1;
+    grid-column: 1;
+    transform: translate(70px);
 }
 
 #submitImg{
