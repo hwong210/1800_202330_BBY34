@@ -9,6 +9,11 @@ body {
 
 }
 
+.button-alignment {
+    transform: translate(0px, -250px);
+
+}
+
 #toilet {
     height: 200px;
     width: auto;
@@ -27,7 +32,7 @@ h2, h1 {
 
 .container {
     width: 100vw;
-    height: 75vh;
+    height: 100vh;
 
 }
 
