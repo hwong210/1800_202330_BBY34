@@ -48,7 +48,7 @@ html,body {
 .grid-banner {
     background-color: whitesmoke;
     display: grid;
-    height: 140vh;
+    height: 160vh;
     width: 100vw;
     grid-template-columns: minmax(0, 100%);
     grid-template-rows: minmax(0, 25%) minmax(0, 75%);
