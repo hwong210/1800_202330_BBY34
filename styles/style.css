@@ -19,7 +19,6 @@ body {
     width: auto;
     transform: translate(0px, -100px);
 
-
 }
 
 
@@ -183,7 +182,7 @@ section {
 }
 
 .add-washroom, account-save-btn {
-    background-color: lightblue;
+    background-color: #add8e6;
     border-color: lightblue;
     color: black;
     padding: 0.75em;
@@ -555,7 +554,8 @@ footer {
 
 .btn-primary, .btn-info {
     --bs-btn-color: rgb(38, 38, 38);
-    --bs-btn-bg: lightblue;
+    /** btn-bg changed by hyebin. it was lightblue. **/
+    --bs-btn-bg: #0096c8;
     --bs-btn-border-color: lightblue;
     --bs-btn-hover-color: white;
     --bs-btn-hover-bg: #0096c8;
