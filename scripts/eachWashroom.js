@@ -109,6 +109,10 @@ function mapVentilatedValueToTag(ventilatedValue) {
     return ventilatedValue === 1 ? '<span class="review-tag-colors" id="ventilated-button">ventilated</span>' : '';
 }
 
+function mapSpaciousValueToTag(spaciousValue) {
+    return spaciousValue === 1 ? '<span class="review-tag-colors" id="spacious-button">spacious</span>' : '';
+}
+
 
 function populateReviews() {
     // for review collection holder container
@@ -141,7 +145,7 @@ function populateReviews() {
 
                         var clean = doc.data().clean;
                         var ventilated = doc.data().ventilated;
-                        // var spacious = doc.data().spacious;
+                        var spacious = doc.data().spacious;
                         // var private = doc.data().private;
                         // var accessible = doc.data().accessible;
 
@@ -151,11 +155,12 @@ function populateReviews() {
                         // Use the mapCleanValueToTag function to get the review tag
                         var cleanTag = mapCleanValueToTag(clean);
                         var ventilatedTag = mapVentilatedValueToTag(ventilated);
+                        var spaciousTag = mapSpaciousValueToTag(spacious);
 
                         // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
-                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag;
+                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag + spaciousTag;
                         // reviewCard.querySelector(".review-tags").innerHTML = ventilatedTag;
                         reviewCard.querySelector(".review-text").innerHTML = reviewText;
                         reviewCard.querySelector(".review-time").innerHTML = new Date(
