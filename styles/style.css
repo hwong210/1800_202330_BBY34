@@ -267,7 +267,7 @@ footer {
     height: 100%;
     overflow-y: scroll;
     /* height: ; */
-    resize: none;
+    resize: vertical;
     padding: 0.5em;
 
 }
@@ -301,7 +301,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    row-gap: 1em;
     margin: 0;
     padding: 0;
 }
@@ -545,7 +544,7 @@ footer {
     grid-row: 3 / span 1;
     padding-right: 1em;
     padding-left: 1em;
-    padding-top: 0.5em;
+    padding-top: 1.0em;
     padding-bottom: 0.5em;
 }
 
@@ -568,6 +567,8 @@ footer {
 
 .btn-outline-primary,
 #review-tags {
+    border-radius: 10px 10px;
+    margin: 0.15em;
     --bs-btn-color: #0096c8;
     --bs-btn-border-color: #0096c8;
     --bs-btn-hover-color: #fff;
@@ -585,6 +586,7 @@ footer {
 }
 
 .btn {
+    font-size: 14pt;
     --bs-btn-line-height: 1;
 }
 
@@ -733,15 +735,15 @@ footer {
     border-color: #0096c8;
 }
 
-#clean-button {
+#clean-button, #ventilated-button, #spacious-button, #private-button, #accessible-button {
     border-radius: 10px 10px;
-    padding: 0.1em;
+    padding: 0.2em;
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-size: 12pt;
+    margin-right: 0.3em;
 
 }
-
 
 .card {
     width: 100%;
@@ -758,14 +760,11 @@ footer {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
 }
-/*  gapping for each review card
-#reviewCardBody {
-    margin: 1em;
-} */
 
 .review-rating, .review-name, .review-tags, .review-time, .review-text {
     margin: 0;
 }
+
 .review-rating {
     grid-column: 3 / span 1;
     grid-row: 1 / span 1;
@@ -775,7 +774,7 @@ footer {
 }
 
 .review-tags {
-    grid-column: 1 / span  1;
+    grid-column: 1 / span 3;
     grid-row: 2 / span 1;
 }
 
@@ -784,10 +783,10 @@ footer {
     grid-row: 3 / span 1;
     margin-top: 0.4em;
     margin-bottom: 0.4em;
-
 }
 
 .review-time {
+    color: gray;
     grid-column: 1 / span 2;
     grid-row: 5 / span 1;
 }
