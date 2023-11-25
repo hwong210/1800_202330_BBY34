@@ -27,7 +27,8 @@ h2, h1 {
 
 .container {
     width: 100vw;
-    height: auto;
+    height: 75vh;
+
 }
 
 .container-for-see-more-two {
