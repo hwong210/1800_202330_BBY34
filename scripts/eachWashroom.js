@@ -79,9 +79,10 @@ function displayWashroomInfo() {
                     console.error("Error counting reviews or updating washroom collection:", error);
             });
 
+            // UI elements
             document.getElementById("name").innerHTML = name;
             document.getElementById("address").innerHTML = address;
-            document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
+            // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
             document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
             document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
             document.getElementById("private").innerHTML = private ? 'Private' : '';
@@ -103,6 +104,11 @@ displayWashroomInfo();
 function mapCleanValueToTag(cleanValue) {
     return cleanValue === 1 ? '<span class="review-tag-colors" id="clean-button">clean</span>' : '';
 }
+
+function mapVentilatedValueToTag(ventilatedValue) {
+    return ventilatedValue === 1 ? '<span class="review-tag-colors" id="ventilated-button">ventilated</span>' : '';
+}
+
 
 function populateReviews() {
     // for review collection holder container
@@ -131,20 +137,26 @@ function populateReviews() {
                     .get()
                     .then((userDoc) => {
                         var userName = userDoc.data().name;
-
-                        // rest of your code remains unchanged
                         var rating = doc.data().rating;
+
                         var clean = doc.data().clean;
+                        var ventilated = doc.data().ventilated;
+                        // var spacious = doc.data().spacious;
+                        // var private = doc.data().private;
+                        // var accessible = doc.data().accessible;
+
                         var reviewText = doc.data().reviewText;
                         var time = doc.data().timestamp.toDate();
 
                         // Use the mapCleanValueToTag function to get the review tag
                         var cleanTag = mapCleanValueToTag(clean);
+                        var ventilatedTag = mapVentilatedValueToTag(ventilated);
 
                         // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
-                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag;
+                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag;
+                        // reviewCard.querySelector(".review-tags").innerHTML = ventilatedTag;
                         reviewCard.querySelector(".review-text").innerHTML = reviewText;
                         reviewCard.querySelector(".review-time").innerHTML = new Date(
                             time
