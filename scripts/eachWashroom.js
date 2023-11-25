@@ -46,27 +46,33 @@ function displayWashroomInfo() {
             var private = doc.data().private;
             var accessible = doc.data().accessible;
 
+            // Declare count
+            var count;
+            var ratingAverageFormula;
+            var maxRating = 5;
+
             countReviews(ID)
-                .then(count => {
+                .then(result => {
+                    count = result;
                     // Log the reviewCount for debugging
                     console.log("Review Count:", count);
             
                     // Formula to calculate the average rating, rounded to the first decimal place.
-                    const ratingTotal = Math.round(10 * (count.totalRating / (count.reviewCount * 5) * 5)) / 10;
+                    ratingAverageFormula = Math.round(10 * (count.totalRating / (count.reviewCount * 5) * 5)) / 10;
 
-                    // Update the washrooms document with the reviewCount
+                    // Update the washrooms document with the reviewCount, totalRating, and ratingAverage.
                     return db.collection("washrooms")
                         .doc(ID)
                         .update({
                             reviewCount: count.reviewCount, // Access reviewCount from the result
                             totalRating: count.totalRating, // Access totalRating from the result
-                            ratingTotal: ratingTotal
+                            ratingAverage: ratingAverageFormula
                         });
                 })
                 .then(() => {
                     // UI review count
-                    document.getElementById("reviewCount").innerHTML = count.reviewCount;
-            
+                    document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
+
                     console.log("Washroom info updated successfully.");
                 })
                 .catch(error => {
@@ -80,7 +86,6 @@ function displayWashroomInfo() {
             document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
             document.getElementById("private").innerHTML = private ? 'Private' : '';
             document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
-            document.getElementById("reviewCount").innerHTML = reviewCount;  // Set the initial value
 
             // Need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img");
@@ -94,8 +99,6 @@ function displayWashroomInfo() {
 
 // Call the displayWashroomInfo function
 displayWashroomInfo();
-
-
 
 function mapCleanValueToTag(cleanValue) {
     return cleanValue === 1 ? '<span class="review-tag-colors" id="clean-button">clean</span>' : '';
