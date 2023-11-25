@@ -1,6 +1,27 @@
 // counts reviews
-function countReviews() {
+function countReviews(washroomID) {
+    return db.collection("reviews")
+        .where("washroomID", "==", washroomID)
+        .get()
+        .then(allReviews => {
+            const reviews = allReviews.docs.map(doc => {
+                const data = doc.data();
+                return {
+                    rating: data.rating
+                };
+            });
+            const reviewCount = reviews.length;
+            const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
 
+            return {
+                reviewCount: reviewCount,
+                totalRating: totalRating
+            };   
+        })
+        .catch(error => {
+            console.error("Error counting reviews:", error);
+            throw error;
+        });
 }
 
 // displays unique washroom info according to db
@@ -14,8 +35,8 @@ function displayWashroomInfo() {
         .then(doc => {
             var address = doc.data().address;
             var name = doc.data().name;
-            var code = doc.data().code
-            var storageBin = doc.data().storageBin; 
+            var code = doc.data().code;
+            var storageBin = doc.data().storageBin;
             var wheelchair = doc.data().wheelchair;
             var waterFountain = doc.data().waterFountain;
             var bikePump = doc.data().bikePump;
@@ -24,33 +45,57 @@ function displayWashroomInfo() {
             var spacious = doc.data().spacious;
             var private = doc.data().private;
             var accessible = doc.data().accessible;
-            // var reviewCount = doc.data().
 
-
+            countReviews(ID)
+                .then(count => {
+                    // Log the reviewCount for debugging
+                    console.log("Review Count:", count);
             
+                    // Formula to calculate the average rating, rounded to the first decimal place.
+                    const ratingTotal = Math.round(10 * (count.totalRating / (count.reviewCount * 5) * 5)) / 10;
+
+                    // Update the washrooms document with the reviewCount
+                    return db.collection("washrooms")
+                        .doc(ID)
+                        .update({
+                            reviewCount: count.reviewCount, // Access reviewCount from the result
+                            totalRating: count.totalRating, // Access totalRating from the result
+                            ratingTotal: ratingTotal
+                        });
+                })
+                .then(() => {
+                    // UI review count
+                    document.getElementById("reviewCount").innerHTML = count.reviewCount;
+            
+                    console.log("Washroom info updated successfully.");
+                })
+                .catch(error => {
+                    console.error("Error counting reviews or updating washroom collection:", error);
+            });
+
             document.getElementById("name").innerHTML = name;
             document.getElementById("address").innerHTML = address;
-            document.getElementById("clean").innerHTML = clean
-                ? 'Clean' : '';
-            document.getElementById("ventilated").innerHTML = ventilated
-                ? 'Ventilated' : '';
-            document.getElementById("spacious").innerHTML = spacious
-                ? 'Spacious' : '';
-            document.getElementById("private").innerHTML = private
-                ? 'Private' : '';
-            document.getElementById("accessible").innerHTML = accessible    
-                ? 'Accessible' : '';
-            
-            // need to include image later once hason implements
-            let imgEvent = document.querySelector(".washroom-img")
-            imgEvent.src="../img/"+code+".jpg"
+            document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
+            document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
+            document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
+            document.getElementById("private").innerHTML = private ? 'Private' : '';
+            document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
+            document.getElementById("reviewCount").innerHTML = reviewCount;  // Set the initial value
+
+            // Need to include image later once hason implements
+            let imgEvent = document.querySelector(".washroom-img");
+            imgEvent.src = "../img/" + code + ".jpg";
             console.log(washroomName);
-
-        } );
-
+        })
+        .catch(error => {
+            console.error("Error fetching washroom info:", error);
+        });
 }
 
+// Call the displayWashroomInfo function
 displayWashroomInfo();
+
+
 
 function mapCleanValueToTag(cleanValue) {
     return cleanValue === 1 ? '<span class="review-tag-colors" id="clean-button">clean</span>' : '';
