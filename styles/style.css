@@ -9,8 +9,16 @@ body {
 
 }
 
-h2,
-h1 {
+#toilet {
+    height: 200px;
+    width: auto;
+    transform: translate(0px, -100px);
+
+
+}
+
+
+h2, h1 {
     display: flex;
     justify-content: center;
     align-items: center;
