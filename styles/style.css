@@ -266,7 +266,7 @@ footer {
     height: 100%;
     overflow-y: scroll;
     /* height: ; */
-    resize: none;
+    resize: vertical;
     padding: 0.5em;
 
 }
@@ -300,7 +300,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    row-gap: 1em;
     margin: 0;
     padding: 0;
 }
@@ -544,7 +543,7 @@ footer {
     grid-row: 3 / span 1;
     padding-right: 1em;
     padding-left: 1em;
-    padding-top: 0.5em;
+    padding-top: 1.0em;
     padding-bottom: 0.5em;
 }
 
@@ -567,6 +566,8 @@ footer {
 
 .btn-outline-primary,
 #review-tags {
+    border-radius: 10px 10px;
+    margin: 0.15em;
     --bs-btn-color: #0096c8;
     --bs-btn-border-color: #0096c8;
     --bs-btn-hover-color: #fff;
@@ -584,6 +585,7 @@ footer {
 }
 
 .btn {
+    font-size: 14pt;
     --bs-btn-line-height: 1;
 }
 

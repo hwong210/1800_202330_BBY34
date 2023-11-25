@@ -132,6 +132,9 @@ function populateReviews() {
     // initializes washroomid to docid found in url
     let washroomID = params.searchParams.get("docID");
 
+    let a;
+    let b;
+
     db.collection("reviews")
         // where to get data? under washroomDocID field and the field value must == to the washroomID found in url
         .where("washroomID", "==", washroomID)
@@ -140,6 +143,12 @@ function populateReviews() {
             // the array of all reviews
             reviews = allReviews.docs;
             console.log(reviews);
+
+            // Sorts from latest to oldest
+            reviews.sort((a, b) => {
+                return b.data().timestamp - a.data().timestamp;
+            });
+
             reviews.forEach((doc) => {
                 // how to get user name not id?
                 var userID = doc.data().userID;
