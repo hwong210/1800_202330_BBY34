@@ -36,7 +36,7 @@ function displayCardsDynamically(collection) {
                 var wheelchair = doc.data().wheelchair;
                 var waterFountain = doc.data().waterFountain;
                 var bikePump = doc.data().bikePump;
-                var image = doc.data().image
+                var image = doc.data().imageURL;
                 
                 // below is change from louise, remove if broken. it works
                 // gets the document id
@@ -47,7 +47,7 @@ function displayCardsDynamically(collection) {
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
                 
-                newcard.querySelector('.card-image').src = image ? `img/${code}.jpg` : 'img/logo.jpg';
+                newcard.querySelector('.card-image').src = image;
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
                     ? 'Storage Bin' : ''
                 newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
