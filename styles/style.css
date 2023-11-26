@@ -8,6 +8,21 @@ body {
 
 }
 
+h4 {
+text-align: center;
+
+}
+
+.amenity-font-size {
+font-size: 15px;
+
+}
+
+.button-alignment {
+    transform: translate(0px, -250px);
+
+}
+
 #toilet {
     height: 200px;
     width: auto;
@@ -24,7 +39,7 @@ h2, h1 {
 
 .container {
     width: 100vw;
-    height: 75vh;
+    height: 50vh;
 
 }
 
@@ -35,14 +50,28 @@ h2, h1 {
 
 }
 
+
+.navbar {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
 .container-fluid {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
     background-color: lightblue;
     text-align: center;
-    padding: 0.5em;
+    
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr;
+    
     z-index: 1;
 }
 
@@ -264,7 +293,7 @@ footer {
     height: 100%;
     overflow-y: scroll;
     /* height: ; */
-    resize: vertical;
+    resize: none;
     padding: 0.5em;
 
 }
@@ -430,6 +459,10 @@ footer {
 #review-rate>input:checked~label:hover~label,
 #review-rate>label:hover~input:checked~label {
     color: #c59b08;
+}
+
+.star-gold, .star-black {
+    font-size: 18pt;
 }
 
 .star-gold {
@@ -750,7 +783,6 @@ footer {
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-size: 12pt;
-    margin-right: 0.3em;
 
 }
 
@@ -759,14 +791,14 @@ footer {
     border-radius: 10px 10px;
     margin-bottom: 1em;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     grid-template-rows: auto auto auto auto;
 }
 
 .review-body {
     margin: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
 }
 
@@ -775,7 +807,7 @@ footer {
 }
 
 .review-rating {
-    grid-column: 3 / span 1;
+    grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     font-size: 15pt;
     display: flex;
@@ -783,11 +815,16 @@ footer {
 }
 
 .review-tags {
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 2;
     grid-row: 2 / span 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Adjust the gap as needed */
+      
 }
 
 .review-text {
+    font-size: 14pt;
     grid-column: 1 / span 3;
     grid-row: 3 / span 1;
     margin-top: 0.4em;
@@ -801,9 +838,11 @@ footer {
 }
 
 .review-name {
-    font-size: 15pt;
+    font-size: 18pt;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    display: flex;
+    align-items: center;
 }
 
 #review-reply {

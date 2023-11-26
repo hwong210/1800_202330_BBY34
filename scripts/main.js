@@ -23,13 +23,14 @@ insertNameFromFirestore();
 //------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
-
-    db.collection(collection).get()   //the collection called "washrooms"
+    
+    db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   //the collection called "washrooms"
         .then(allWashrooms => {
-
+               
+           
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
-                var address = doc.data().address;
+               
                 var code = doc.data().code;   
                 var storageBin = doc.data().storageBin; 
                 var wheelchair = doc.data().wheelchair;
@@ -45,14 +46,14 @@ function displayCardsDynamically(collection) {
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-address').innerHTML = address;
+                
                 newcard.querySelector('.card-image').src = image ? `img/${code}.jpg` : 'img/logo.jpg';
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
                     ? 'Storage Bin' : ''
                 newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
-                    ? 'Wheelchair Accessible' : ''
+                    ? 'Wheelchair Access' : ''
                 newcard.querySelector('.card-waterFountain').innerHTML = waterFountain
-                    ? 'Water Fountain' : ''
+                    ? 'Fountain' : ''
                 newcard.querySelector('.card-bikePump').innerHTML = bikePump
                     ? 'Bike Pump' : ''
                 newcard.querySelector('a').href = "eachWashroom.html?docID="+docID;
@@ -66,8 +67,8 @@ function displayCardsDynamically(collection) {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
                 // Bookmarks
-                newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
-                newcard.querySelector('i').onclick = () => saveBookmark(docID);
+                // newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
+                // newcard.querySelector('i').onclick = () => saveBookmark(docID);
             })
         })
 }

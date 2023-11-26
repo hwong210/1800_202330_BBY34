@@ -81,6 +81,8 @@ function submitWashroom() {
                 let accessible = document.getElementById('accessible').checked;
                 
                 
+                
+                
                
 
                 console.log(address, storageBin, wheelchair, waterFountain, bikePump);
@@ -104,6 +106,7 @@ function submitWashroom() {
                         private: private,
                         accessible: accessible,
                         imageURL: downloadURL,
+                       
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         window.location.href = "thanks.html"; // Redirect to the thanks page

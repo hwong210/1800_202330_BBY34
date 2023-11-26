@@ -7,15 +7,26 @@ function countReviews(washroomID) {
             const reviews = allReviews.docs.map(doc => {
                 const data = doc.data();
                 return {
-                    rating: data.rating
+                    rating: data.rating,
+
+                    clean: data.clean,
+                    // ventilated : data.ventilated,
+                    // spacious : data.spacious,
+                    // private : data.private,
+                    // accessible : data.accessible
                 };
             });
             const reviewCount = reviews.length;
             const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
 
+            // Counts the reviews with specific tags
+            const cleanCount = reviews.filter(review => review.clean === 1).length;
+
+
             return {
                 reviewCount: reviewCount,
-                totalRating: totalRating
+                totalRating: totalRating,
+                cleanCount: cleanCount
             };   
         })
         .catch(error => {
@@ -66,14 +77,19 @@ function displayWashroomInfo() {
                         .update({
                             reviewCount: count.reviewCount, // Access reviewCount from the result
                             totalRating: count.totalRating, // Access totalRating from the result
-                            ratingAverage: ratingAverageFormula
+                            ratingAverage: ratingAverageFormula,
+                            cleanCount: count.cleanCount
                         });
                 })
                 .then(() => {
-                    // UI review count
-                    document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
-
+                    // UI average rating. Does not show if no reviews.
+                    if (!(count.reviewCount >= 1)) {
+                        document.getElementById("ratingAverage").innerHTML = "No reviews yet.";
+                    } else {
+                        document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
+                    }
                     console.log("Washroom info updated successfully.");
+
                 })
                 .catch(error => {
                     console.error("Error counting reviews or updating washroom collection:", error);
@@ -83,10 +99,10 @@ function displayWashroomInfo() {
             document.getElementById("name").innerHTML = name;
             document.getElementById("address").innerHTML = address;
             // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
-            document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
-            document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
-            document.getElementById("private").innerHTML = private ? 'Private' : '';
-            document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
+            // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
+            // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
+            // document.getElementById("private").innerHTML = private ? 'Private' : '';
+            // document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
 
             // Need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img");
@@ -120,8 +136,6 @@ function mapPrivateValueToTag(privateValue) {
 function mapAccessibleValueToTag(accessibleValue) {
     return accessibleValue === 1 ? '<span class="review-tag-colors" id="accessible-button">accessible</span>' : '';
 }
-
-
 
 function populateReviews() {
     // for review collection holder container
@@ -180,7 +194,10 @@ function populateReviews() {
                         // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
-                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag + spaciousTag + privateTag + accessibleTag;
+
+                        let tagsContainer = reviewCard.querySelector(".review-tags");
+
+                        tagsContainer.innerHTML = cleanTag + ventilatedTag + spaciousTag + privateTag + accessibleTag;
                         reviewCard.querySelector(".review-text").innerHTML = reviewText;
                         reviewCard.querySelector(".review-time").innerHTML = new Date(
                             time
