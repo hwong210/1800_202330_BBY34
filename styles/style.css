@@ -922,3 +922,12 @@ footer {
     height: 10vh;
 
 }
+
+.alignment-text {
+    text-align: center;
+}
+
+#writeReviewBtn {
+transform: translate(0, 80px);
+
+}

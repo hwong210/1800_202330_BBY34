@@ -87,7 +87,7 @@ function displayWashroomInfo() {
                     if (!(count.reviewCount >= 1)) {
                         document.getElementById("ratingAverage").innerHTML = "No reviews yet.";
                     } else {
-                        document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
+                        document.getElementById("ratingAverage").innerHTML = "The average rating of this washroom is: " + ratingAverageFormula + " / " + maxRating;
                     }
                     console.log("Washroom info updated successfully.");
 
@@ -98,12 +98,12 @@ function displayWashroomInfo() {
 
             // UI elements
             document.getElementById("name").innerHTML = name;
-            document.getElementById("address").innerHTML = address;
-            // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
-            // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
-            // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
-            // document.getElementById("private").innerHTML = private ? 'Private' : '';
-            // document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
+            document.getElementById("address2").innerHTML = 'The address of this washroom is: ' + address; 
+            document.getElementById("clean").innerHTML = clean ? 'This washroom is clean' : 'This washroom is not clean';
+            document.getElementById("ventilated").innerHTML = ventilated ? 'This washroom is ventilated' : 'This washroom is not ventilated';
+            document.getElementById("spacious").innerHTML = spacious ? 'This washroom is spacious' : 'This washroom is not spacious';
+            document.getElementById("private").innerHTML = private ? 'This washroom is private' : 'This washroom is not private';
+            document.getElementById("accessible").innerHTML = accessible ? 'This washroom is easily accessible' : 'This washroom is not easily accessible';
 
             // Need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img");
