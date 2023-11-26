@@ -61,6 +61,7 @@ document.getElementById("save").addEventListener("click", function () {
 
     // Save preferences to local storage
     savePreferencesToLocal(userPreferences);
+    displayCardsDynamically(collection);
 });
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -193,63 +194,6 @@ function validatePreferences() {
     }
 }
 
-
 //------------------------------------------------------------------------------
-// Preferences filtering
+// Filtering by preferences and displaying the washrooms.
 //------------------------------------------------------------------------------
-function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
-    
-    db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   //the collection called "washrooms"
-        .then(allWashrooms => {
-               
-            allWashrooms.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;       // get value of the "name" key  
-                var code = doc.data().code;   
-                var storageBin = doc.data().storageBin; 
-                var wheelchair = doc.data().wheelchair;
-                var waterFountain = doc.data().waterFountain;
-                var bikePump = doc.data().bikePump;
-                var image = doc.data().image
-                
-                // below is change from louise, remove if broken. it works
-                // gets the document id
-                var docID = doc.id;
-
-                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-
-                //update title and text
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-image').src = image ? `img/${code}.jpg` : 'img/logo.jpg';
-                newcard.querySelector('.card-storagebin').innerHTML = storageBin
-                    ? 'Storage Bin' : ''
-                newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
-                    ? 'Wheelchair Access' : ''
-                newcard.querySelector('.card-waterFountain').innerHTML = waterFountain
-                    ? 'Fountain' : ''
-                newcard.querySelector('.card-bikePump').innerHTML = bikePump
-                    ? 'Bike Pump' : ''
-                newcard.querySelector('a').href = "eachWashroom.html?docID="+docID;
-                
-                // Bookmarks, attach an onclick, callback function
-                newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
-                newcard.querySelector('i').onclick = () => saveBookmark(docID);
-
-                // not working. it makes only one card showing. hyebin
-                // currentUser.get().then(userDoc => {
-                //     //get the user name
-                //     var bookmarks = userDoc.data().bookmarks;
-                //     if (bookmarks.includes(docID)) {
-                //         document.getElementById('save-' + docID).innerText = 'bookmark';
-                //     }
-
-                // Set the 'onclick' attribute for the 'readMoreButton' to navigate to each washroom's details page
-                let readMoreButton = newcard.querySelector('.btn-read-more');
-                readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
-
-                //attach to gallery, Example: "washrooms-go-here"
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-
-            })
-        })
-}
