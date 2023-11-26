@@ -27,10 +27,9 @@ function displayCardsDynamically(collection) {
     db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   //the collection called "washrooms"
         .then(allWashrooms => {
                
-           
+
             allWashrooms.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;       // get value of the "name" key
-               
+                var title = doc.data().name;       // get value of the "name" key  
                 var code = doc.data().code;   
                 var storageBin = doc.data().storageBin; 
                 var wheelchair = doc.data().wheelchair;
@@ -46,7 +45,6 @@ function displayCardsDynamically(collection) {
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
-                
                 newcard.querySelector('.card-image').src = image ? `img/${code}.jpg` : 'img/logo.jpg';
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
                     ? 'Storage Bin' : ''
@@ -58,6 +56,17 @@ function displayCardsDynamically(collection) {
                     ? 'Bike Pump' : ''
                 newcard.querySelector('a').href = "eachWashroom.html?docID="+docID;
                 
+                // Bookmarks, attach an onclick, callback function
+                newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
+                newcard.querySelector('i').onclick = () => saveBookmark(docID);
+
+                // not working. it makes only one card showing. hyebin
+                // currentUser.get().then(userDoc => {
+                //     //get the user name
+                //     var bookmarks = userDoc.data().bookmarks;
+                //     if (bookmarks.includes(docID)) {
+                //         document.getElementById('save-' + docID).innerText = 'bookmark';
+                //     }
 
                 // Set the 'onclick' attribute for the 'readMoreButton' to navigate to each washroom's details page
                 let readMoreButton = newcard.querySelector('.btn-read-more');
@@ -66,9 +75,6 @@ function displayCardsDynamically(collection) {
                 //attach to gallery, Example: "washrooms-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
-                // Bookmarks
-                // newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
-                // newcard.querySelector('i').onclick = () => saveBookmark(docID);
             })
         })
 }
@@ -80,31 +86,25 @@ function navigateToEachWashroom(docID) {
     // Added the docID at the end of the URL to maintain uniqueness.
     let url = `http://127.0.0.1:5500/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
-
-    // bookmarks
-    newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
-    newcard.querySelector('i').onclick = () => saveBookmark(docID);
 }
 
-// newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
-// newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "bookmark" icon.
 // It adds the washroom to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version. 
 //-----------------------------------------------------------------------------
-function saveBookmark(washroomDocID) {
+function saveBookmark(docID) {
     // Manage the backend process to store the washroomDocID in the database, recording which washroom was bookmarked by the user.
     currentUser.update({
         // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
         // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(washroomDocID)
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(docID)
     })
         // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
         .then(function () {
-            console.log("bookmark has been saved for" + washroomDocID);
-            var iconID = 'save-' + washroomDocID;
+            console.log("bookmark has been saved for" + docID);
+            var iconID = 'save-' + docID;
             //console.log(iconID);
             //this is to change the icon of the hike that was saved to "filled"
             document.getElementById(iconID).innerText = 'bookmark';
