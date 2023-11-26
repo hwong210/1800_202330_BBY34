@@ -54,6 +54,7 @@ function saveUserInfo() {
     })
     .then (() => {
         console.log("Account information successfully updated.");
+        alert('Account information successfully updated.');
     })
 
     document.getElementById('personalInfoFields').disabled = true;
@@ -61,3 +62,42 @@ function saveUserInfo() {
  }
 
 document.getElementById('account-save-btn').addEventListener('click', saveUserInfo);
+
+
+function signOut() {
+    // Display a confirmation dialog
+    var confirmation = window.confirm("Are you sure you want to sign out?");
+
+    if (confirmation) {
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+            console.log("User signed out");
+            alert('You are now signed out!');
+            // Redirect to the main page.
+            window.location.href = "main.html";
+        }).catch(function(error) {
+            // An error happened.
+            console.error("Error during sign-out:", error);
+        });
+    } else {
+        // User canceled the sign-out
+        console.log("Sign-out canceled");
+    }
+}
+
+// Example of calling the sign-out function, you can trigger this based on user interaction.
+// For example, a button click event.
+document.getElementById("sign-out-btn").addEventListener("click", signOut);
+
+
+// Your Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyAubQD94XEVOJpl--IpCtsrrJhbiyiDtXc",
+    authDomain: "comp1800-bby34.firebaseapp.com",
+    projectId: "comp1800-bby34",
+    storageBucket: "comp1800-bby34.appspot.com",
+    messagingSenderId: "337346687619",
+    appId: "1:337346687619:web:5d9cdc94c326f0058361b6",
+    measurementId: "G-G9TZPNE0Y5"
+};
+

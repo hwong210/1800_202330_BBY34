@@ -1,7 +1,6 @@
 html,
 body {
-    font-family: 'Bebas Neue', sans-serif;
-    /* font-family: 'DM Serif Display', serif; */
+    font-family: 'Roboto', sans-serif;
     background-color: white;
     padding-top: 2em;
     padding-bottom: 10px;
@@ -15,7 +14,6 @@ body {
     transform: translate(0px, -100px);
 
 }
-
 
 h2, h1 {
     display: flex;
@@ -272,6 +270,18 @@ footer {
 }
 
 #washroomName {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: start;
+    padding-left: 1em;
+    margin: 0;
+
+}
+
+#address {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     display: flex;
@@ -549,8 +559,7 @@ footer {
 
 .btn-primary, .btn-info {
     --bs-btn-color: rgb(38, 38, 38);
-    /** btn-bg changed by hyebin. it was lightblue. **/
-    --bs-btn-bg: #0096c8;
+    --bs-btn-bg: lightblue;
     --bs-btn-border-color: lightblue;
     --bs-btn-hover-color: white;
     --bs-btn-hover-bg: #0096c8;
@@ -816,3 +825,49 @@ footer {
   
 }
 
+/** preferences **/
+#distance,
+#rating {
+    accent-color: rgb(171, 222, 242);
+    color: #ccc;
+    overflow: hidden;
+    width: 80%;
+}
+
+.rangediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ratingrate span {
+    float: right;
+}
+
+#buttondiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Horizontally centers the buttons */
+}
+
+.button-container .btn {
+    margin: 5px;
+    /* Add spacing between buttons */
+}
+
+.form-check-input {
+    background-color: rgb(255, 255, 255);
+    border-color: #000000;
+    float: right;
+}
+
+#preference-contents {
+    margin: 1rem;
+    padding: 1rem;
+}

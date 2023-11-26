@@ -111,6 +111,7 @@ function submitWashroom() {
                 } else {
                     console.log("No user is signed in");
                     window.location.href = 'addlocation.html';
+                    alert('Please sign in.');
                 }
             })
             .catch((error) => {
