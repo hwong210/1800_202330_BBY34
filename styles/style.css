@@ -39,7 +39,7 @@ h2, h1 {
 
 .container {
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
 
 }
 
@@ -918,3 +918,7 @@ footer {
 
 }
 
+.test-div {
+    height: 10vh;
+
+}
