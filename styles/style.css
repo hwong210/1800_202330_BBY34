@@ -37,14 +37,28 @@ h2, h1 {
 
 }
 
+
+.navbar {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
 .container-fluid {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
     position: fixed;
     top: 0;
     width: 100%;
     display: flex;
     background-color: lightblue;
     text-align: center;
-    padding: 0.5em;
+    
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr;
+    
     z-index: 1;
 }
 
@@ -266,7 +280,7 @@ footer {
     height: 100%;
     overflow-y: scroll;
     /* height: ; */
-    resize: vertical;
+    resize: none;
     padding: 0.5em;
 
 }
