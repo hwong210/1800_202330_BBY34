@@ -9,6 +9,8 @@ body {
 
 }
 
+
+
 .button-alignment {
     transform: translate(0px, -250px);
 
@@ -31,7 +33,7 @@ h2, h1 {
 
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
 
 }
 

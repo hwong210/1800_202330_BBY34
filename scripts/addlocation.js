@@ -79,9 +79,7 @@ function submitWashroom() {
                 let spacious = document.getElementById('spacious').checked;
                 let private = document.getElementById('private').checked;
                 let accessible = document.getElementById('accessible').checked;
-                let ratingcount = 0;
-                let ratingtotal = 0;
-                let ratingaverage = 0;
+                
                 
                 
                 
@@ -108,9 +106,7 @@ function submitWashroom() {
                         private: private,
                         accessible: accessible,
                         imageURL: downloadURL,
-                        ratingcount: ratingcount,
-                        ratingtotal: ratingtotal,
-                        ratingaverage: ratingaverage,
+                       
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         window.location.href = "thanks.html"; // Redirect to the thanks page
