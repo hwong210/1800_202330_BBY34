@@ -23,10 +23,11 @@ insertNameFromFirestore();
 //------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
-
-    db.collection(collection).get()   //the collection called "washrooms"
+    
+    db.collection(collection).orderBy("ratingAverage", "desc").limit(4).get()   //the collection called "washrooms"
         .then(allWashrooms => {
-
+               
+           
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
                 var address = doc.data().address;
@@ -66,8 +67,8 @@ function displayCardsDynamically(collection) {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
                 // Bookmarks
-                newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
-                newcard.querySelector('i').onclick = () => saveBookmark(docID);
+                // newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
+                // newcard.querySelector('i').onclick = () => saveBookmark(docID);
             })
         })
 }

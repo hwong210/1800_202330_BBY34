@@ -48,7 +48,7 @@ html,body {
 .grid-banner {
     background-color: whitesmoke;
     display: grid;
-    height: 140vh;
+    height: 160vh;
     width: 100vw;
     grid-template-columns: minmax(0, 100%);
     grid-template-rows: minmax(0, 25%) minmax(0, 75%);
@@ -112,15 +112,15 @@ html,body {
     align-items: center;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'sora';
     src: url(/Users/danielseo2/Downloads/Assignment4/public/fonts/Sora/Sora-VariableFont_wght.ttf);
     font-style: normal;
-}
+} */
 
 span {
     font-size: 20px;
-    font-family: sora;
+    /* font-family: sora; */
     font-weight: bold;
 }
 

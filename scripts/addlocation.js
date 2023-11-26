@@ -45,6 +45,10 @@ function initAutocomplete() {
     });
 }
 
+
+
+
+
 function submitWashroom() {
     let fileInput = document.getElementById("fileInp");
 
@@ -64,7 +68,8 @@ function submitWashroom() {
 
                 // Continue with the rest of the logic...
                 console.log("inside submit washroom");
-                let address = document.getElementById("address").value;
+                let washroomName = document.getElementById("washroomName").value;
+                let washroomAddress = document.getElementById("address").value;
                 let storageBin = document.getElementById('storageBin').checked;
                 let wheelchair = document.getElementById('wheelchair').checked;
                 let waterFountain = document.getElementById('waterFountain').checked;
@@ -74,6 +79,11 @@ function submitWashroom() {
                 let spacious = document.getElementById('spacious').checked;
                 let private = document.getElementById('private').checked;
                 let accessible = document.getElementById('accessible').checked;
+                
+                
+                
+                
+               
 
                 console.log(address, storageBin, wheelchair, waterFountain, bikePump);
 
@@ -84,7 +94,8 @@ function submitWashroom() {
 
                     db.collection("washrooms").add({
                         userID: userID,
-                        address: address,
+                        address: washroomAddress,
+                        name: washroomName,
                         storageBin: storageBin,
                         wheelchair: wheelchair,
                         waterFountain: waterFountain,
@@ -95,8 +106,7 @@ function submitWashroom() {
                         private: private,
                         accessible: accessible,
                         imageURL: downloadURL,
-                        lat: lat,
-                        lng: lng,
+                       
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         window.location.href = "thanks.html"; // Redirect to the thanks page
@@ -111,6 +121,9 @@ function submitWashroom() {
             });
     }
 }
+
+
+
 
 
 
