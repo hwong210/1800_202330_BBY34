@@ -443,6 +443,10 @@ footer {
     color: #c59b08;
 }
 
+.star-gold, .star-black {
+    font-size: 18pt;
+}
+
 .star-gold {
     color: #ffc700;
 }
@@ -762,7 +766,6 @@ footer {
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-size: 12pt;
-    margin-right: 0.3em;
 
 }
 
@@ -797,9 +800,14 @@ footer {
 .review-tags {
     grid-column: 1 / span 3;
     grid-row: 2 / span 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Adjust the gap as needed */
+      
 }
 
 .review-text {
+    font-size: 14pt;
     grid-column: 1 / span 3;
     grid-row: 3 / span 1;
     margin-top: 0.4em;
@@ -813,9 +821,11 @@ footer {
 }
 
 .review-name {
-    font-size: 15pt;
+    font-size: 18pt;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    display: flex;
+    align-items: center;
 }
 
 #review-reply {

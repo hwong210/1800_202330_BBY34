@@ -182,7 +182,10 @@ function populateReviews() {
                         // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
-                        reviewCard.querySelector(".review-tags").innerHTML = cleanTag + ventilatedTag + spaciousTag + privateTag + accessibleTag;
+
+                        let tagsContainer = reviewCard.querySelector(".review-tags");
+
+                        tagsContainer.innerHTML = cleanTag + ventilatedTag + spaciousTag + privateTag + accessibleTag;
                         reviewCard.querySelector(".review-text").innerHTML = reviewText;
                         reviewCard.querySelector(".review-time").innerHTML = new Date(
                             time
