@@ -9,7 +9,15 @@ body {
 
 }
 
+h4 {
+text-align: center;
 
+}
+
+.amenity-font-size {
+font-size: 15px;
+
+}
 
 .button-alignment {
     transform: translate(0px, -250px);
