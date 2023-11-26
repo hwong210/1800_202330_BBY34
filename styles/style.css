@@ -417,9 +417,10 @@ footer {
 }
 
 #review-rate {
-    float: left;
+    float: right;
     height: 46px;
     padding: 0 10px;
+    transform: translate(0px, -45px);
 
 }
 
@@ -910,3 +911,10 @@ footer {
     margin: 1rem;
     padding: 1rem;
 }
+
+.font-change {
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
