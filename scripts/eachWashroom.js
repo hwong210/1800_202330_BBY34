@@ -56,6 +56,7 @@ function displayWashroomInfo() {
             var spacious = doc.data().spacious;
             var private = doc.data().private;
             var accessible = doc.data().accessible;
+            var imageLink = doc.data().imageURL;
 
             // Declare count
             var count;
@@ -106,7 +107,7 @@ function displayWashroomInfo() {
 
             // Need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img");
-            imgEvent.src = "../img/" + code + ".jpg";
+            imgEvent.src = imageLink;
             console.log(washroomName);
         })
         .catch(error => {
