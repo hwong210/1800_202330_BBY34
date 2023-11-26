@@ -70,10 +70,14 @@ function displayWashroomInfo() {
                         });
                 })
                 .then(() => {
-                    // UI review count
-                    document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
-
+                    // UI average rating. Does not show if no reviews.
+                    if (!(count.reviewCount >= 1)) {
+                        document.getElementById("ratingAverage").innerHTML = "No reviews yet.";
+                    } else {
+                        document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
+                    }
                     console.log("Washroom info updated successfully.");
+
                 })
                 .catch(error => {
                     console.error("Error counting reviews or updating washroom collection:", error);
@@ -83,10 +87,10 @@ function displayWashroomInfo() {
             document.getElementById("name").innerHTML = name;
             document.getElementById("address").innerHTML = address;
             // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
-            document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
-            document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
-            document.getElementById("private").innerHTML = private ? 'Private' : '';
-            document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
+            // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
+            // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
+            // document.getElementById("private").innerHTML = private ? 'Private' : '';
+            // document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
 
             // Need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img");
@@ -120,8 +124,6 @@ function mapPrivateValueToTag(privateValue) {
 function mapAccessibleValueToTag(accessibleValue) {
     return accessibleValue === 1 ? '<span class="review-tag-colors" id="accessible-button">accessible</span>' : '';
 }
-
-
 
 function populateReviews() {
     // for review collection holder container
