@@ -10,8 +10,8 @@ function countReviews(washroomID) {
                     rating: data.rating,
 
                     clean: data.clean,
-                    // ventilated : data.ventilated,
-                    // spacious : data.spacious,
+                    ventilated : data.ventilated,
+                    spacious : data.spacious,
                     // private : data.private,
                     // accessible : data.accessible
                 };
@@ -21,12 +21,17 @@ function countReviews(washroomID) {
 
             // Counts the reviews with specific tags
             const cleanCount = reviews.filter(review => review.clean === 1).length;
+            const ventilatedCount = reviews.filter(review => review.ventilated === 1).length;
+            const spaciousCount = reviews.filter(review => review.spacious === 1).length;
 
 
             return {
                 reviewCount: reviewCount,
                 totalRating: totalRating,
-                cleanCount: cleanCount
+
+                cleanCount: cleanCount,
+                ventilatedCount: ventilatedCount,
+                spaciousCount: spaciousCount
             };   
         })
         .catch(error => {
@@ -75,10 +80,13 @@ function displayWashroomInfo() {
                     return db.collection("washrooms")
                         .doc(ID)
                         .update({
-                            reviewCount: count.reviewCount, // Access reviewCount from the result
-                            totalRating: count.totalRating, // Access totalRating from the result
+                            // Updates specified fields on DB.
+                            reviewCount: count.reviewCount,
+                            totalRating: count.totalRating,
                             ratingAverage: ratingAverageFormula,
-                            cleanCount: count.cleanCount
+                            cleanCount: count.cleanCount,
+                            ventilatedCount: count.ventilatedCount,
+                            spaciousCount: count.spaciousCount
                         });
                 })
                 .then(() => {
