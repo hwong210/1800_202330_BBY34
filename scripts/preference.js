@@ -63,6 +63,18 @@ document.getElementById("save").addEventListener("click", function () {
     savePreferencesToLocal(userPreferences);
 });
 
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        console.log("User is signed in: ", user.uid);
+        displayName(user.uid);
+        // Proceed with preferences functionality
+        initPreferences(user);
+    } else {
+        // User is not signed in
+        console.log("User is signed out");
+    }
+});
+
 function getSelectedRating() {
     var stars = document.getElementsByName('rate');
 

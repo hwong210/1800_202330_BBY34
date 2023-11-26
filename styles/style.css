@@ -39,7 +39,7 @@ h2, h1 {
 
 .container {
     width: 100vw;
-    height: 50vh;
+    height: 110vh;
 
 }
 
@@ -417,9 +417,10 @@ footer {
 }
 
 #review-rate {
-    float: left;
+    float: right;
     height: 46px;
     padding: 0 10px;
+    transform: translate(0px, -45px);
 
 }
 
@@ -909,4 +910,24 @@ footer {
 #preference-contents {
     margin: 1rem;
     padding: 1rem;
+}
+
+.font-change {
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
+.test-div {
+    height: 15vh;
+
+}
+
+.alignment-text {
+    text-align: center;
+}
+
+#writeReviewBtn {
+transform: translate(0, 80px);
+
 }
