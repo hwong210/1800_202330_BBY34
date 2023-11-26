@@ -45,9 +45,7 @@ function displayCardsDynamically(collection) {
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-image').src = image ? `img/${code}.jpg` : 'img/logo.jpg';
-                
-                newcard.querySelector('.card-image').src = image;
+                newcard.querySelector('.card-image').src = image ? image : 'img/logo.jpg';                
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
                     ? 'Storage Bin' : ''
                 newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
@@ -80,7 +78,6 @@ function displayCardsDynamically(collection) {
             })
         })
 }
-
 displayCardsDynamically("washrooms");  //input param is the name of the collection
 
 // Navigates to specific washroom according to the docID.
@@ -139,8 +136,6 @@ function readAllPosts() {
 
             displayPostCard(AllPosts[0]);   //display the first post at the beginning
         })
-
-
 }
 readAllPosts();
 
@@ -174,5 +169,4 @@ function displayPostCard(doc) {
 
     //add the new card (overwrites any old ones from before)
     element.append(newcard);
-
 }
