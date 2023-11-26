@@ -7,15 +7,26 @@ function countReviews(washroomID) {
             const reviews = allReviews.docs.map(doc => {
                 const data = doc.data();
                 return {
-                    rating: data.rating
+                    rating: data.rating,
+
+                    clean: data.clean,
+                    // ventilated : data.ventilated,
+                    // spacious : data.spacious,
+                    // private : data.private,
+                    // accessible : data.accessible
                 };
             });
             const reviewCount = reviews.length;
             const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
 
+            // Counts the reviews with specific tags
+            const cleanCount = reviews.filter(review => review.clean === 1).length;
+
+
             return {
                 reviewCount: reviewCount,
-                totalRating: totalRating
+                totalRating: totalRating,
+                cleanCount: cleanCount
             };   
         })
         .catch(error => {
@@ -66,7 +77,8 @@ function displayWashroomInfo() {
                         .update({
                             reviewCount: count.reviewCount, // Access reviewCount from the result
                             totalRating: count.totalRating, // Access totalRating from the result
-                            ratingAverage: ratingAverageFormula
+                            ratingAverage: ratingAverageFormula,
+                            cleanCount: count.cleanCount
                         });
                 })
                 .then(() => {
