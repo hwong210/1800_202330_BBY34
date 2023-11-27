@@ -18,9 +18,7 @@ function insertNameFromFirestore() {
 }
 insertNameFromFirestore();
 
-//------------------------------------------------------------------------------
-// Don't use this function. It displays all the cards at once. Keeping it just in case for now
-//------------------------------------------------------------------------------
+
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
     
@@ -170,3 +168,4 @@ function displayPostCard(doc) {
     //add the new card (overwrites any old ones from before)
     element.append(newcard);
 }
+
