@@ -7,26 +7,37 @@ function countReviews(washroomID) {
             const reviews = allReviews.docs.map(doc => {
                 const data = doc.data();
                 return {
+                    // Reads rating value.
                     rating: data.rating,
 
+                    // Reads review tag values.
                     clean: data.clean,
-                    // ventilated : data.ventilated,
-                    // spacious : data.spacious,
-                    // private : data.private,
-                    // accessible : data.accessible
+                    ventilated : data.ventilated,
+                    spacious : data.spacious,
+                    private : data.private,
+                    accessible : data.accessible
                 };
             });
             const reviewCount = reviews.length;
             const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
 
-            // Counts the reviews with specific tags
+            // Counts the reviews with specific tags.
             const cleanCount = reviews.filter(review => review.clean === 1).length;
-
+            const ventilatedCount = reviews.filter(review => review.ventilated === 1).length;
+            const spaciousCount = reviews.filter(review => review.spacious === 1).length;
+            const privateCount = reviews.filter(review => review.private === 1).length;
+            const accessibleCount = reviews.filter(review => review.accessible === 1).length;
 
             return {
                 reviewCount: reviewCount,
                 totalRating: totalRating,
-                cleanCount: cleanCount
+
+                // Holds review tag values
+                cleanCount: cleanCount,
+                ventilatedCount: ventilatedCount,
+                spaciousCount: spaciousCount,
+                privateCount: privateCount,
+                accessibleCount: accessibleCount
             };   
         })
         .catch(error => {
@@ -76,10 +87,16 @@ function displayWashroomInfo() {
                     return db.collection("washrooms")
                         .doc(ID)
                         .update({
-                            reviewCount: count.reviewCount, // Access reviewCount from the result
-                            totalRating: count.totalRating, // Access totalRating from the result
+                            // Updates specified fields on DB.
+                            reviewCount: count.reviewCount,
+                            totalRating: count.totalRating,
                             ratingAverage: ratingAverageFormula,
-                            cleanCount: count.cleanCount
+
+                            cleanCount: count.cleanCount,
+                            ventilatedCount: count.ventilatedCount,
+                            spaciousCount: count.spaciousCount,
+                            privateCount: count.privateCount,
+                            accessibleCount: count.accessibleCount
                         });
                 })
                 .then(() => {
