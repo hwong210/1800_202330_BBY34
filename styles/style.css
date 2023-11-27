@@ -919,7 +919,7 @@ footer {
 }
 
 .test-div {
-    height: 15vh;
+    height: 10vh;
 
 }
 
@@ -929,5 +929,15 @@ footer {
 
 #writeReviewBtn {
 transform: translate(0, 80px);
+
+}
+
+.image-spacing {
+    height: 13vh;
+
+}
+
+.button-placement-two {
+    transform: translate(35px, -155px);
 
 }
