@@ -35,7 +35,6 @@ function displayCardsDynamically(collection) {
                 var bikePump = doc.data().bikePump;
                 var image = doc.data().imageURL;
                 
-                // below is change from louise, remove if broken. it works
                 // gets the document id
                 var docID = doc.id;
 

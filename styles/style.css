@@ -762,6 +762,7 @@ footer {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto auto auto;
+
   }
 
 .review-body {
