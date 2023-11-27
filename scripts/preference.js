@@ -35,7 +35,7 @@ document.getElementById("save").addEventListener("click", function () {
     var storageBin = document.getElementById("storagebin-checkbox").checked;
     var wheelchair = document.getElementById("wheelchair-checkbox").checked;
     var waterFountain = document.getElementById("waterfountain-checkbox").checked;
-    var airPump = document.getElementById("airpump-checkbox").checked;
+    var bikePump = document.getElementById("bikepump-checkbox").checked;
     var rating = getSelectedRating();
 
     // Create an object with user preferences
@@ -49,7 +49,7 @@ document.getElementById("save").addEventListener("click", function () {
         storageBin: storageBin,
         wheelchair: wheelchair,
         waterFountain: waterFountain,
-        airPump: airPump,
+        bikePump: bikePump,
         rating: rating
     };
 
@@ -61,11 +61,12 @@ document.getElementById("save").addEventListener("click", function () {
 
     // Save preferences to local storage
     savePreferencesToLocal(userPreferences);
-    displayCardsDynamically(collection);
+
 });
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+        //console error?
         console.log("User is signed in: ", user.uid);
         displayName(user.uid);
         // Proceed with preferences functionality
@@ -88,14 +89,107 @@ function getSelectedRating() {
     return 0;
 }
 
+//------------------------------------------------------------------------------
+// display new cards in the main page after filtering.
+// save button triggers to redirect to the main page and show new result.
+//------------------------------------------------------------------------------
+
+function displayCardsDynamicallyAfterFiltering(collection) {
+    let cardTemplate = document.getElementById("washroomCardTemplate");
+
+    var storedPreferences = localStorage.getItem('userPreferences');
+
+    if (storedPreferences) {
+        var preferences = JSON.parse(storedPreferences);
+
+        // Create a base query with the collection
+        var query = db.collection(collection);
+
+        // Amenities. Check if the "storageBin" preference is checked
+        if (preferences.storageBin) {
+            query = query.where("storageBin", "==", true);
+        }
+
+        if (preferences.wheelchair) {
+            query = query.where("wheelchair", "==", true);
+        }
+
+        if (preferences.waterFountain) {
+            query = query.where("waterFountain", "==", true);
+        }
+
+        if (preferences.bikePump) {
+            query = query.where("bikePump", "==", true);
+        }
+
+        // Execute the query
+        query.get()
+            .then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    var title = doc.data().name;
+                    var storageBin = doc.data().storageBin;
+                    var wheelchair = doc.data().wheelchair;
+                    var waterFountain = doc.data().waterFountain;
+                    var bikePump = doc.data().bikePump;
+                    var image = doc.data().imageURL;
+                    var docID = doc.id;
+
+                    let newcard = cardTemplate.content.cloneNode(true);
+
+                    newcard.querySelector('.card-title').innerHTML = title;
+                    newcard.querySelector('.card-image').src = image ? image : 'img/logo.jpg';
+                    newcard.querySelector('.card-storagebin').innerHTML = storageBin
+                        ? 'Storage Bin' : '';
+                    newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
+                        ? 'Wheelchair Access' : '';
+                    newcard.querySelector('.card-waterFountain').innerHTML = waterFountain
+                        ? 'Fountain' : '';
+                    newcard.querySelector('.card-bikePump').innerHTML = bikePump
+                        ? 'Bike Pump' : '';
+                    newcard.querySelector('a').href = "eachWashroom.html?docID=" + docID;
+
+                    newcard.querySelector('i').id = 'save-' + docID;
+                    newcard.querySelector('i').onclick = () => saveBookmark(docID);
+
+                    let readMoreButton = newcard.querySelector('.btn-read-more');
+                    readMoreButton.setAttribute('onclick', `navigateToEachWashroom('${docID}')`);
+
+                    document.getElementById(collection + "-go-here").appendChild(newcard);
+                });
+            })
+            .catch(error => {
+                console.error("Error getting documents: ", error);
+            });
+    }
+}
+
+
+
+// Navigates to specific washroom according to the docID.
+function navigateToEachWashroom(docID) {
+    // Added the docID at the end of the URL to maintain uniqueness.
+    let url = `http://127.0.0.1:5500/eachWashroom.html?docID=${docID}`;
+    window.location.href = url;
+}
+
+
 function storeUserPreferences(userID, preferences) {
     console.log("Storing user preferences...", userID, preferences); // debugging
+   
     db.collection("preferences").doc(userID).set(preferences)
         .then(function () {
             console.log("User preferences written for ID: ", userID);
-            saveAlert();
-            window.location.href = 'main.html';
+            
+            // display new cards in the main page after filtering
+            displayCardsDynamicallyAfterFiltering("washrooms");
 
+            // continue with the next action
+            return Promise.resolve();
+        })
+
+        .then(function () {
+            alert('Your preferences are saved!');
+            window.location.href = 'main.html';
         })
         .catch(function (error) {
             console.error("Error adding preferences: ", error);
@@ -107,9 +201,6 @@ function savePreferencesToLocal(preferences) {
     localStorage.setItem('userPreferences', JSON.stringify(preferences));
 }
 
-function saveAlert() {
-    alert('Your preferences are saved!');
-}
 
 function loadPreferencesFromLocal() {
     // Get preferences from local storage
@@ -130,7 +221,7 @@ function loadPreferencesFromLocal() {
         document.getElementById('storagebin-checkbox').checked = preferences.storageBin;
         document.getElementById('wheelchair-checkbox').checked = preferences.wheelchair;
         document.getElementById('waterfountain-checkbox').checked = preferences.waterFountain;
-        document.getElementById('airpump-checkbox').checked = preferences.airPump;
+        document.getElementById('bikepump-checkbox').checked = preferences.bikePump;
         document.getElementById('rating').value = preferences.rating;
     }
 }
@@ -184,16 +275,15 @@ function validatePreferences() {
     var storageBin = document.getElementById("storagebin-checkbox").checked;
     var wheelchair = document.getElementById("wheelchair-checkbox").checked;
     var waterFountain = document.getElementById("waterfountain-checkbox").checked;
-    var airPump = document.getElementById("airpump-checkbox").checked;
+    var bikePump = document.getElementById("bikepump-checkbox").checked;
 
     // Check if at least one option is selected
-    if (!storageBin && !wheelchair && !waterFountain && !airPump) {
+    if (!storageBin && !wheelchair && !waterFountain && !bikePump) {
         // Display a warning window
         alert('Please select at least one preference option.');
         return false; // Preferences are not valid
     }
 }
 
-//------------------------------------------------------------------------------
-// Filtering by preferences and displaying the washrooms.
-//------------------------------------------------------------------------------
+//test
+// displayCardsDynamicallyAfterFiltering("washrooms");
