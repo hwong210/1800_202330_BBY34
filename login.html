@@ -1,13 +1,32 @@
 <style>
- #logo-text{
-        font-family: 'Roboto', sans-serif;;
+    body #new-div,
+    #logo-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #new-div img {
+        width: 10%;
+    }
+
+    #new-div div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #new-div {
+        padding-top: 1rem;
+    }
+
+    #logo-text {
+        font-family: 'Roboto', sans-serif;
+        ;
         font-weight: 800;
         /* font-style: italic; */
         font-size: 1rem;
-    }
-
-    .container img{
-        width: 10%;
     }
 
     html,
@@ -15,6 +34,8 @@
         background: rgb(2, 0, 36);
         background: linear-gradient(101deg, rgba(2, 0, 36, 0.36458333333333337) 0%, rgba(173, 216, 230, 0.8071603641456583) 46%, rgba(0, 185, 255, 1) 100%);
         ;
+        margin: 0;
+        padding: 0;
     }
 
     .back-button {
@@ -27,35 +48,12 @@
         align-items: center;
         justify-content: center;
     }
-
-    .container div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .container {
-        padding-top: 6rem;
-        padding-bottom:3rem;
-    }
-
-    #index-login {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 50px;  
-    }
-
-    #image-div img {
-        width: 100px;
-        height: auto;
-    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Sign Up - SmartRelief</title>
+    <title>Sign Up - Sm</title>
     <meta name="SmartRelief" content="SmartRelief">
 
     <!------------------------>
@@ -103,10 +101,11 @@
         </a>
     </div>
 
-    <div class="container"><div>
-        <img src="/img/logo-bgremoved.png"></div>
-        <div id="logo-text">SmartRelief</div>
-       </div>
+    <div id="new-div">
+        <img src="/img/logo-bgremoved.png">
+    </div>
+    <div id="logo-text"><i>Find Your Comfort</i></div>
+    <br><br>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 

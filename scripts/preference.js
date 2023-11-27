@@ -17,7 +17,53 @@ var firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// Listen for authentication state changes
+document.getElementById("save").addEventListener("click", function () {
+    // Check if the user is logged in
+    var user = firebase.auth().currentUser;
+    if (!user) {
+        alert("Please log in to save preferences.");
+        return; // Don't proceed further if the user is not logged in
+    }
+
+    // Get user preferences from checkboxes, radio buttons, sliders, etc.
+    var clean = document.getElementById("clean-outlined").checked;
+    var ventilated = document.getElementById("ventilated-outlined").checked;
+    var spacious = document.getElementById("spacious-outlined").checked;
+    var private = document.getElementById("private-outlined").checked;
+    var accessible = document.getElementById("accessible-outlined").checked;
+    var distance = document.getElementById("distance").value;
+    var storageBin = document.getElementById("storagebin-checkbox").checked;
+    var wheelchair = document.getElementById("wheelchair-checkbox").checked;
+    var waterFountain = document.getElementById("waterfountain-checkbox").checked;
+    var airPump = document.getElementById("airpump-checkbox").checked;
+    var rating = getSelectedRating();
+
+    // Create an object with user preferences
+    var userPreferences = {
+        clean: clean,
+        ventilated: ventilated,
+        spacious: spacious,
+        private: private,
+        accessible: accessible,
+        distance: distance,
+        storageBin: storageBin,
+        wheelchair: wheelchair,
+        waterFountain: waterFountain,
+        airPump: airPump,
+        rating: rating
+    };
+
+    // Get the user ID from the authenticated user
+    var userID = user.uid;
+
+    // Call a function to store preferences in Firebase with the userID
+    storeUserPreferences(userID, userPreferences);
+
+    // Save preferences to local storage
+    savePreferencesToLocal(userPreferences);
+    displayCardsDynamically(collection);
+});
+
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         console.log("User is signed in: ", user.uid);
@@ -30,129 +76,108 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
+function getSelectedRating() {
+    var stars = document.getElementsByName('rate');
+
+    for (var i = 0; i < stars.length; i++) {
+        if (stars[i].checked) {
+            return parseInt(stars[i].value);
+        }
+    }
+
+    return 0;
+}
+
+function storeUserPreferences(userID, preferences) {
+    console.log("Storing user preferences...", userID, preferences); // debugging
+    db.collection("preferences").doc(userID).set(preferences)
+        .then(function () {
+            console.log("User preferences written for ID: ", userID);
+            saveAlert();
+            window.location.href = 'main.html';
+
+        })
+        .catch(function (error) {
+            console.error("Error adding preferences: ", error);
+        });
+}
+
+function savePreferencesToLocal(preferences) {
+    console.log("Storing user preferences locally...", preferences);
+    localStorage.setItem('userPreferences', JSON.stringify(preferences));
+}
+
 function saveAlert() {
     alert('Your preferences are saved!');
 }
 
-function initPreferences(user) {
-    document.getElementById("save").addEventListener("click", function () {
-        // Get user preferences from checkboxes, radio buttons, sliders, etc.
-        var clean = document.getElementById("clean-outlined").checked;
-        var ventilated = document.getElementById("ventilated-outlined").checked;
-        var spacious = document.getElementById("spacious-outlined").checked;
-        var private = document.getElementById("private-outlined").checked;
-        var accessible = document.getElementById("accessible-outlined").checked;
-        var distance = document.getElementById("distance").value;
-        var storageBin = document.getElementById("storagebin-checkbox").checked;
-        var wheelchair = document.getElementById("wheelchair-checkbox").checked;
-        var waterFountain = document.getElementById("waterfountain-checkbox").checked;
-        var airPump = document.getElementById("airpump-checkbox").checked;
-        var rating = document.getElementById("rating").value;
+function loadPreferencesFromLocal() {
+    // Get preferences from local storage
+    var storedPreferences = localStorage.getItem('userPreferences');
 
-        // Create an object with user preferences
-        var userPreferences = {
-            clean: clean,
-            ventilated: ventilated,
-            spacious: spacious,
-            private: private,
-            accessible: accessible,
-            distance: distance,
-            storageBin: storageBin,
-            wheelchair: wheelchair,
-            waterFountain: waterFountain,
-            airPump: airPump,
-            rating: rating
-        };
+    // Check if preferences exist in local storage
+    if (storedPreferences) {
+        // Parse the JSON string to get preferences object
+        var preferences = JSON.parse(storedPreferences);
 
-        // Get the user ID from the authenticated user
-        var userID = user.uid;
-
-        // Call a function to store preferences in Firebase with the userID
-        storeUserPreferences(userID, userPreferences);
-
-        // Save preferences to local storage
-        savePreferencesToLocal(userPreferences);
-    });
-
-    function storeUserPreferences(userID, preferences) {
-        console.log("Storing user preferences...", userID, preferences); // debugging
-        // Add a new document with user preferences to the "preferences" collection
-        db.collection("preferences").doc(userID).set(preferences)
-            .then(function () {
-                console.log("User preferences written for ID: ", userID);
-                saveAlert();
-            })
-            .catch(function (error) {
-                console.error("Error adding preferences: ", error);
-            });
-    }
-
-    function savePreferencesToLocal(preferences) {
-        console.log("Storing user preferences locally...", preferences);
-        localStorage.setItem('userPreferences', JSON.stringify(preferences));
-    }
-
-    function loadPreferencesFromLocal() {
-        // Get preferences from local storage
-        var storedPreferences = localStorage.getItem('userPreferences');
-
-        // Check if preferences exist in local storage
-        if (storedPreferences) {
-            // Parse the JSON string to get preferences object
-            var preferences = JSON.parse(storedPreferences);
-
-            // Set form values based on stored preferencs
-            document.getElementById('clean-outlined').value = preferences.clean;
-            document.getElementById('ventilated-outlined').value = preferences.ventilated;
-            document.getElementById('spacious-outlined').value = preferences.spacious;
-            document.getElementById('private-outlined').value = preferences.private;
-            document.getElementById('accessible-outlined').value = preferences.accessible;
-            document.getElementById('distance').value = preferences.distance;
-            document.getElementById('storagebin-checkbox').checked = preferences.storageBin;
-            document.getElementById('wheelchair-checkbox').checked = preferences.wheelchair;
-            document.getElementById('waterfountain-checkbox').checked = preferences.waterFountain;
-            document.getElementById('airpump-checkbox').checked = preferences.airPump;
-            document.getElementById('rating').value = preferences.rating;
-        }
-    }
-
-    // Call the loadPreferencesFromLocal function when the page is loaded
-    window.onload = loadPreferencesFromLocal;
-
-    function getUserPreferences() {
-        var userID;
-        userID = document.getElementById('nameInput').value;
-
-        // Read the document from the "users" collection based on userID
-        db.collection("users").doc(userID).get()
-            .then((doc) => {
-                if (doc.exists) {
-                    console.log("Preferences for user ID", userID, " => ", doc.data());
-                    // Handle the retrieved preferences as needed
-                } else {
-                    console.log("No preferences found for user ID", userID);
-                }
-            })
-            .catch(function (error) {
-                console.error("Error getting preferences: ", error);
-            });
+        // Set form values based on stored preferencs
+        document.getElementById('clean-outlined').value = preferences.clean;
+        document.getElementById('ventilated-outlined').value = preferences.ventilated;
+        document.getElementById('spacious-outlined').value = preferences.spacious;
+        document.getElementById('private-outlined').value = preferences.private;
+        document.getElementById('accessible-outlined').value = preferences.accessible;
+        document.getElementById('distance').value = preferences.distance;
+        document.getElementById('storagebin-checkbox').checked = preferences.storageBin;
+        document.getElementById('wheelchair-checkbox').checked = preferences.wheelchair;
+        document.getElementById('waterfountain-checkbox').checked = preferences.waterFountain;
+        document.getElementById('airpump-checkbox').checked = preferences.airPump;
+        document.getElementById('rating').value = preferences.rating;
     }
 }
 
-function displayName(name) {
-    var currentUser = db.collection("users").doc(name);
+// Call the loadPreferencesFromLocal function when the page is loaded
+window.onload = loadPreferencesFromLocal;
 
-    currentUser.get().then((doc) => {
-        if (doc.exists) {
-            var username = doc.data().name;
-            document.getElementById("username-goes-here").innerHTML = username;
+function getUserPreferences() {
+    var userID;
+    userID = document.getElementById('nameInput').value;
+
+    // Read the document from the "users" collection based on userID
+    db.collection("users").doc(userID).get()
+        .then((doc) => {
+            if (doc.exists) {
+                console.log("Preferences for user ID", userID, " => ", doc.data());
+                // Handle the retrieved preferences as needed
+            } else {
+                console.log("No preferences found for user ID", userID);
+            }
+        })
+        .catch(function (error) {
+            console.error("Error getting preferences: ", error);
+        });
+}
+
+
+function insertNameFromFirestore() {
+    // Check if the user is logged in:
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            console.log(user.uid); // Let's know who the logged-in user is by logging their UID
+            currentUser = db.collection("users").doc(user.uid); // Go to the Firestore document of the user
+            currentUser.get().then(userDoc => {
+                // Get the user name
+                var userName = userDoc.data().name;
+                console.log(userName);
+                //$("#name-goes-here").text(userName); // jQuery
+                document.getElementById("username-goes-here").innerText = userName;
+            })
         } else {
-            console.log("No such document!");
+            console.log("No user is logged in."); // Log a message when no user is logged in
         }
-    }).catch((error) => {
-        console.log("Error getting document: ", error);
-    });
+    })
 }
+insertNameFromFirestore();
+
 
 // Validate that at least one option is selected
 function validatePreferences() {
@@ -168,3 +193,7 @@ function validatePreferences() {
         return false; // Preferences are not valid
     }
 }
+
+//------------------------------------------------------------------------------
+// Filtering by preferences and displaying the washrooms.
+//------------------------------------------------------------------------------

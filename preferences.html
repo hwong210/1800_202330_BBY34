@@ -29,8 +29,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/stylehyebin.css">
-
+    <link rel="stylesheet" href="./styles/style.css">
 
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -45,10 +44,13 @@
     <!-- Your HTML Layout go here -->
     <div id="header-container"></div>
 
-    <div id="contents">
+    <div id="preference-contents">
         <div id="display-name">
             <span class="material-symbols-outlined">account_circle</span>
-            <p class="bot-nav-text"><span id="username-goes-here"></span><span>'s Preference Settings</span></p>
+            <p class="bot-nav-text">
+            <span class="font-change" id="username-goes-here"></span>
+            <span class="font-change">'s Preference Settings</span>
+            </p>
         </div>
         <hr>
 
@@ -116,28 +118,38 @@
             <div>
                 <h3>Rating</h3>
             </div>
-            <div class="rangediv"><input type="range" min="1" max="5" value="3" id="rating"></div>
-            <div id="ratingrate">
-                <span id="rate">5★</span>
+            <div id="review-icons">
+                <div id="review-rate">
+                    <input class="star" type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">stars</label>
+                    <input class="star" type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">stars</label>
+                    <input class="star" type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">stars</label>
+                    <input class="star" type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">stars</label>
+                    <input class="star" type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">star</label>
+                </div>
             </div>
-        </div>
-        <br>
-        <br>
-        <div class="button-container">
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" id="save" class="btn px-4 gap-3" onclick="validatePreferences()">Save</button>
+            <br>
+            <br>
+            <br>
+            <div class="button-container">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" id="save" class="btn btn-info" onclick="validatePreferences()">Save</button>
+                </div>
             </div>
+            <br>
         </div>
-        <br>
-    </div>
-    <!-- copyright footer -->
-    <div id="footer-container"></div>
-    <!-- Your own JavaScript functions go here    -->
+        <!-- copyright footer -->
+        <div id="footer-container"></div>
+        <!-- Your own JavaScript functions go here    -->
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/preference.js"></script>
-    <script src="./scripts/footer.js"></script>
-    <script src="./scripts/header.js"></script>
+        <!-- Link to scripts of your own -->
+        <script src="./scripts/preference.js"></script>
+        <script src="./scripts/footer.js"></script>
+        <script src="./scripts/header.js"></script>
 
 </body>
 

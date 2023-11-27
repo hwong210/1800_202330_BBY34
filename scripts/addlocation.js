@@ -1,17 +1,15 @@
 var fileText = document.querySelector(".fileText");
-var uploadPercentage = document.querySelector(".uploadPercentage");
-var percentVal;
 var fileItem;
 var fileName;
 var addressInp;
 var place;
 var lat;
 var lng;
-
+var washroomRef;
 
 function generateUniqueFileName() {
     const timestamp = new Date().getTime();
-    const randomString = Math.random().toString(36).substring(2, 8); // Generate a random string
+    const randomString = Math.random().toString(36).substring(2, 8); 
     const uniqueFileName = `${timestamp}_${randomString}`;
     return uniqueFileName;
 }
@@ -19,7 +17,6 @@ function generateUniqueFileName() {
 function getFile(e){
     fileItem = e.target.files[0];
     fileName = fileItem.name;
-    fileText.innerHTML = fileName;
 }
 
 function initAutocomplete() {
@@ -29,25 +26,26 @@ function initAutocomplete() {
         var place = autocomplete.getPlace();
         
         // Assuming showAddress sets up lat and lng
-        let lat = place.geometry.location.lat();
-        let lng = place.geometry.location.lng();
-        
-        // Add lat and lng to washrooms collection
-        db.collection("washrooms").add({
+        lat = place.geometry.location.lat();
+        lng = place.geometry.location.lng();
+
+        console.log(lat, lng);
+
+        // Create a reference to the washroom document
+        washroomRef = db.collection("washrooms").doc();
+
+        // Set the location data in the washroom document
+        washroomRef.set({
             lat: lat,
             lng: lng,
-        }).then((docRef) => {
-            // Call submitWashroom after Firestore operation is complete
-            submitWashroom(place);
+        }).then(() => {
+            // Continue with the rest of the logic...
+            submitWashroom(place, washroomRef);
         }).catch((error) => {
             console.error("Error adding lat and lng to washrooms: ", error);
         });
     });
 }
-
-
-
-
 
 function submitWashroom() {
     let fileInput = document.getElementById("fileInp");
@@ -67,9 +65,8 @@ function submitWashroom() {
                 console.log("ImageURL: ", downloadURL);
 
                 // Continue with the rest of the logic...
-                console.log("inside submit washroom");
-                let washroomName = document.getElementById("washroomName").value;
-                let washroomAddress = document.getElementById("address").value;
+                let name = document.getElementById("washroomName").value;
+                let address = document.getElementById("address").value;
                 let storageBin = document.getElementById('storageBin').checked;
                 let wheelchair = document.getElementById('wheelchair').checked;
                 let waterFountain = document.getElementById('waterFountain').checked;
@@ -79,23 +76,18 @@ function submitWashroom() {
                 let spacious = document.getElementById('spacious').checked;
                 let private = document.getElementById('private').checked;
                 let accessible = document.getElementById('accessible').checked;
-                
-                
-                
-                
                
-
                 console.log(address, storageBin, wheelchair, waterFountain, bikePump);
 
                 var user = firebase.auth().currentUser;
                 if (user) {
-                    var currentUser = db.collection("users").doc(user.uid);
+                    // var currentUser = db.collection("users").doc(user.uid); var currentUser is not used
                     var userID = user.uid;
 
-                    db.collection("washrooms").add({
+                    washroomRef.update({
+                        name: name,
                         userID: userID,
-                        address: washroomAddress,
-                        name: washroomName,
+                        address: address,
                         storageBin: storageBin,
                         wheelchair: wheelchair,
                         waterFountain: waterFountain,
@@ -106,10 +98,12 @@ function submitWashroom() {
                         private: private,
                         accessible: accessible,
                         imageURL: downloadURL,
-                       
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
+                        submitWashroom(place, washroomRef);
                         window.location.href = "thanks.html"; // Redirect to the thanks page
+                    }).catch((error) => {
+                        console.error("Error updating washroom details: ", error);
                     });
                 } else {
                     console.log("No user is signed in");
@@ -121,15 +115,6 @@ function submitWashroom() {
             });
     }
 }
-
-
-
-
-
-
-
-
-    
 
     // uploadTask.on("state_changed", (snapshot)=>{
     //     console.log(snapshot);
