@@ -2,8 +2,13 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
+<<<<<<< HEAD
     padding-top: 1em;
     padding-bottom: 10px;
+=======
+    padding-top: 2em;
+    padding-bottom: 25px;
+>>>>>>> 9b4351af7d2271d819cf255e3345ea9a8ea79853
     margin: 0;
 }
 
@@ -908,4 +913,9 @@ footer {
 
 #writeReviewContainer {
     text-align: right;
+}
+
+.image-spacing {
+    height: 20vh;
+
 }
