@@ -2,7 +2,7 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
-    padding-top: 2em;
+    padding-top: 1em;
     padding-bottom: 10px;
     margin: 0;
 }
@@ -355,6 +355,9 @@ footer {
 #review-icons {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
+    display: grid;
+    grid-template-columns: 1 / span 1;
+    grid-template-rows: 1 / span 1;
 }
 
 #review-title-space-2 {
@@ -390,10 +393,8 @@ footer {
 }
 
 #review-rate {
-    float: right;
-    height: 46px;
-    padding: 0 10px;
-    transform: translate(0px, -45px);
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
 }
 
 #review-rate:not(:checked)>input {
@@ -762,6 +763,7 @@ footer {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto auto auto;
+
   }
 
 .review-body {
@@ -908,6 +910,7 @@ footer {
     text-align: right;
 }
 
+<<<<<<< HEAD
 #washroomCardGroup{
     display: flex;
     align-items: center;
@@ -924,3 +927,9 @@ footer {
     { display: block; /* Set the display property to block */
         color: black;
         text-decoration: none;}
+=======
+.image-spacing {
+    height: 20vh;
+
+}
+>>>>>>> 9d5d6d58e1fff8b4ff31a560fc9ca12b5470599a

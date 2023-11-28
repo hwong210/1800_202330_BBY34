@@ -5,7 +5,7 @@ async function initMap() {
 
     // Code to get lat and lng from firebase eventually (noncritical, can manually add for final)
     map = new Map(document.getElementById("map"), {
-        center: {lat: 49.25144234721972, lng: -123.00352190187303}, 
+        center: { lat: 49.25144234721972, lng: -123.00352190187303 },
         zoom: 15,
         mapId: '485cac226bd67abf',
     });
