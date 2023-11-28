@@ -104,7 +104,7 @@ function displayWashroomInfo() {
                     if (!(count.reviewCount >= 1)) {
                         document.getElementById("ratingAverage").innerHTML = "No reviews yet.";
                     } else {
-                        document.getElementById("ratingAverage").innerHTML = "The average rating of this washroom is: " + ratingAverageFormula + " / " + maxRating;
+                        document.getElementById("ratingAverage").innerHTML = ratingAverageFormula + " / " + maxRating;
                     }
                     console.log("Washroom info updated successfully.");
 

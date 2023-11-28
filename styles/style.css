@@ -2,17 +2,19 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
-    padding-top: 1em;
-    padding-bottom: 10px;
+    /* padding-top: 1em;
+    padding-bottom: 10px; */
     margin: 0;
+    margin-top: 40px;
+    margin-bottom: 75px;
 }
 
 h4 {
-text-align: center;
+    text-align: center;
 }
 
 .amenity-font-size {
-font-size: 15px;
+    font-size: 15px;
 }
 
 .button-alignment {
@@ -25,7 +27,8 @@ font-size: 15px;
     transform: translate(0px, -100px);
 }
 
-h2, h1 {
+h2,
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +62,7 @@ h2, h1 {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 75px;
     display: flex;
     background-color: lightblue;
     text-align: center;
@@ -174,7 +178,7 @@ section {
 .new-washroom,
 #review-submit {
     position: fixed;
-    bottom: 4em;
+    bottom: 6em;
     right: 1em;
     display: flex;
 }
@@ -190,7 +194,8 @@ section {
     padding-bottom: 0.3em;
 }
 
-.add-washroom, account-save-btn {
+.add-washroom,
+account-save-btn {
     background-color: #add8e6;
     border-color: lightblue;
     color: black;
@@ -210,6 +215,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 75px;
     display: flex;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -237,7 +243,7 @@ footer {
 }
 
 .nav-link {
-    font-size: 9pt;
+    font-size: 12pt;
 }
 
 #grid-review {
@@ -434,7 +440,8 @@ footer {
     color: #c59b08;
 }
 
-.star-gold, .star-black {
+.star-gold,
+.star-black {
     font-size: 18pt;
 }
 
@@ -547,7 +554,7 @@ footer {
     width: 100%;
     height: auto;
     border-radius: 20px 20px;
-    }
+}
 
 #review-checkboxes {
     border-top: 1px solid;
@@ -560,7 +567,8 @@ footer {
     padding-bottom: 0.5em;
 }
 
-.btn-primary, .btn-info {
+.btn-primary,
+.btn-info {
     --bs-btn-color: rgb(38, 38, 38);
     --bs-btn-bg: lightblue;
     --bs-btn-border-color: lightblue;
@@ -606,7 +614,7 @@ footer {
     color: var(--bs-btn-hover-color);
     background-color: var(--bs-btn-hover-bg);
     border-color: var(--bs-btn-hover-border-color);
-  }
+}
 
 /* Optionally, you can set a max-width to prevent stretching on larger screens */
 .card-image {
@@ -747,7 +755,11 @@ footer {
     border-color: #0096c8;
 }
 
-#clean-button, #ventilated-button, #spacious-button, #private-button, #accessible-button {
+#clean-button,
+#ventilated-button,
+#spacious-button,
+#private-button,
+#accessible-button {
     border-radius: 10px 10px;
     padding: 0.2em;
     padding-left: 0.5em;
@@ -764,7 +776,7 @@ footer {
     grid-template-columns: auto;
     grid-template-rows: auto auto auto auto;
 
-  }
+}
 
 .review-body {
     margin: 1em;
@@ -773,7 +785,11 @@ footer {
     grid-template-rows: auto;
 }
 
-.review-rating, .review-name, .review-tags, .review-time, .review-text {
+.review-rating,
+.review-name,
+.review-tags,
+.review-time,
+.review-text {
     margin: 0;
 }
 
@@ -790,8 +806,9 @@ footer {
     grid-row: 2 / span 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* Adjust the gap as needed */
-      
+    gap: 8px;
+    /* Adjust the gap as needed */
+
 }
 
 .review-text {
@@ -827,12 +844,11 @@ footer {
 
 .material-symbols-outlined {
     color: #0096c8;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-  
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }
 
 /** preferences **/
@@ -890,7 +906,28 @@ footer {
 }
 
 .alignment-text {
-    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    row-gap: 1em;
+}
+
+
+#address2 {
+    font-size: 16pt;
+    display: flex;
+    align-items: center;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    margin-bottom: 0;
+}
+
+#writeReviewContainer {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    text-align: right;
 }
 
 #writeReviewBtn {
@@ -910,7 +947,7 @@ footer {
     text-align: right;
 }
 
-#washroomCardGroup{
+#washroomCardGroup {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -922,7 +959,57 @@ footer {
     justify-content: center;
 }
 
-.icons
-    { display: block; /* Set the display property to block */
-        color: black;
-        text-decoration: none;}
+.icons {
+    display: block;
+    /* Set the display property to block */
+    color: black;
+    text-decoration: none;
+}
+
+.image-spacing {
+    height: 20vh;
+
+}
+
+#ratingAverage {
+    font-size: 14pt;
+    margin: 0;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#grid-review-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+#review-header1 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+#reviewCard {
+    grid-column: 1 / span 2;
+}
+
+#home-bot,
+#preference-bot,
+#saved-bot,
+#account-bot {
+    font-size: 22pt;
+    display: flex;
+    align-items: bottom;
+}
+
+#add-washroom-text {
+    margin: 0;
+    font-size: 16pt;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
