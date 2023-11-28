@@ -43,14 +43,12 @@
             </h1>
             <div class="position-relative">
                 <img class="washroom-img responsive-img" src="" alt="Photo">
-                <div id="writeReviewContainer">
-                    <button id="writeReviewBtn" class="btn btn-primary">Write Review</button>
-                </div>
+
                 <div class="alignment-text">
-                    <b>
-                        <p id="address2">address</p>
-                    </b>
-                    <b>
+                    <p id="address2">address</p>
+                    <p id="ratingAverage">avg</p>
+                    <!-- DO WE NEED THIS OR NO? -->
+                    <!-- <b>
                         <p id="clean"></p>
                     </b>
                     <b>
@@ -64,10 +62,8 @@
                     </b>
                     <b>
                         <p id="accessible"></p>
-                    </b>
-                    <b>
-                        <p id="ratingAverage">avg</p>
-                    </b>
+                    </b> -->
+
                 </div>
             </div>
         </div>
@@ -84,9 +80,12 @@
                 </div>
             </div>
         </template>
-        <div class="container">
-            <h2>Reviews:</h2>
-            <div class="card-container">
+        <div class="container" id="grid-review-collection">
+            <h2 id="review-header1">Reviews</h2>
+            <div id="writeReviewContainer">
+                <button id="writeReviewBtn" class="btn btn-primary">Write Review</button>
+            </div>
+            <div class="card-container"  id="reviewCard">
                 <div id="reviewCardGroup">
                     <template id="reviewCardTemplate">
                         <div class="card">

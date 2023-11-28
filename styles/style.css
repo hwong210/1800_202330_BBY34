@@ -890,7 +890,25 @@ footer {
 }
 
 .alignment-text {
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1em;
+}
+
+
+#address2 {
+    display: flex;
+    align-items: center;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    margin-bottom: 0;
+}
+
+#writeReviewContainer {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    text-align: right;
 }
 
 #writeReviewBtn {
@@ -906,11 +924,29 @@ footer {
     bottom: 0;
 }
 
-#writeReviewContainer {
-    text-align: right;
-}
-
 .image-spacing {
     height: 20vh;
 
+}
+
+#ratingAverage {
+    margin: 0;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+}
+
+#grid-review-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+#review-header1 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+#reviewCard {
+    grid-column: 1 / span 2;
 }
