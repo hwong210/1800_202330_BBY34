@@ -114,8 +114,8 @@ function displayWashroomInfo() {
                 });
 
             // UI elements
-            // document.getElementById("name").innerHTML = name;
-            // document.getElementById("address2").innerHTML = address; 
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("address2").innerHTML = address; 
             // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
             // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
             // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
