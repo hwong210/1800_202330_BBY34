@@ -907,3 +907,20 @@ footer {
 #writeReviewContainer {
     text-align: right;
 }
+
+#washroomCardGroup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#signout-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons
+    { display: block; /* Set the display property to block */
+        color: black;
+        text-decoration: none;}

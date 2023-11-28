@@ -125,28 +125,31 @@ function displayCardsDynamicallyAfterFiltering(collection) {
         }
 
 
-        // // Testing preferences tags.
-        // if (preferences.clean) {
-        //     query = query.where("clean", "==", true);
-        // }
+        // Testing preferences tags.
+        if (preferences.clean) {
+            //alert("clean is true");
+            query = query.where("clean", "==", true);
+        }
 
-        // if (preferences.ventilated) {
-        //     query = query.where("ventilated", "==", true);
-        // }
+        if (preferences.ventilated) {
+            query = query.where("ventilated", "==", true);
+        }
 
-        // if (preferences.spacious) {
-        //     query = query.where("spacious", "==", true);
-        // }
+        if (preferences.spacious) {
+            query = query.where("spacious", "==", true);
+        }
 
-        // if (preferences.private) {
-        //     query = query.where("private", "==", true);
-        // }
+        if (preferences.private) {
+            query = query.where("private", "==", true);
+        }
 
-        // if (preferences.accessible) {
-        //     query = query.where("accessible", "==", true);
-        // }
+        if (preferences.accessible) {
+            query = query.where("accessible", "==", true);
+        }
 
         // Execute the query
+        // db.collection(collection)
+        // .where("clean", "==", true)
         query.get()
             .then(querySnapshot => {
                 querySnapshot.forEach(doc => {
@@ -158,12 +161,13 @@ function displayCardsDynamicallyAfterFiltering(collection) {
                     var image = doc.data().imageURL;
                     var docID = doc.id;
 
-                    // // testing
-                    // var clean = doc.data().clean;
-                    // var ventilated = doc.data().ventilated;
-                    // var spacious = doc.data().spacious;
-                    // var private = doc.data().private;
-                    // var accessible = doc.data().accessible;
+                    // testing
+                    var clean = doc.data().clean;
+                    var ventilated = doc.data().ventilated;
+                    var spacious = doc.data().spacious;
+                    var private = doc.data().private;
+                    var accessible = doc.data().accessible;
+                    // alert("clean value is " + clean);
 
                     let newcard = cardTemplate.content.cloneNode(true);
 
@@ -178,13 +182,6 @@ function displayCardsDynamicallyAfterFiltering(collection) {
                     newcard.querySelector('.card-bikePump').innerHTML = bikePump
                         ? 'Bike Pump' : '';
                     newcard.querySelector('a').href = "eachWashroom.html?docID=" + docID;
-
-                    // //testing
-                    // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
-                    // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
-                    // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
-                    // document.getElementById("private").innerHTML = private ? 'Private' : '';
-                    // document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
 
                     newcard.querySelector('i').id = 'save-' + docID;
                     newcard.querySelector('i').onclick = () => saveBookmark(docID);
@@ -218,9 +215,6 @@ function storeUserPreferences(userID, preferences) {
         .then(function () {
             console.log("User preferences written for ID: ", userID);
             
-            // display new cards in the main page after filtering
-            // displayCardsDynamicallyAfterFiltering("washrooms");
-
             // continue with the next action
             return Promise.resolve();
         })
