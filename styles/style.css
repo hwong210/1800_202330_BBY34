@@ -894,14 +894,17 @@ footer {
 }
 
 .alignment-text {
+    padding-left: 1em;
+    padding-right: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
     row-gap: 1em;
 }
 
 
 #address2 {
+    font-size: 16pt;
     display: flex;
     align-items: center;
     grid-column: 1 / span 1;
@@ -934,9 +937,13 @@ footer {
 }
 
 #ratingAverage {
+    font-size: 14pt;
     margin: 0;
-    grid-column: 1 / span 2;
-    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 #grid-review-collection {
