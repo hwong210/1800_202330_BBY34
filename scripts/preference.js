@@ -62,6 +62,9 @@ document.getElementById("save").addEventListener("click", function () {
     // Save preferences to local storage
     savePreferencesToLocal(userPreferences);
 
+    // display filtered washrooms
+    displayCardsDynamicallyAfterFiltering("washrooms");
+
 });
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -121,6 +124,28 @@ function displayCardsDynamicallyAfterFiltering(collection) {
             query = query.where("bikePump", "==", true);
         }
 
+
+        // // Testing preferences tags.
+        // if (preferences.clean) {
+        //     query = query.where("clean", "==", true);
+        // }
+
+        // if (preferences.ventilated) {
+        //     query = query.where("ventilated", "==", true);
+        // }
+
+        // if (preferences.spacious) {
+        //     query = query.where("spacious", "==", true);
+        // }
+
+        // if (preferences.private) {
+        //     query = query.where("private", "==", true);
+        // }
+
+        // if (preferences.accessible) {
+        //     query = query.where("accessible", "==", true);
+        // }
+
         // Execute the query
         query.get()
             .then(querySnapshot => {
@@ -132,6 +157,13 @@ function displayCardsDynamicallyAfterFiltering(collection) {
                     var bikePump = doc.data().bikePump;
                     var image = doc.data().imageURL;
                     var docID = doc.id;
+
+                    // // testing
+                    // var clean = doc.data().clean;
+                    // var ventilated = doc.data().ventilated;
+                    // var spacious = doc.data().spacious;
+                    // var private = doc.data().private;
+                    // var accessible = doc.data().accessible;
 
                     let newcard = cardTemplate.content.cloneNode(true);
 
@@ -146,6 +178,13 @@ function displayCardsDynamicallyAfterFiltering(collection) {
                     newcard.querySelector('.card-bikePump').innerHTML = bikePump
                         ? 'Bike Pump' : '';
                     newcard.querySelector('a').href = "eachWashroom.html?docID=" + docID;
+
+                    // //testing
+                    // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
+                    // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
+                    // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
+                    // document.getElementById("private").innerHTML = private ? 'Private' : '';
+                    // document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
 
                     newcard.querySelector('i').id = 'save-' + docID;
                     newcard.querySelector('i').onclick = () => saveBookmark(docID);
@@ -267,16 +306,24 @@ function insertNameFromFirestore() {
 }
 insertNameFromFirestore();
 
-
-function displayCardsOnClick() {
-    // Get the stored preferences
-    var storedPreferences = localStorage.getItem('userPreferences');
-
-    if (storedPreferences) {
-        // Parse preferences
-        var preferences = JSON.parse(storedPreferences);
-
-        // Call the displayCardsDynamicallyAfterFiltering function with the collection name
-        displayCardsDynamicallyAfterFiltering("washrooms", preferences);
-    }
+//-----------------------------------------------------------------------------
+// This function is called whenever the user clicks on the "bookmark" icon.
+// It adds the washroom to the "bookmarks" array
+// Then it will change the bookmark icon from the hollow to the solid version. 
+//-----------------------------------------------------------------------------
+function saveBookmark(docID) {
+    // Manage the backend process to store the washroomDocID in the database, recording which washroom was bookmarked by the user.
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(docID)
+    })
+        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+        .then(function () {
+            console.log("bookmark has been saved for" + docID);
+            var iconID = 'save-' + docID;
+            //console.log(iconID);
+            //this is to change the icon of the hike that was saved to "filled"
+            document.getElementById(iconID).innerText = 'bookmark';
+        });
 }
