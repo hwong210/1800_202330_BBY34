@@ -48,8 +48,8 @@
         <div id="display-name">
             <span class="material-symbols-outlined">account_circle</span>
             <p class="bot-nav-text">
-            <span class="font-change" id="username-goes-here"></span>
-            <span class="font-change">'s Preference Settings</span>
+                <span class="font-change" id="username-goes-here"></span>
+                <span class="font-change">'s Preference Settings</span>
             </p>
         </div>
         <hr>
@@ -78,7 +78,7 @@
             <div>
                 <h3>Distance away</h3>
             </div>
-            <div class="rangediv"><input type="range" min="1" max="10" value="5" id="distance"> km
+            <div class="rangediv"><input type="range" min="1" max="10" value="5" id="distance">&nbsp;&nbsp;km
             </div>
         </div>
         <hr>
@@ -142,16 +142,68 @@
             </div>
             <br>
         </div>
-        </div>
-        <!-- copyright footer -->
-        <div id="footer-container"></div>
-        <!-- Your own JavaScript functions go here    -->
+    </div>
 
-        <!-- Link to scripts of your own -->
-        <script src="./scripts/preference.js"></script>
-        <script src="./scripts/footer.js"></script>
-        <script src="./scripts/header.js"></script>
-        <!-- <script src="./scripts/main.js"></script> -->
+
+    <!-- <div id="firebaseui-auth-container"></div> -->
+    <!-- <div id="welcome">
+      <h1 id="welcome-msg">Hello, &nbsp;<span id="name-here"></span></h1>
+    </div>
+   -->
+
+    <!-- Container for all washroom cards -->
+    <div class="container">
+        <h4>Here are the washrooms!</h2>
+
+            <!-- Here is the container for cards -->
+            <div class="container">
+                <div id="washrooms-go-here" class="row row-cols-auto"></div>
+            </div>
+    </div>
+
+    <!-- Templates for general use, not displayed -->
+
+    <template id="washroomCardTemplate">
+        <div class="card py-2 mx-2" style="width: 15rem; margin-top: 8px;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <div class="image-spacing">
+                    <img class="card-image card-img-top" src=" ..." alt="..." />
+                </div>
+
+                <!-- <div class="alignment-text">
+                    <p id="clean"></p>
+                    <p id="ventilated"></p>
+                    <p id="spacious"></p>
+                    <p id="private"></p>
+                    <p id="accessible"></p>
+                </div> -->
+
+                <div class="test-div">
+                    <p class="card-storagebin amenity-font-size"></p>
+                    <p class="card-wheelchair amenity-font-size"></p>
+                    <p class="card-waterFountain amenity-font-size"></p>
+                    <p class="card-bikePump amenity-font-size"></p>
+                </div>
+                <br>
+                <div id="cardFooter">
+                    <a class="btn btn-primary card-href btn-read-more">More</a>
+                    <i class="material-icons">bookmark_border</i>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- copyright footer -->
+    <div id="footer-container"></div>
+    <!-- Your own JavaScript functions go here    -->
+
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/preference.js"></script>
+    <script src="./scripts/footer.js"></script>
+    <script src="./scripts/header.js"></script>
+    <!-- <script src="./scripts/main.js"></script> -->
 </body>
 
 </html>
