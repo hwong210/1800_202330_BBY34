@@ -931,10 +931,36 @@ footer {
     bottom: 0;
 }
 
+<<<<<<< HEAD
+=======
+#writeReviewContainer {
+    text-align: right;
+}
+
+<<<<<<< HEAD
+#washroomCardGroup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#signout-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons
+    { display: block; /* Set the display property to block */
+        color: black;
+        text-decoration: none;}
+=======
+>>>>>>> 143a225ce5c1681b84158b513ba52d723e6d06db
 .image-spacing {
     height: 20vh;
 
 }
+<<<<<<< HEAD
 
 #ratingAverage {
     font-size: 14pt;
@@ -975,3 +1001,6 @@ footer {
     align-items: center;
     justify-content: center;
 }
+=======
+>>>>>>> 9d5d6d58e1fff8b4ff31a560fc9ca12b5470599a
+>>>>>>> 143a225ce5c1681b84158b513ba52d723e6d06db
