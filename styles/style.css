@@ -910,7 +910,6 @@ footer {
     text-align: right;
 }
 
-<<<<<<< HEAD
 #washroomCardGroup{
     display: flex;
     align-items: center;
@@ -927,9 +926,3 @@ footer {
     { display: block; /* Set the display property to block */
         color: black;
         text-decoration: none;}
-=======
-.image-spacing {
-    height: 20vh;
-
-}
->>>>>>> 9d5d6d58e1fff8b4ff31a560fc9ca12b5470599a
