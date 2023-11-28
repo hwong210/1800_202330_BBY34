@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
     padding-top: 2em;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
     margin: 0;
 }
 
@@ -906,4 +906,9 @@ footer {
 
 #writeReviewContainer {
     text-align: right;
+}
+
+.image-spacing {
+    height: 20vh;
+
 }
