@@ -96,7 +96,6 @@ function getSelectedRating() {
 
 function displayCardsDynamicallyAfterFiltering(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate");
-
     var storedPreferences = localStorage.getItem('userPreferences');
 
     if (storedPreferences) {
@@ -181,15 +180,14 @@ function storeUserPreferences(userID, preferences) {
             console.log("User preferences written for ID: ", userID);
             
             // display new cards in the main page after filtering
-            displayCardsDynamicallyAfterFiltering("washrooms");
+            // displayCardsDynamicallyAfterFiltering("washrooms");
 
             // continue with the next action
             return Promise.resolve();
         })
 
         .then(function () {
-            alert('Your preferences are saved!');
-            window.location.href = 'main.html';
+            // window.location.href = 'main.html';
         })
         .catch(function (error) {
             console.error("Error adding preferences: ", error);
@@ -270,20 +268,15 @@ function insertNameFromFirestore() {
 insertNameFromFirestore();
 
 
-// Validate that at least one option is selected
-function validatePreferences() {
-    var storageBin = document.getElementById("storagebin-checkbox").checked;
-    var wheelchair = document.getElementById("wheelchair-checkbox").checked;
-    var waterFountain = document.getElementById("waterfountain-checkbox").checked;
-    var bikePump = document.getElementById("bikepump-checkbox").checked;
+function displayCardsOnClick() {
+    // Get the stored preferences
+    var storedPreferences = localStorage.getItem('userPreferences');
 
-    // Check if at least one option is selected
-    if (!storageBin && !wheelchair && !waterFountain && !bikePump) {
-        // Display a warning window
-        alert('Please select at least one preference option.');
-        return false; // Preferences are not valid
+    if (storedPreferences) {
+        // Parse preferences
+        var preferences = JSON.parse(storedPreferences);
+
+        // Call the displayCardsDynamicallyAfterFiltering function with the collection name
+        displayCardsDynamicallyAfterFiltering("washrooms", preferences);
     }
 }
-
-//test
-// displayCardsDynamicallyAfterFiltering("washrooms");
