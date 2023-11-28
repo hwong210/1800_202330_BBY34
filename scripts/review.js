@@ -8,7 +8,7 @@ function getWashroomName(id) {
         .then((thisWashroom) => {
             var washroomName = thisWashroom.data().name;
             document.getElementById("washroomName").innerHTML = washroomName;
-                });
+        });
 }
 
 getWashroomName(washroomDocID);
@@ -20,15 +20,14 @@ function writeReview() {
     // star rating issue below. need help. doesnt save properly
     const stars = document.getElementsByName('rate');
 
-    //working fine
     let reviewRating = 0;
-    
+
     for (let i = 0; i < stars.length; i++) {
         if (stars[i].checked) {
-          reviewRating = parseInt(stars[i].value);
-          break;
+            reviewRating = parseInt(stars[i].value);
+            break;
         }
-      }    
+    }
 
     let cleanTag = document.getElementById("clean-button");
     // if cleantag checked then cleanvalue = 1, otherwise 0
@@ -37,7 +36,7 @@ function writeReview() {
     if (cleanTag.checked) {
         cleanValue = 1;
     }
-  
+
     let ventilatedTag = document.getElementById("ventilated-button");
     let ventilatedValue = 0;
     if (ventilatedTag.checked) {
@@ -79,15 +78,14 @@ function writeReview() {
             ventilated: ventilatedValue,
             spacious: spaciousValue,
             private: privateValue,
-            // may remove if included in addwashroom section
             accessible: accessibleValue,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             window.location.href = "review-submission-successful-copy.html";
         })
-        .catch((error) => {
-            console.log("Error submitting the review.", error);
-        });
+            .catch((error) => {
+                console.log("Error submitting the review.", error);
+            });
     } else {
         console.log("No user is signed in");
         window.location.href = 'review.html';
