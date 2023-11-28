@@ -9,12 +9,12 @@ var washroomRef;
 
 function generateUniqueFileName() {
     const timestamp = new Date().getTime();
-    const randomString = Math.random().toString(36).substring(2, 8); 
+    const randomString = Math.random().toString(36).substring(2, 8);
     const uniqueFileName = `${timestamp}_${randomString}`;
     return uniqueFileName;
 }
 
-function getFile(e){
+function getFile(e) {
     fileItem = e.target.files[0];
     fileName = fileItem.name;
 }
@@ -24,7 +24,7 @@ function initAutocomplete() {
 
     autocomplete.addListener('place_changed', function () {
         var place = autocomplete.getPlace();
-        
+
         // Assuming showAddress sets up lat and lng
         lat = place.geometry.location.lat();
         lng = place.geometry.location.lng();
@@ -76,7 +76,7 @@ function submitWashroom() {
                 let spacious = document.getElementById('spacious').checked;
                 let private = document.getElementById('private').checked;
                 let accessible = document.getElementById('accessible').checked;
-               
+
                 console.log(address, storageBin, wheelchair, waterFountain, bikePump);
 
                 var user = firebase.auth().currentUser;
@@ -116,17 +116,17 @@ function submitWashroom() {
     }
 }
 
-    // uploadTask.on("state_changed", (snapshot)=>{
-    //     console.log(snapshot);
-    //     percentVal = Math.floor((snapshot.bytesTransferred/snapshot.totalBytes)*100);
-    //     console.log(percentVal);
-    //     uploadPercentage.innerHTML = percentVal+"%";
-    //     progress.style.width=percentVal+"%";
-    // },(error)=>{
-    //     console.log("Error is ", error);
-    // },()=>{
-    //     uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
-    //         console.log("URL", url);
-    //     })
-    // })
+// uploadTask.on("state_changed", (snapshot)=>{
+//     console.log(snapshot);
+//     percentVal = Math.floor((snapshot.bytesTransferred/snapshot.totalBytes)*100);
+//     console.log(percentVal);
+//     uploadPercentage.innerHTML = percentVal+"%";
+//     progress.style.width=percentVal+"%";
+// },(error)=>{
+//     console.log("Error is ", error);
+// },()=>{
+//     uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
+//         console.log("URL", url);
+//     })
+// })
 

@@ -1,209 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <title>Preferences - SmartRelief</title>
-    <meta name="comp1800 template" content="My 1800 App">
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-
-    <!-- Other libraries go here -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Inconsolata&display=swap" rel="stylesheet">
-
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
-
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-</head>
-
-<body>
-    <!-- Your HTML Layout go here -->
-    <div id="header-container"></div>
-
-    <div id="preference-contents">
-        <div id="display-name">
-            <span class="material-symbols-outlined">account_circle</span>
-            <p class="bot-nav-text">
-                <span class="font-change" id="username-goes-here"></span>
-                <span class="font-change">'s Preference Settings</span>
-            </p>
-        </div>
-        <hr>
-
-        <div id="preference-checkboxes">
-            <div>
-                <h3>Preferences</h3>
+    <head>
+        <title>Preferences - SmartRelief</title>
+        <meta name="comp1800 template" content="My 1800 App">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap Library CSS CDN go here -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        >
+        <!-- Boostrap Library JS CDN  go here -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- Other libraries go here -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Inconsolata&display=swap" rel="stylesheet">
+        <!-- Google Icons (Material Design)-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+        <!-- Link to styles of your own -->
+        <link rel="stylesheet" href="./styles/style.css">
+        <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css">
+    </head>
+    <body>
+        <!-- Your HTML Layout go here -->
+        <div id="header-container"></div>
+        <div id="preference-contents">
+            <div id="display-name">
+                <span class="material-symbols-outlined">account_circle</span>
+                <p class="bot-nav-text">
+                    <span class="font-change" id="username-goes-here"></span>
+                    <span class="font-change">'s Preference Settings</span>
+                </p>
             </div>
-            <input type="checkbox" class="btn-check" id="clean-outlined">
-            <label class="btn btn-outline-primary" for="clean-outlined">Clean</label>
-
-            <input type="checkbox" class="btn-check" id="ventilated-outlined">
-            <label class="btn btn-outline-primary" for="ventilated-outlined">Ventilated</label>
-
-            <input type="checkbox" class="btn-check" id="spacious-outlined">
-            <label class="btn btn-outline-primary" for="spacious-outlined">Spacious</label>
-
-            <input type="checkbox" class="btn-check" id="private-outlined">
-            <label class="btn btn-outline-primary" for="private-outlined">Private</label>
-
-            <input type="checkbox" class="btn-check" id="accessible-outlined">
-            <label class="btn btn-outline-primary" for="accessible-outlined">Accessible</label>
-        </div>
-        <hr>
-        <div class="distance">
-            <div>
-                <h3>Distance away</h3>
+            <hr>
+            <div id="preference-checkboxes">
+                <div>
+                    <h3>Preferences</h3>
+                </div>
+                <input type="checkbox" class="btn-check" id="clean-outlined">
+                <label class="btn btn-outline-primary" for="clean-outlined">Clean</label>
+                <input type="checkbox" class="btn-check" id="ventilated-outlined">
+                <label class="btn btn-outline-primary" for="ventilated-outlined">Ventilated</label>
+                <input type="checkbox" class="btn-check" id="spacious-outlined">
+                <label class="btn btn-outline-primary" for="spacious-outlined">Spacious</label>
+                <input type="checkbox" class="btn-check" id="private-outlined">
+                <label class="btn btn-outline-primary" for="private-outlined">Private</label>
+                <input type="checkbox" class="btn-check" id="accessible-outlined">
+                <label class="btn btn-outline-primary" for="accessible-outlined">Accessible</label>
             </div>
-            <div class="rangediv"><input type="range" min="1" max="10" value="5" id="distance">&nbsp;&nbsp;km
-            </div>
-        </div>
-        <hr>
-        <div class="amenities">
-            <div>
-                <h3>Amenities</h3>
-            </div>
-            <div class="storgagebin">
-                <label class="form-check-label" for="storagebin-checkbox">
-                    Storage bin
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="storagebin-checkbox">
-
-            </div>
-            <div class="wheelchair">
-                <label class="form-check-label" for="wheelchair-checkbox">
-                    Wheelchair
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="wheelchair-checkbox">
-
-            </div>
-            <div class="waterfountain">
-                <label class="form-check-label" for="waterfountain-checkbox">
-                    Water fountain
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="waterfountain-checkbox">
-            </div>
-            <div class="airpump">
-                <label class="form-check-label" for="bikepump-checkbox">
-                    Bike pump
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="bikepump-checkbox">
-            </div>
-        </div>
-        <hr>
-        <div class="rating">
-            <div>
-                <h3>Rating</h3>
-            </div>
-            <div id="review-icons">
-                <div id="review-rate">
-                    <input class="star" type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">stars</label>
-                    <input class="star" type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">stars</label>
-                    <input class="star" type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">stars</label>
-                    <input class="star" type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">stars</label>
-                    <input class="star" type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">star</label>
+            <hr>
+            <div class="distance">
+                <div>
+                    <h3>Distance away</h3>
+                </div>
+                <div class="rangediv">
+                    <input
+                        type="range"
+                        min="1"
+                        max="10"
+                        value="5"
+                        id="distance"
+                    >
+                    &nbsp;&nbsp;km
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <div class="button-container">
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" id="save" class="btn btn-info">Save</button>
+            <hr>
+            <div class="amenities">
+                <div>
+                    <h3>Amenities</h3>
+                </div>
+                <div class="storgagebin">
+                    <label class="form-check-label" for="storagebin-checkbox">
+                        Storage bin
+                    </label>
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="storagebin-checkbox"
+                    >
+                </div>
+                <div class="wheelchair">
+                    <label class="form-check-label" for="wheelchair-checkbox">
+                        Wheelchair
+                    </label>
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="wheelchair-checkbox"
+                    >
+                </div>
+                <div class="waterfountain">
+                    <label class="form-check-label" for="waterfountain-checkbox">
+                        Water fountain
+                    </label>
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="waterfountain-checkbox"
+                    >
+                </div>
+                <div class="airpump">
+                    <label class="form-check-label" for="bikepump-checkbox">
+                        Bike pump
+                    </label>
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="bikepump-checkbox"
+                    >
                 </div>
             </div>
-            <br>
+            <hr>
+            <div class="rating">
+                <div>
+                    <h3>Rating</h3>
+                </div>
+                <div id="review-icons">
+                    <div id="review-rate">
+                        <input
+                            class="star"
+                            type="radio"
+                            id="star5"
+                            name="rate"
+                            value="5"
+                        >
+                        <label for="star5" title="text">stars</label>
+                        <input
+                            class="star"
+                            type="radio"
+                            id="star4"
+                            name="rate"
+                            value="4"
+                        >
+                        <label for="star4" title="text">stars</label>
+                        <input
+                            class="star"
+                            type="radio"
+                            id="star3"
+                            name="rate"
+                            value="3"
+                        >
+                        <label for="star3" title="text">stars</label>
+                        <input
+                            class="star"
+                            type="radio"
+                            id="star2"
+                            name="rate"
+                            value="2"
+                        >
+                        <label for="star2" title="text">stars</label>
+                        <input
+                            class="star"
+                            type="radio"
+                            id="star1"
+                            name="rate"
+                            value="1"
+                        >
+                        <label for="star1" title="text">star</label>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="button-container">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button type="button" id="save" class="btn btn-info">Save</button>
+                    </div>
+                </div>
+                <br>
+            </div>
         </div>
-    </div>
-
-
-    <!-- <div id="firebaseui-auth-container"></div> -->
-    <!-- <div id="welcome">
+        <!-- <div id="firebaseui-auth-container"></div> -->
+        <!-- <div id="welcome">
       <h1 id="welcome-msg">Hello, &nbsp;<span id="name-here"></span></h1>
     </div>
    -->
-
-    <!-- Container for all washroom cards -->
-    <div class="container">
-        <h4>Here are the washrooms!</h2>
-
+        <!-- Container for all washroom cards -->
+        <div class="container">
+            <h4>Here are the washrooms!
+            </h2>
             <!-- Here is the container for cards -->
             <div class="container">
                 <div id="washrooms-go-here" class="row row-cols-auto"></div>
             </div>
-    </div>
-
-    <!-- Templates for general use, not displayed -->
-
-    <template id="washroomCardTemplate">
-        <div class="card py-2 mx-2" style="width: 15rem; margin-top: 8px;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <div class="image-spacing">
-                    <img class="card-image card-img-top" src=" ..." alt="..." />
-                </div>
-
-                <!-- <div class="alignment-text">
+        </div>
+        <!-- Templates for general use, not displayed -->
+        <template id="washroomCardTemplate">
+            <div class="card py-2 mx-2" style="width: 15rem; margin-top: 8px;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <div class="image-spacing">
+                        <img class="card-image card-img-top" src=" ..." alt="...">
+                    </div>
+                    <!-- <div class="alignment-text">
                     <p id="clean"></p>
                     <p id="ventilated"></p>
                     <p id="spacious"></p>
                     <p id="private"></p>
                     <p id="accessible"></p>
                 </div> -->
-
-                <div class="test-div">
-                    <p class="card-storagebin amenity-font-size"></p>
-                    <p class="card-wheelchair amenity-font-size"></p>
-                    <p class="card-waterFountain amenity-font-size"></p>
-                    <p class="card-bikePump amenity-font-size"></p>
-                </div>
-                <br>
-                <div id="cardFooter">
-                    <a class="btn btn-primary card-href btn-read-more">More</a>
-                    <i class="material-icons">bookmark_border</i>
+                    <div class="test-div">
+                        <p class="card-storagebin amenity-font-size"></p>
+                        <p class="card-wheelchair amenity-font-size"></p>
+                        <p class="card-waterFountain amenity-font-size"></p>
+                        <p class="card-bikePump amenity-font-size"></p>
+                    </div>
+                    <br>
+                    <div id="cardFooter">
+                        <a class="btn btn-primary card-href btn-read-more">More</a>
+                        <i class="material-icons">bookmark_border</i>
+                    </div>
                 </div>
             </div>
-        </div>
-    </template>
-
-
-    <!-- copyright footer -->
-    <div id="footer-container"></div>
-    <!-- Your own JavaScript functions go here    -->
-
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/preference.js"></script>
-    <script src="./scripts/footer.js"></script>
-    <script src="./scripts/header.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
-</body>
-
+        </template>
+        <!-- copyright footer -->
+        <div id="footer-container"></div>
+        <!-- Your own JavaScript functions go here    -->
+        <!-- Link to scripts of your own -->
+        <script src="./scripts/preference.js"></script>
+        <script src="./scripts/footer.js"></script>
+        <script src="./scripts/header.js"></script>
+        <!-- <script src="./scripts/main.js"></script> -->
+    </body>
 </html>

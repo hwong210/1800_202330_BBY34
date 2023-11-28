@@ -12,10 +12,10 @@ function countReviews(washroomID) {
 
                     // Reads review tag values.
                     clean: data.clean,
-                    ventilated : data.ventilated,
-                    spacious : data.spacious,
-                    private : data.private,
-                    accessible : data.accessible
+                    ventilated: data.ventilated,
+                    spacious: data.spacious,
+                    private: data.private,
+                    accessible: data.accessible
                 };
             });
             const reviewCount = reviews.length;
@@ -38,7 +38,7 @@ function countReviews(washroomID) {
                 spaciousCount: spaciousCount,
                 privateCount: privateCount,
                 accessibleCount: accessibleCount
-            };   
+            };
         })
         .catch(error => {
             console.error("Error counting reviews:", error);
@@ -79,7 +79,7 @@ function displayWashroomInfo() {
                     count = result;
                     // Log the reviewCount for debugging
                     console.log("Review Count:", count);
-            
+
                     // Formula to calculate the average rating, rounded to the first decimal place.
                     ratingAverageFormula = Math.round(10 * (count.totalRating / (count.reviewCount * 5) * 5)) / 10;
 
@@ -111,7 +111,7 @@ function displayWashroomInfo() {
                 })
                 .catch(error => {
                     console.error("Error counting reviews or updating washroom collection:", error);
-            });
+                });
 
             // UI elements
             // document.getElementById("name").innerHTML = name;

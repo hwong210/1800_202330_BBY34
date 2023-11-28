@@ -213,11 +213,11 @@ function navigateToEachWashroom(docID) {
 
 function storeUserPreferences(userID, preferences) {
     console.log("Storing user preferences...", userID, preferences); // debugging
-   
+
     db.collection("preferences").doc(userID).set(preferences)
         .then(function () {
             console.log("User preferences written for ID: ", userID);
-            
+
             // display new cards in the main page after filtering
             // displayCardsDynamicallyAfterFiltering("washrooms");
 

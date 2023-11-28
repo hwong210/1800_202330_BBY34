@@ -21,12 +21,12 @@ doAll();
 // and put into script.js for other pages to use as well).
 //----------------------------------------------------------
 function insertNameFromFirestore(user) {
-            db.collection("users").doc(user.uid).get().then(userDoc => {
-                console.log(userDoc.data().name)
-                userName = userDoc.data().name;
-                console.log(userName)
-                document.getElementById("name-goes-here").innerHTML = userName;
-            })
+    db.collection("users").doc(user.uid).get().then(userDoc => {
+        console.log(userDoc.data().name)
+        userName = userDoc.data().name;
+        console.log(userName)
+        document.getElementById("name-goes-here").innerHTML = userName;
+    })
 
 }
 
@@ -39,14 +39,14 @@ function getBookmarks(user) {
     db.collection("users").doc(user.uid).get()
         .then(userDoc => {
 
-					  // Get the Array of bookmarks
+            // Get the Array of bookmarks
             var bookmarks = userDoc.data().bookmarks;
             console.log(bookmarks);
-						
-						// Get pointer the new card template
+
+            // Get pointer the new card template
             let newcardTemplate = document.getElementById("savedCardTemplate");
 
-						// Iterate through the ARRAY of bookmarked washrooms (document ID's)
+            // Iterate through the ARRAY of bookmarked washrooms (document ID's)
             bookmarks.forEach(thisWashroomID => {
                 console.log(thisWashroomID);
                 db.collection("washrooms").doc(thisWashroomID).get().then(doc => {
@@ -70,7 +70,7 @@ function getBookmarks(user) {
                     //     "Duration: " + doc.data().hike_time + "min <br>" +
                     //     "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
 
-										//Finally, attach this new card to the gallery
+                    //Finally, attach this new card to the gallery
                     washroomCardGroup.appendChild(newcard);
                 })
             });

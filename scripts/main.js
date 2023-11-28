@@ -21,20 +21,20 @@ insertNameFromFirestore();
 
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
-    
+
     db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   //the collection called "washrooms"
         .then(allWashrooms => {
-               
+
 
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key  
-                var code = doc.data().code;   
-                var storageBin = doc.data().storageBin; 
+                var code = doc.data().code;
+                var storageBin = doc.data().storageBin;
                 var wheelchair = doc.data().wheelchair;
                 var waterFountain = doc.data().waterFountain;
                 var bikePump = doc.data().bikePump;
                 var image = doc.data().imageURL;
-                
+
                 // below is change from louise, remove if broken. it works
                 // gets the document id
                 var docID = doc.id;
@@ -43,7 +43,7 @@ function displayCardsDynamically(collection) {
 
                 //update title and text
                 newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-image').src = image ? image : 'img/logo.jpg';                
+                newcard.querySelector('.card-image').src = image ? image : 'img/logo.jpg';
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
                     ? 'Storage Bin' : ''
                 newcard.querySelector('.card-wheelchair').innerHTML = wheelchair
@@ -52,8 +52,8 @@ function displayCardsDynamically(collection) {
                     ? 'Fountain' : ''
                 newcard.querySelector('.card-bikePump').innerHTML = bikePump
                     ? 'Bike Pump' : ''
-                newcard.querySelector('a').href = "eachWashroom.html?docID="+docID;
-                
+                newcard.querySelector('a').href = "eachWashroom.html?docID=" + docID;
+
                 // Bookmarks, attach an onclick, callback function
                 newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
                 newcard.querySelector('i').onclick = () => saveBookmark(docID);

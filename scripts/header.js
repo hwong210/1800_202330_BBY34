@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Fetch the content of the header.html file
     fetch("header.html")
         .then(response => response.text())
