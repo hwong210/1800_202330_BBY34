@@ -1,6 +1,9 @@
 var washroomDocID = localStorage.getItem("washroomDocID");    //visible to all functions on this page
 
-// Display washroom name on the page.
+//-----------------------------------------------------------------------------
+// Retrieves the washroom name and displays it onto the washroom page.
+// Automatically called as the page loads.
+//-----------------------------------------------------------------------------
 function getWashroomName(id) {
     db.collection("washrooms")
         .doc(id)
@@ -13,7 +16,10 @@ function getWashroomName(id) {
 
 getWashroomName(washroomDocID);
 
-// Writes review and stores review values.
+//-----------------------------------------------------------------------------
+// This function is called when the user clicks on the "Submit" button.
+// Writes the review and stores the review values into Firebase.
+//-----------------------------------------------------------------------------
 function writeReview() {
     // Initializes reviewText to the text box value. 
     let reviewText = document.getElementById("text-box-area").value;
@@ -58,7 +64,9 @@ function writeReview() {
 
 }
 
-// Function to get the checked star values.
+//-----------------------------------------------------------------------------
+// This function gets the checked star values.
+//-----------------------------------------------------------------------------
 function getStarValue(starId) {
     let stars = document.getElementsByName(starId);
     let starValue = 0;
@@ -70,7 +78,9 @@ function getStarValue(starId) {
     return starValue;
 }
 
+//-----------------------------------------------------------------------------
 // Function to get review tag values.
+//-----------------------------------------------------------------------------
 function getValueFromCheckbox(checkBoxId) {
     let checkbox = document.getElementById(checkBoxId);
     return checkbox.checked ? 1 : 0;

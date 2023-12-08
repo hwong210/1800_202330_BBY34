@@ -1,43 +1,31 @@
-// counts reviews
+//-----------------------------------------------------------------------------
+// This function is displayWashroomInfo() loads.
+// Counts and calculates the reviews and its tags.
+//-----------------------------------------------------------------------------
 function countReviews(washroomID) {
     return db.collection("reviews")
         .where("washroomID", "==", washroomID)
         .get()
         .then(allReviews => {
-            const reviews = allReviews.docs.map(doc => {
-                const data = doc.data();
-                return {
-                    // Reads rating value.
-                    rating: data.rating,
+            const reviews = allReviews.docs.map(doc => ({
+                rating: doc.data().rating,
+                clean: doc.data().clean,
+                ventilated: doc.data().ventilated,
+                spacious: doc.data().spacious,
+                private: doc.data().private,
+                accessible: doc.data().accessible,
+            }));
 
-                    // Reads review tag values.
-                    clean: data.clean,
-                    ventilated: data.ventilated,
-                    spacious: data.spacious,
-                    private: data.private,
-                    accessible: data.accessible
-                };
-            });
-            const reviewCount = reviews.length;
-            const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-
-            // Counts the reviews with specific tags.
-            const cleanCount = reviews.filter(review => review.clean === 1).length;
-            const ventilatedCount = reviews.filter(review => review.ventilated === 1).length;
-            const spaciousCount = reviews.filter(review => review.spacious === 1).length;
-            const privateCount = reviews.filter(review => review.private === 1).length;
-            const accessibleCount = reviews.filter(review => review.accessible === 1).length;
+            const countWithTag = tag => reviews.filter(review => review[tag] === 1).length;
 
             return {
-                reviewCount: reviewCount,
-                totalRating: totalRating,
-
-                // Holds review tag values
-                cleanCount: cleanCount,
-                ventilatedCount: ventilatedCount,
-                spaciousCount: spaciousCount,
-                privateCount: privateCount,
-                accessibleCount: accessibleCount
+                reviewCount: reviews.length,
+                totalRating: reviews.reduce((sum, review) => sum + review.rating, 0),
+                cleanCount: countWithTag('clean'),
+                ventilatedCount: countWithTag('ventilated'),
+                spaciousCount: countWithTag('spacious'),
+                privateCount: countWithTag('private'),
+                accessibleCount: countWithTag('accessible'),
             };
         })
         .catch(error => {
@@ -46,7 +34,10 @@ function countReviews(washroomID) {
         });
 }
 
-// displays unique washroom info according to db
+//-----------------------------------------------------------------------------
+// This function is called automatically once the washroom page loads.
+// Populates washroom information associated with the washroomID onto the page.
+//-----------------------------------------------------------------------------
 function displayWashroomInfo() {
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
@@ -55,21 +46,12 @@ function displayWashroomInfo() {
         .doc(ID)
         .get()
         .then(doc => {
+            // We did not have time to display the ameneties (eg. waterFountain, ventilated, etc.) onto the washroom pages.
             var address = doc.data().address;
             var name = doc.data().name;
-            var code = doc.data().code;
-            var storageBin = doc.data().storageBin;
-            var wheelchair = doc.data().wheelchair;
-            var waterFountain = doc.data().waterFountain;
-            var bikePump = doc.data().bikePump;
-            var clean = doc.data().clean;
-            var ventilated = doc.data().ventilated;
-            var spacious = doc.data().spacious;
-            var private = doc.data().private;
-            var accessible = doc.data().accessible;
             var imageLink = doc.data().imageURL;
 
-            // Declare count
+            // Declares count.
             var count;
             var ratingAverageFormula;
             var maxRating = 5;
@@ -77,8 +59,6 @@ function displayWashroomInfo() {
             countReviews(ID)
                 .then(result => {
                     count = result;
-                    // Log the reviewCount for debugging
-                    console.log("Review Count:", count);
 
                     // Formula to calculate the average rating, rounded to the first decimal place.
                     ratingAverageFormula = Math.round(10 * (count.totalRating / (count.reviewCount * 5) * 5)) / 10;
@@ -100,7 +80,6 @@ function displayWashroomInfo() {
                         });
                 })
                 .then(() => {
-                    // UI average rating. Does not show if no reviews.
                     if (!(count.reviewCount >= 1)) {
                         document.getElementById("ratingAverage").innerHTML = "No reviews yet.";
                     } else {
@@ -113,16 +92,9 @@ function displayWashroomInfo() {
                     console.error("Error counting reviews or updating washroom collection:", error);
                 });
 
-            // UI elements
             document.getElementById("name").innerHTML = name;
-            document.getElementById("address2").innerHTML = address; 
-            // document.getElementById("clean").innerHTML = clean ? 'Clean' : '';
-            // document.getElementById("ventilated").innerHTML = ventilated ? 'Ventilated' : '';
-            // document.getElementById("spacious").innerHTML = spacious ? 'Spacious' : '';
-            // document.getElementById("private").innerHTML = private ? 'Private' : '';
-            // document.getElementById("accessible").innerHTML = accessible ? 'Accessible' : '';
+            document.getElementById("address2").innerHTML = address;
 
-            // Need to include image later once hason implements
             let imgEvent = document.querySelector(".washroom-img");
             imgEvent.src = imageLink;
             console.log(washroomName);
@@ -132,9 +104,14 @@ function displayWashroomInfo() {
         });
 }
 
-// Call the displayWashroomInfo function
 displayWashroomInfo();
 
+
+//-----------------------------------------------------------------------------
+// The functions below is called by populateReviews() when it loads.
+// Displays a tag on the populated review card if the tag value was selected
+// (equal to 1).
+//-----------------------------------------------------------------------------
 function mapCleanValueToTag(cleanValue) {
     return cleanValue === 1 ? '<span class="review-tag-colors" id="clean-button">clean</span>' : '';
 }
@@ -155,24 +132,22 @@ function mapAccessibleValueToTag(accessibleValue) {
     return accessibleValue === 1 ? '<span class="review-tag-colors" id="accessible-button">accessible</span>' : '';
 }
 
+//-----------------------------------------------------------------------------
+// This function is called automatically once the washroom page loads.
+// Populates all the reviews associated with the washroomID onto the page.
+//-----------------------------------------------------------------------------
 function populateReviews() {
-    // for review collection holder container
     let washroomCardTemplate = document.getElementById("reviewCardTemplate");
     let washroomCardGroup = document.getElementById("reviewCardGroup");
 
     let params = new URL(window.location.href);
-    // initializes washroomid to docid found in url
+    // Initializes washroomid to docid found in url
     let washroomID = params.searchParams.get("docID");
 
-    let a;
-    let b;
-
     db.collection("reviews")
-        // where to get data? under washroomDocID field and the field value must == to the washroomID found in url
         .where("washroomID", "==", washroomID)
-        .get() // gets matching data
+        .get()
         .then((allReviews) => {
-            // the array of all reviews
             reviews = allReviews.docs;
             console.log(reviews);
 
@@ -182,10 +157,8 @@ function populateReviews() {
             });
 
             reviews.forEach((doc) => {
-                // how to get user name not id?
                 var userID = doc.data().userID;
 
-                // Fetch user's name from the users collection
                 db.collection("users")
                     .doc(userID)
                     .get()
@@ -202,14 +175,13 @@ function populateReviews() {
                         var reviewText = doc.data().reviewText;
                         var time = doc.data().timestamp.toDate();
 
-                        // Use the mapCleanValueToTag function to get the review tag
+                        // Uses the map*ValueToTag function to get the review tag.
                         var cleanTag = mapCleanValueToTag(clean);
                         var ventilatedTag = mapVentilatedValueToTag(ventilated);
                         var spaciousTag = mapSpaciousValueToTag(spacious);
                         var privateTag = mapPrivateValueToTag(private);
                         var accessibleTag = mapAccessibleValueToTag(accessible);
 
-                        // cloning washroomcardtemplate
                         let reviewCard = washroomCardTemplate.content.cloneNode(true);
                         reviewCard.querySelector(".review-name").innerHTML = userName;
 
@@ -221,7 +193,6 @@ function populateReviews() {
                             time
                         ).toLocaleString();
 
-                        // IT WORKS bless
                         let starRating = "";
                         for (let i = 0; i < 5; i++) {
                             if (i < rating) {
@@ -241,6 +212,11 @@ function populateReviews() {
 
 populateReviews();
 
+//-----------------------------------------------------------------------------
+// This function is called when the user clicks on the "Write Review" button.
+// Saves the washroom document ID to the local storage and redirects to the
+// review page.
+//-----------------------------------------------------------------------------
 function saveWashroomDocumentIDAndRedirect() {
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
