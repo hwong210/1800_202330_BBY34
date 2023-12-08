@@ -2,8 +2,6 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
-    /* padding-top: 1em;
-    padding-bottom: 10px; */
     margin: 0;
     margin-top: 40px;
     margin-bottom: 75px;
@@ -37,8 +35,8 @@ h1 {
 .container {
     width: auto;
     height: auto;
-    /* position: relative;
-    display: inline-block; */
+    position: relative;
+    display: inline-block;
     margin-top: 8px;
 }
 
@@ -902,7 +900,7 @@ footer {
 }
 
 .test-div {
-    height: 15vh;
+    height: 4vh;
 }
 
 .alignment-text {
@@ -967,8 +965,7 @@ footer {
 }
 
 .image-spacing {
-    height: 20vh;
-
+    height: 7vh;
 }
 
 #ratingAverage {
