@@ -28,7 +28,7 @@ function displayCardsDynamically(collection) {
     db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()
         .then(allWashrooms => {
             allWashrooms.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;       // get value of the "name" key  
+                var title = doc.data().name;       // get value of the "name" key and so on  
                 var code = doc.data().code;
                 var storageBin = doc.data().storageBin;
                 var wheelchair = doc.data().wheelchair;
@@ -40,7 +40,7 @@ function displayCardsDynamically(collection) {
 
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
-                //update title and text
+                //update title and text for each card 
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-image').src = image ? image : 'img/logo.jpg';
                 newcard.querySelector('.card-storagebin').innerHTML = storageBin
@@ -57,7 +57,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('i').id = 'save-' + docID;
                 newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
-                // not working. it makes only one card showing. hyebin
+                // not working. it makes only one card show up 
                 // currentUser.get().then(userDoc => {
                 //     //get the user name
                 //     var bookmarks = userDoc.data().bookmarks;
@@ -80,7 +80,7 @@ displayCardsDynamically("washrooms");
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "more" button for
 // each washroom card.
-// It redirects the user to the specific washroom acording to the docID.
+// It redirects the user to the specific washroom according to the docID.
 //-----------------------------------------------------------------------------
 function navigateToEachWashroom(docID) {
     // Added the docID at the end of the URL to maintain uniqueness.

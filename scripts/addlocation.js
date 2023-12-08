@@ -47,6 +47,10 @@ function initAutocomplete() {
     });
 }
 
+// This function is what allows the "addlocation.html" page to receive the user's input 
+// (text, images, etc) and store them in the Washroom collection in Firebase. The image
+// in particular is more complex, where the image is first saved into the Firebase storage,
+// and the link to that image is what is saved in each Washroom document. 
 function submitWashroom() {
     let fileInput = document.getElementById("fileInp");
 
