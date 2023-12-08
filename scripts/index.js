@@ -61,7 +61,7 @@ async function initMap() {
     map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(locationButton);
 
     locationButton.style.fontSize = "16px";
-    locationButton.style.padding = "10px 20px"; 
+    locationButton.style.padding = "10px 20px";
     locationButton.style.backgroundColor = "lightBlue";
     locationButton.style.borderColor = "lightBlue";
 

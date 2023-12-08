@@ -1,4 +1,5 @@
 # Project Title
+SmartRelief
 
 ## 1. Project Description
 * Public washroom locator with review and amenity filtering system - Hason 
@@ -35,7 +36,8 @@ Here are some known bugs:
 What we'd like to build in the future:
 * Either implement directions onto our app or redirecting to google maps automatically sets the route from your location
 * Displaying washroom cards as a carousel or list rather than a grid
-* ...
+* Implementing a way for washrooms and reviews to require approval before releasing for public visibility
+* Completing the filter function properly
 	
 ## 7. Contents of Folder
 Content of the project folder:
@@ -48,13 +50,26 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+├── img                      # Folder for images
+    / AddLocation.png        # Banner image for add location page.
+    / back.png               # Image of the back button.
+    / logo.jpg               # Image of the logo.
+    / logo-bgremoved.png     # Image of the logo with a removed background.
+    / main-image             # Banner image for the login page.
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    / account-information.js # Script for account-after-login.html
+    / addlocation.js         # Script for addlocation.html
+    / authentication.js      # Script for login.html
+    / eachWashroom.js        # Script for eachWashroom.html
+    / favorites.js           # Script for favorites.html
+    / firebaseAPI.js         # Initialization code for SmartRelief using Firebase.
+    / header.js              # Script for header.html
+    / index.js               # Script for index.html
+    / main.js                # Script for main.html
+    / preference.js          # Script for preference.html
+    / review.js              # Script for review.html
 ├── styles                   # Folder for styles
-    /blah.css                # 
-
+    / style.css              # Folder for CSS style
 
 
 ```
