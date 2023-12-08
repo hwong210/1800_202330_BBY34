@@ -36,7 +36,6 @@ h1 {
     width: auto;
     height: auto;
     position: relative;
-    display: inline-block;
     margin-top: 8px;
 }
 
@@ -843,10 +842,10 @@ footer {
 .material-symbols-outlined {
     color: #0096c8;
     font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+        'FILL'0,
+        'wght'400,
+        'GRAD'0,
+        'opsz'24
 }
 
 /** preferences **/
@@ -1012,33 +1011,33 @@ footer {
 }
 
 #logo {
-font-family: 'Roboto', sans-serif;
-font-weight: 800;
-/* font-style: italic; */
-display: flex;
-/* Use flexbox for centering */
-align-items: center;
-/* Center vertically */
-justify-content: center;
-/* Center horizontally */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    /* font-style: italic; */
+    display: flex;
+    /* Use flexbox for centering */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
 }
 
 #img {
-width: 30px;
-margin-left: 0.5rem;
+    width: 30px;
+    margin-left: 0.5rem;
 }
 
 h2 {
-margin: 0;
+    margin: 0;
 }
 
 .back-button {
-float: right;
-margin-right: 10px;
-line-height: 40px;
+    float: right;
+    margin-right: 10px;
+    line-height: 40px;
 }
 
 .back-button img {
-width: 20px;
-height: 20px;
+    width: 20px;
+    height: 20px;
 }
