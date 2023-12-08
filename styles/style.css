@@ -1131,3 +1131,13 @@ body #new-div,
     left:0;
     margin:30px;
 }
+
+.test-div {
+    height: 20vh;
+
+}
+
+.image-spacing {
+    height: 25vh;
+
+}
