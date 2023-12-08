@@ -98,7 +98,7 @@ function submitWashroom() {
                         imageURL: downloadURL,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
-                        submitWashroom(place, washroomRef);
+                        submitWashroom(place, washroomRef, lat, lng);
                         window.location.href = "thanks.html"; 
                     }).catch((error) => {
                         console.error("Error updating washroom details: ", error);
