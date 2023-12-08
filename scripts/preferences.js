@@ -125,9 +125,8 @@ function displayCardsDynamicallyAfterFiltering(collection) {
         }
 
 
-        // Testing preferences tags.
+        // Filter by preferences tags.
         if (preferences.clean) {
-            //alert("clean is true");
             query = query.where("clean", "==", true);
         }
 
@@ -147,9 +146,6 @@ function displayCardsDynamicallyAfterFiltering(collection) {
             query = query.where("accessible", "==", true);
         }
 
-        // Execute the query
-        // db.collection(collection)
-        // .where("clean", "==", true)
         query.get()
             .then(querySnapshot => {
                 querySnapshot.forEach(doc => {
@@ -161,13 +157,11 @@ function displayCardsDynamicallyAfterFiltering(collection) {
                     var image = doc.data().imageURL;
                     var docID = doc.id;
 
-                    // testing
                     var clean = doc.data().clean;
                     var ventilated = doc.data().ventilated;
                     var spacious = doc.data().spacious;
                     var private = doc.data().private;
                     var accessible = doc.data().accessible;
-                    // alert("clean value is " + clean);
 
                     let newcard = cardTemplate.content.cloneNode(true);
 
