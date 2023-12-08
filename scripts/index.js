@@ -60,8 +60,8 @@ async function initMap() {
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(locationButton);
 
-    locationButton.style.fontSize = "16px"; // Adjust the font size
-    locationButton.style.padding = "10px 20px"; // Adjust the padding
+    locationButton.style.fontSize = "16px";
+    locationButton.style.padding = "10px 20px"; 
     locationButton.style.backgroundColor = "lightBlue";
     locationButton.style.borderColor = "lightBlue";
 
@@ -75,7 +75,7 @@ async function initMap() {
                     };
 
                     infoWindow.setPosition(pos);
-                    infoWindow.setContent("Here ya arrrrr.");
+                    infoWindow.setContent("You are here");
                     infoWindow.open(map);
                     map.setCenter(pos);
                 },
