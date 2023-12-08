@@ -38,28 +38,35 @@
     <body>
         <div id="header-container"></div>
         <div id="contents">
-            <br>
-            <span id="saved">
-                <h2>Saved</h2>
-            </span>
-        </div>
-        <hr>
-        <div id="favorites">
-            <!-- can save washrooms. bookmark-->
-            <div class="square-container">
-                <span class="material-icons saved-icons">bookmarks</span>
+            <div class="container">
+                <h1>Saved Washrooms for&nbsp;
+                    <span id="name-goes-here"></span>
+                </h1>
+                <!-- Here is container for cards  -->
+                <div class="container">
+                    <div id="washroomCardGroup" class="row row-cols-auto"></div>
+                </div>
             </div>
-            <div>
-                <a class="saved" href="favorites.html">My favorites</a>
-            </div>
-        </div>
-        <hr>
-
-        <div id="footer-container"></div>
-
-        <!-- SCRIPTS BELOW -->
-        <script src="./scripts/saved.js"></script>
-        <script src="./scripts/footer.js"></script>
-        <script src="./scripts/header.js"></script>
-    </body>
-</html>
+            <!-- Templates for general use, not displayed -->
+            <template id="savedCardTemplate">
+                <div class="card py-2 mx-2 bg-light" style="width: 100vw;">
+                    <img class="card-image card-img-top" src=" ..." alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-address">placeholder</p>
+                        <br>
+                        <a class="btn btn-secondary card-href" id="read-more">Read more ...</a>
+                    </div>
+                </div>
+            </template>
+            <!-- copyright footer -->
+            <div id="footer-container"></div>
+            <!-- Your own JavaScript functions go here    -->
+            <!-- Link to scripts of your own -->
+            <!-- <script src="./scripts/script.js"></script> -->
+            <script src="./scripts/preferences.js"></script>
+            <script src="./scripts/footer.js"></script>
+            <script src="./scripts/header.js"></script>
+            <script src="./scripts/saved.js"></script>
+        </body>
+    </html>

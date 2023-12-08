@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// This function is displayWashroomInfo() loads.
+// This function is what displayWashroomInfo() loads.
 // Counts and calculates the reviews and its tags.
 //-----------------------------------------------------------------------------
 function countReviews(washroomID) {
