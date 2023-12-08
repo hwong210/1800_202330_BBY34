@@ -20,9 +20,12 @@ insertNameFromFirestore();
 
 
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("washroomCardTemplate"); // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
-
-    db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   //the collection called "washrooms"
+    // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
+    let cardTemplate = document.getElementById("washroomCardTemplate"); 
+    // The collection called "washrooms" is being accessed here for cards.
+    // "orderBy" orders the cards based on each washroom documents "ratingAverage" field in descending order.
+    // The cards are limited to 6 by using .limit, instead of them showing all at once. 
+    db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   
         .then(allWashrooms => {
 
 
@@ -35,7 +38,7 @@ function displayCardsDynamically(collection) {
                 var bikePump = doc.data().bikePump;
                 var image = doc.data().imageURL;
 
-                // below is change from louise, remove if broken. it works
+                
                 // gets the document id
                 var docID = doc.id;
 
