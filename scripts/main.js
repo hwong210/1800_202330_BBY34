@@ -21,14 +21,12 @@ insertNameFromFirestore();
 
 function displayCardsDynamically(collection) {
     // Retrieve the HTML element with the ID "washroomCardTemplate" and store it in the cardTemplate variable. 
-    let cardTemplate = document.getElementById("washroomCardTemplate"); 
+    let cardTemplate = document.getElementById("washroomCardTemplate");
     // The collection called "washrooms" is being accessed here for cards.
     // "orderBy" orders the cards based on each washroom documents "ratingAverage" field in descending order.
     // The cards are limited to 6 by using .limit, instead of them showing all at once. 
-    db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()   
+    db.collection(collection).orderBy("ratingAverage", "desc").limit(6).get()
         .then(allWashrooms => {
-
-
             allWashrooms.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key  
                 var code = doc.data().code;
@@ -38,8 +36,6 @@ function displayCardsDynamically(collection) {
                 var bikePump = doc.data().bikePump;
                 var image = doc.data().imageURL;
 
-                
-                // gets the document id
                 var docID = doc.id;
 
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
@@ -58,7 +54,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('a').href = "eachWashroom.html?docID=" + docID;
 
                 // Bookmarks, attach an onclick, callback function
-                newcard.querySelector('i').id = 'save-' + docID; // Guaranteed to be unique
+                newcard.querySelector('i').id = 'save-' + docID;
                 newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
                 // not working. it makes only one card showing. hyebin
@@ -79,15 +75,18 @@ function displayCardsDynamically(collection) {
             })
         })
 }
-displayCardsDynamically("washrooms");  //input param is the name of the collection
+displayCardsDynamically("washrooms");
 
-// Navigates to specific washroom according to the docID.
+//-----------------------------------------------------------------------------
+// This function is called whenever the user clicks on the "more" button for
+// each washroom card.
+// It redirects the user to the specific washroom acording to the docID.
+//-----------------------------------------------------------------------------
 function navigateToEachWashroom(docID) {
     // Added the docID at the end of the URL to maintain uniqueness.
     let url = `http://127.0.0.1:5500/eachWashroom.html?docID=${docID}`;
     window.location.href = url;
 }
-
 
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "bookmark" icon.
