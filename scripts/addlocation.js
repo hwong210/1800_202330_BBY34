@@ -64,7 +64,6 @@ function submitWashroom() {
             .then((downloadURL) => {
                 console.log("ImageURL: ", downloadURL);
 
-                // Continue with the rest of the logic...
                 let name = document.getElementById("washroomName").value;
                 let address = document.getElementById("address").value;
                 let storageBin = document.getElementById('storageBin').checked;
@@ -81,7 +80,6 @@ function submitWashroom() {
 
                 var user = firebase.auth().currentUser;
                 if (user) {
-                    // var currentUser = db.collection("users").doc(user.uid); var currentUser is not used
                     var userID = user.uid;
 
                     washroomRef.update({
@@ -101,7 +99,7 @@ function submitWashroom() {
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     }).then(() => {
                         submitWashroom(place, washroomRef);
-                        window.location.href = "thanks.html"; // Redirect to the thanks page
+                        window.location.href = "thanks.html"; 
                     }).catch((error) => {
                         console.error("Error updating washroom details: ", error);
                     });
@@ -115,18 +113,3 @@ function submitWashroom() {
             });
     }
 }
-
-// uploadTask.on("state_changed", (snapshot)=>{
-//     console.log(snapshot);
-//     percentVal = Math.floor((snapshot.bytesTransferred/snapshot.totalBytes)*100);
-//     console.log(percentVal);
-//     uploadPercentage.innerHTML = percentVal+"%";
-//     progress.style.width=percentVal+"%";
-// },(error)=>{
-//     console.log("Error is ", error);
-// },()=>{
-//     uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
-//         console.log("URL", url);
-//     })
-// })
-

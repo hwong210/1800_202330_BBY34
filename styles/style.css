@@ -617,7 +617,6 @@ footer {
 /* Optionally, you can set a max-width to prevent stretching on larger screens */
 .card-image {
     max-width: 500px;
-    /* Adjust the max-width as needed */
     width: 100%;
     height: auto;
     padding-top: 20px;
@@ -900,7 +899,8 @@ footer {
 }
 
 .test-div {
-    height: 4vh;
+    height: 5vh;
+    display: block;
 }
 
 .alignment-text {
@@ -965,7 +965,7 @@ footer {
 }
 
 .image-spacing {
-    height: 7vh;
+    height: 15vh;
 }
 
 #ratingAverage {
