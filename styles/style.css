@@ -1013,3 +1013,35 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+#logo {
+font-family: 'Roboto', sans-serif;
+font-weight: 800;
+/* font-style: italic; */
+display: flex;
+/* Use flexbox for centering */
+align-items: center;
+/* Center vertically */
+justify-content: center;
+/* Center horizontally */
+}
+
+#img {
+width: 30px;
+margin-left: 0.5rem;
+}
+
+h2 {
+margin: 0;
+}
+
+.back-button {
+float: right;
+margin-right: 10px;
+line-height: 40px;
+}
+
+.back-button img {
+width: 20px;
+height: 20px;
+}
