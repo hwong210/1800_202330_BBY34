@@ -52,7 +52,7 @@ function writeReview() {
             accessible: accessibleValue,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
-            window.location.href = "review-submission-successful-copy.html";
+            window.location.href = "review-submission-successful.html";
         })
             .catch((error) => {
                 console.log("Error submitting the review.", error);

@@ -27,7 +27,6 @@ function insertNameFromFirestore(user) {
         console.log(userName)
         document.getElementById("name-goes-here").innerHTML = userName;
     })
-
 }
 
 //----------------------------------------------------------
@@ -63,12 +62,6 @@ function getBookmarks(user) {
                     newcard.querySelector('.card-address').innerHTML = washroomAddress;
                     newcard.querySelector('a').href = "eachWashroom.html?docID=" + docID;
                     newcard.querySelector('.card-image').src = image;
-
-                    // //NEW LINE: update to display length, duration, last updated
-                    // newcard.querySelector('.card-length').innerHTML =
-                    //     "Length: " + doc.data().length + " km <br>" +
-                    //     "Duration: " + doc.data().hike_time + "min <br>" +
-                    //     "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
 
                     //Finally, attach this new card to the gallery
                     washroomCardGroup.appendChild(newcard);

@@ -51,7 +51,6 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── img                      # Folder for images
-        /AddLocation.png        # Banner image for add location page.
         /back.png               # Image of the back button.
         /logo.jpg               # Image of the logo.
         /logo-bgremoved.png     # Image of the logo with a removed background.
@@ -73,8 +72,25 @@ It has the following subfolders and files:
         /style.css              # style for all pages
         /styleforindex.css      # style for index page
         /bootstrap.css          # style for bootstrap
-
-
+├── 404.html
+├── account-after-login.html
+├── addlocation.html
+├── eachWashroom.html
+├── favorites.html
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+├── footer.html
+├── git
+├── header.html
+├── login.html
+├── main.html
+├── preferences.html
+├── review-information.html
+├── review-submission-successful.html
+├── review.html
+├── saved.html
+├── thanks.html
 ```
 
 
